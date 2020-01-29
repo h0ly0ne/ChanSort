@@ -1,4 +1,5 @@
 *.sdf
 source/ChanSort.opensdf
 /source/.vs/
+/source/packages/
 *.dll

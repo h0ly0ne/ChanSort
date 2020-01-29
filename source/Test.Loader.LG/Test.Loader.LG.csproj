@@ -107,6 +107,10 @@
       <Project>{E972D8A1-2F5F-421C-AC91-CFF45E5191BE}</Project>
       <Name>ChanSort.Loader.LG</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Test.Loader\Test.Loader.csproj">
+      <Project>{68cfcb2f-b52a-43a1-aa5c-5d64a1d655d2}</Project>
+      <Name>Test.Loader</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Content Include="GlobalClone.xml" />

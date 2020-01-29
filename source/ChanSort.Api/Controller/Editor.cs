@@ -10,7 +10,6 @@ namespace ChanSort.Api
     public DataRoot DataRoot;
     public ChannelList ChannelList;
     public int SubListIndex;
-    private UnsortedChannelMode unsortedChannelMode;
 
     #region AddChannels()
 
@@ -204,7 +203,7 @@ namespace ChanSort.Api
       foreach (var refList in refDataRoot.ChannelLists)
       {
         var tvList = this.DataRoot.GetChannelList(refList.SignalSource);
-        if (tvList == null)
+        if (tvList == null || tvList.SignalSource != refList.SignalSource)
         {
           log.AppendFormat("Skipped reference list {0}\r\n", refList.ShortCaption);
           continue;
@@ -294,10 +293,14 @@ namespace ChanSort.Api
             chan.NewProgramNr = -1;
 
           tvChannel.SetPosition(0, newNr);
-          tvChannel.Skip = refChannel.Skip;
-          tvChannel.Lock = refChannel.Lock;
-          tvChannel.Hidden = refChannel.Hidden;
-          tvChannel.IsDeleted = refChannel.IsDeleted;
+          if (refDataRoot.CanSkip && this.DataRoot.CanSkip)
+            tvChannel.Skip = refChannel.Skip;
+          if (refDataRoot.CanLock && this.DataRoot.CanLock)
+            tvChannel.Lock = refChannel.Lock;
+          if (refDataRoot.CanHide && this.DataRoot.CanHide)
+            tvChannel.Hidden = refChannel.Hidden;
+          
+          //tvChannel.IsDeleted = refChannel.IsDeleted;
           if ((tvChannel.SignalSource & SignalSource.Analog) != 0 && !string.IsNullOrEmpty(refChannel.Name))
           {
             tvChannel.Name = refChannel.Name;
@@ -344,82 +347,6 @@ namespace ChanSort.Api
 
     #endregion
 
-    #region AutoNumberingForUnassignedChannels()
-
-    public void AutoNumberingForUnassignedChannels(UnsortedChannelMode mode)
-    {
-      this.unsortedChannelMode = mode;
-      foreach (var list in DataRoot.ChannelLists)
-      {
-        if (list.IsMixedSourceFavoritesList)
-          continue;
-        var sortedChannels = list.Channels.OrderBy(ChanSortCriteria).ToList();
-        int maxProgNr = 0;
-
-        foreach (var appChannel in sortedChannels)
-        {
-          if (appChannel.RecordIndex < 0)
-            continue;
-
-          if (appChannel.NewProgramNr == -1)
-          {
-            if (mode == UnsortedChannelMode.MarkDeleted)
-              appChannel.IsDeleted = true;
-            else
-            {
-              appChannel.Hidden = true;
-              appChannel.Skip = true;
-            }
-          }
-
-          int progNr = this.GetNewProgramNr(appChannel, ref maxProgNr);
-          if (mode != UnsortedChannelMode.MarkDeleted)
-            appChannel.NewProgramNr = progNr;
-        }
-      }
-    }
-
-    #region ChanSortCriteria()
-
-    private string ChanSortCriteria(ChannelInfo channel)
-    {
-      // explicitly sorted
-      if (channel.GetPosition(this.SubListIndex) != -1)
-        return channel.GetPosition(this.SubListIndex).ToString("d5");
-
-      // eventually hide unsorted channels
-      if (this.unsortedChannelMode == UnsortedChannelMode.MarkDeleted)
-        return "Z";
-
-      // eventually append in old order
-      if (this.unsortedChannelMode == UnsortedChannelMode.AppendInOrder)
-        return "B" + channel.OldProgramNr.ToString("d5");
-
-      // sort alphabetically, with "." and "" on the bottom
-      if (channel.Name == ".")
-        return "B";
-      if (channel.Name == "")
-        return "C";
-      return "A" + channel.Name;
-    }
-
-    #endregion
-
-    #region GetNewProgramNr()
-
-    private int GetNewProgramNr(ChannelInfo appChannel, ref int maxPrNr)
-    {
-      int prNr = appChannel.NewProgramNr;
-      if (prNr > maxPrNr)
-        maxPrNr = prNr;
-      if (prNr == -1)
-        prNr = ++maxPrNr;
-      return prNr;
-    }
-
-    #endregion
-
-    #endregion
 
     #region SetFavorites()
     public void SetFavorites(List<ChannelInfo> list, Favorites favorites, bool set)
