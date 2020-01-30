@@ -13,7 +13,6 @@ namespace ChanSort.Loader.Panasonic
     #region ctor()
     internal DbChannel(SQLiteDataReader r, IDictionary<string, int> field, DataRoot dataRoot, Encoding encoding)
     {
-      this.Bits = 0;
       this.RecordIndex = r.GetInt32(field["rowid"]);
       this.RecordOrder = r.GetInt32(field["major_channel"]);
       this.OldProgramNr = r.GetInt32(field["major_channel"]);

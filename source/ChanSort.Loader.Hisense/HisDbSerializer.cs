@@ -420,7 +420,7 @@ namespace ChanSort.Loader.Hisense
       if (tableNames.Contains("fav_1"))
       {
         cmd.CommandText = "pragma table_info('fav_1')";
-        using var r = cmd.ExecuteReader();
+        var r = cmd.ExecuteReader();
         while (r.Read())
         {
           if (r.GetString(1) == "sortId")
@@ -437,7 +437,7 @@ namespace ChanSort.Loader.Hisense
           ? $"select svlId, svlRecId, sortId from fav_{i}"
           : $"select ui2_svc_id, ui2_svc_rec_id, cast(user_defined_ch_num as integer) from fav_{i}";
 
-        using var r = cmd.ExecuteReader();
+        var r = cmd.ExecuteReader();
         while (r.Read())
         {
           var id = ((long) r.GetInt32(0) << 32) | (uint) r.GetInt32(1);
@@ -484,10 +484,10 @@ namespace ChanSort.Loader.Hisense
       if (tvOutputFile != this.FileName)
         File.Copy(this.FileName, tvOutputFile, true);
 
-      using var conn = new SQLiteConnection("Data Source=" + tvOutputFile);
+      var conn = new SQLiteConnection("Data Source=" + tvOutputFile);
       conn.Open();
-      using var trans = conn.BeginTransaction();
-      using var cmd = conn.CreateCommand();
+      var trans = conn.BeginTransaction();
+      var cmd = conn.CreateCommand();
       cmd.Transaction = trans;
       try
       {

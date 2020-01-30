@@ -216,7 +216,7 @@ namespace ChanSort.Loader.M3u
     #region Save()
     public override void Save(string tvOutputFile)
     {
-      using var file = new StreamWriter(new FileStream(tvOutputFile, FileMode.Create), this.overrideEncoding ?? this.DefaultEncoding);
+      var file = new StreamWriter(new FileStream(tvOutputFile, FileMode.Create), this.overrideEncoding ?? this.DefaultEncoding);
       file.NewLine = this.newLine;
 
       foreach(var line in this.headerLines)
