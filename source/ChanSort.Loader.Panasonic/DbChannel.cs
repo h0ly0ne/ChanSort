@@ -93,16 +93,16 @@ namespace ChanSort.Loader.Panasonic
     protected void ReadDvbData(SQLiteDataReader r, IDictionary<string, int> field, DataRoot dataRoot, byte[] delivery)
     {
         int stype = r.GetInt32(field["stype"]);
-        this.SignalSource |= LookupData.Instance.IsRadioTvOrData(stype);
-        this.ServiceType = stype;
+        SignalSource |= LookupData.Instance.IsRadioTvOrData(stype);
+        ServiceType = stype;
 
         int freq = r.GetInt32(field["freq"]);
 
-        if ((this.SignalSource & SignalSource.Sat) != 0)
+        if ((SignalSource & SignalSource.Sat) != 0)
         {
-            this.FreqInMhz = freq / 1000;
             int satId = r.GetInt32(field["physical_ch"]) >> 12;
             var sat = dataRoot.Satellites.TryGet(satId);
+            FreqInMhz = Convert.ToDecimal(freq / 1000 / 10);
 
             if (sat != null)
             {
@@ -116,12 +116,20 @@ namespace ChanSort.Loader.Panasonic
         }
         else
         {
-            this.FreqInMhz = (freq /= 1000);
-            this.ChannelOrTransponder = (this.SignalSource & SignalSource.Antenna) != 0 ? LookupData.Instance.GetDvbtTransponder(freq).ToString() : LookupData.Instance.GetDvbcTransponder(freq).ToString();
-            if ((this.SignalSource & SignalSource.IP) != 0)
-                this.Satellite = "SAT>IP";
-            else
-                this.Satellite = (this.SignalSource & SignalSource.Antenna) != 0 ? "DVB-T" : "DVB-C";
+            FreqInMhz = Convert.ToDecimal(freq / 1000);
+
+            ChannelOrTransponder = (SignalSource & SignalSource.Antenna) != 0 ? LookupData.Instance.GetDvbtTransponder(FreqInMhz).ToString() : LookupData.Instance.GetDvbcChannelName(FreqInMhz);
+
+            //OsOl: Not sure if required or useful!
+            //if ((this.SignalSource & SignalSource.IP) != 0)
+            //    this.Satellite = "SAT>IP";
+            //else
+            this.Satellite = (this.SignalSource & SignalSource.Antenna) != 0 ? "DVB-T" : "DVB-C";
+
+            if (delivery.Length >= 7)
+            {
+                this.SymbolRate = (delivery[5] >> 4) * 10000 + (delivery[5] & 0x0F) * 1000 + (delivery[6] >> 4) * 100 + (delivery[6] & 0x0F) * 10;
+            }
         }
 
         this.PhysicalChannel = r.GetInt32(field["physical_ch"]);
