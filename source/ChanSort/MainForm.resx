@@ -123,10 +123,10 @@
   </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="splitContainerControl1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 110</value>
+    <value>0, 57</value>
   </data>
   <metadata name="dsChannels.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>361, 17</value>
+    <value>893, 173</value>
   </metadata>
   <data name="gridLeft.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Fill</value>
@@ -270,7 +270,7 @@
     <value>Numeric</value>
   </data>
   <data name="gridLeft.Size" type="System.Drawing.Size, System.Drawing">
-    <value>499, 368</value>
+    <value>499, 421</value>
   </data>
   <data name="gridLeft.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
@@ -291,7 +291,7 @@
     <value>Bottom</value>
   </data>
   <data name="lblHotkeyLeft.Location" type="System.Drawing.Point, System.Drawing">
-    <value>2, 422</value>
+    <value>2, 475</value>
   </data>
   <data name="lblHotkeyLeft.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>2, 2, 2, 2</value>
@@ -320,96 +320,1056 @@
   <data name="btnToggleFavH.AccessibleDescription" xml:space="preserve">
     <value>Toggle Favorite H</value>
   </data>
-  <metadata name="globalImageCollection1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>600, 17</value>
-  </metadata>
-  <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
-    <value>6, 13</value>
+  <data name="btnToggleFavH.Location" type="System.Drawing.Point, System.Drawing">
+    <value>307, 5</value>
   </data>
-  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>1402, 551</value>
+  <data name="btnToggleFavH.Size" type="System.Drawing.Size, System.Drawing">
+    <value>23, 23</value>
   </data>
-  <data name="tabSubList.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Bottom, Left, Right</value>
+  <data name="btnToggleFavH.TabIndex" type="System.Int32, mscorlib">
+    <value>18</value>
   </data>
-  <data name="tabSubList.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 5</value>
+  <data name="btnToggleFavH.Text" xml:space="preserve">
+    <value>±H</value>
   </data>
-  <data name="pageProgNr.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1391, 0</value>
+  <data name="&gt;&gt;btnToggleFavH.Name" xml:space="preserve">
+    <value>btnToggleFavH</value>
   </data>
-  <data name="pageProgNr.Text" xml:space="preserve">
-    <value>Pr#</value>
+  <data name="&gt;&gt;btnToggleFavH.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.SimpleButton, DevExpress.XtraEditors.v19.2, Version=19.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
-  <data name="&gt;&gt;pageProgNr.Name" xml:space="preserve">
-    <value>pageProgNr</value>
+  <data name="&gt;&gt;btnToggleFavH.Parent" xml:space="preserve">
+    <value>pnlEditControls</value>
   </data>
-  <data name="&gt;&gt;pageProgNr.Type" xml:space="preserve">
-    <value>DevExpress.XtraTab.XtraTabPage, DevExpress.XtraEditors.v19.2, Version=19.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
-  </data>
-  <data name="&gt;&gt;pageProgNr.Parent" xml:space="preserve">
-    <value>tabSubList</value>
-  </data>
-  <data name="&gt;&gt;pageProgNr.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;btnToggleFavH.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
-  <data name="tabSubList.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1397, 22</value>
+  <data name="btnToggleFavG.AccessibleDescription" xml:space="preserve">
+    <value>Toggle Favorite G</value>
   </data>
-  <data name="tabSubList.TabIndex" type="System.Int32, mscorlib">
-    <value>6</value>
+  <data name="btnToggleFavG.Location" type="System.Drawing.Point, System.Drawing">
+    <value>282, 5</value>
   </data>
-  <data name="&gt;&gt;tabSubList.Name" xml:space="preserve">
-    <value>tabSubList</value>
+  <data name="btnToggleFavG.Size" type="System.Drawing.Size, System.Drawing">
+    <value>23, 23</value>
   </data>
-  <data name="&gt;&gt;tabSubList.Type" xml:space="preserve">
-    <value>DevExpress.XtraTab.XtraTabControl, DevExpress.XtraEditors.v19.2, Version=19.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  <data name="btnToggleFavG.TabIndex" type="System.Int32, mscorlib">
+    <value>17</value>
   </data>
-  <data name="&gt;&gt;tabSubList.Parent" xml:space="preserve">
-    <value>grpSubList</value>
+  <data name="btnToggleFavG.Text" xml:space="preserve">
+    <value>±G</value>
   </data>
-  <data name="&gt;&gt;tabSubList.ZOrder" xml:space="preserve">
-    <value>0</value>
+  <data name="&gt;&gt;btnToggleFavG.Name" xml:space="preserve">
+    <value>btnToggleFavG</value>
   </data>
-  <data name="grpSubList.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Top</value>
+  <data name="&gt;&gt;btnToggleFavG.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.SimpleButton, DevExpress.XtraEditors.v19.2, Version=19.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
-  <data name="grpSubList.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 83</value>
+  <data name="&gt;&gt;btnToggleFavG.Parent" xml:space="preserve">
+    <value>pnlEditControls</value>
   </data>
-  <data name="grpSubList.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1402, 27</value>
-  </data>
-  <data name="grpSubList.TabIndex" type="System.Int32, mscorlib">
-    <value>10</value>
-  </data>
-  <data name="grpSubList.Text" xml:space="preserve">
-    <value>Sub List</value>
-  </data>
-  <data name="grpSubList.Visible" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
-  <data name="&gt;&gt;grpSubList.Name" xml:space="preserve">
-    <value>grpSubList</value>
-  </data>
-  <data name="&gt;&gt;grpSubList.Type" xml:space="preserve">
-    <value>DevExpress.XtraEditors.GroupControl, DevExpress.Utils.v19.2, Version=19.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
-  </data>
-  <data name="&gt;&gt;grpSubList.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;grpSubList.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;btnToggleFavG.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
-  <data name="rbInsertSwap.Location" type="System.Drawing.Point, System.Drawing">
-    <value>256, 6</value>
+  <data name="btnToggleFavF.AccessibleDescription" xml:space="preserve">
+    <value>Toggle Favorite F</value>
   </data>
-  <metadata name="barManager1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>475, 17</value>
-  </metadata>
+  <data name="btnToggleFavF.Location" type="System.Drawing.Point, System.Drawing">
+    <value>257, 5</value>
+  </data>
+  <data name="btnToggleFavF.Size" type="System.Drawing.Size, System.Drawing">
+    <value>23, 23</value>
+  </data>
+  <data name="btnToggleFavF.TabIndex" type="System.Int32, mscorlib">
+    <value>16</value>
+  </data>
+  <data name="btnToggleFavF.Text" xml:space="preserve">
+    <value>±F</value>
+  </data>
+  <data name="&gt;&gt;btnToggleFavF.Name" xml:space="preserve">
+    <value>btnToggleFavF</value>
+  </data>
+  <data name="&gt;&gt;btnToggleFavF.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.SimpleButton, DevExpress.XtraEditors.v19.2, Version=19.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;btnToggleFavF.Parent" xml:space="preserve">
+    <value>pnlEditControls</value>
+  </data>
+  <data name="&gt;&gt;btnToggleFavF.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="btnToggleLock.ImageOptions.ImageIndex" type="System.Int32, mscorlib">
+    <value>15</value>
+  </data>
+  <data name="btnToggleLock.Location" type="System.Drawing.Point, System.Drawing">
+    <value>334, 5</value>
+  </data>
+  <data name="btnToggleLock.Size" type="System.Drawing.Size, System.Drawing">
+    <value>23, 23</value>
+  </data>
+  <data name="btnToggleLock.TabIndex" type="System.Int32, mscorlib">
+    <value>15</value>
+  </data>
+  <data name="btnToggleLock.Text" xml:space="preserve">
+    <value>Toggle parental lock</value>
+  </data>
+  <data name="btnToggleLock.ToolTip" xml:space="preserve">
+    <value>Parental lock</value>
+  </data>
+  <data name="&gt;&gt;btnToggleLock.Name" xml:space="preserve">
+    <value>btnToggleLock</value>
+  </data>
+  <data name="&gt;&gt;btnToggleLock.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.SimpleButton, DevExpress.XtraEditors.v19.2, Version=19.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;btnToggleLock.Parent" xml:space="preserve">
+    <value>pnlEditControls</value>
+  </data>
+  <data name="&gt;&gt;btnToggleLock.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="btnToggleFavE.AccessibleDescription" xml:space="preserve">
+    <value>Toggle Favorite E</value>
+  </data>
+  <data name="btnToggleFavE.Location" type="System.Drawing.Point, System.Drawing">
+    <value>232, 5</value>
+  </data>
+  <data name="btnToggleFavE.Size" type="System.Drawing.Size, System.Drawing">
+    <value>23, 23</value>
+  </data>
+  <data name="btnToggleFavE.TabIndex" type="System.Int32, mscorlib">
+    <value>14</value>
+  </data>
+  <data name="btnToggleFavE.Text" xml:space="preserve">
+    <value>±E</value>
+  </data>
+  <data name="&gt;&gt;btnToggleFavE.Name" xml:space="preserve">
+    <value>btnToggleFavE</value>
+  </data>
+  <data name="&gt;&gt;btnToggleFavE.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.SimpleButton, DevExpress.XtraEditors.v19.2, Version=19.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;btnToggleFavE.Parent" xml:space="preserve">
+    <value>pnlEditControls</value>
+  </data>
+  <data name="&gt;&gt;btnToggleFavE.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="btnToggleFavD.AccessibleDescription" xml:space="preserve">
+    <value>Toggle Favorite D</value>
+  </data>
+  <data name="btnToggleFavD.Location" type="System.Drawing.Point, System.Drawing">
+    <value>207, 5</value>
+  </data>
+  <data name="btnToggleFavD.Size" type="System.Drawing.Size, System.Drawing">
+    <value>23, 23</value>
+  </data>
+  <data name="btnToggleFavD.TabIndex" type="System.Int32, mscorlib">
+    <value>13</value>
+  </data>
+  <data name="btnToggleFavD.Text" xml:space="preserve">
+    <value>±D</value>
+  </data>
+  <data name="&gt;&gt;btnToggleFavD.Name" xml:space="preserve">
+    <value>btnToggleFavD</value>
+  </data>
+  <data name="&gt;&gt;btnToggleFavD.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.SimpleButton, DevExpress.XtraEditors.v19.2, Version=19.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;btnToggleFavD.Parent" xml:space="preserve">
+    <value>pnlEditControls</value>
+  </data>
+  <data name="&gt;&gt;btnToggleFavD.ZOrder" xml:space="preserve">
+    <value>5</value>
+  </data>
+  <data name="btnToggleFavC.AccessibleDescription" xml:space="preserve">
+    <value>Toggle Favorite C</value>
+  </data>
+  <data name="btnToggleFavC.Location" type="System.Drawing.Point, System.Drawing">
+    <value>182, 5</value>
+  </data>
+  <data name="btnToggleFavC.Size" type="System.Drawing.Size, System.Drawing">
+    <value>23, 23</value>
+  </data>
+  <data name="btnToggleFavC.TabIndex" type="System.Int32, mscorlib">
+    <value>12</value>
+  </data>
+  <data name="btnToggleFavC.Text" xml:space="preserve">
+    <value>±C</value>
+  </data>
+  <data name="&gt;&gt;btnToggleFavC.Name" xml:space="preserve">
+    <value>btnToggleFavC</value>
+  </data>
+  <data name="&gt;&gt;btnToggleFavC.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.SimpleButton, DevExpress.XtraEditors.v19.2, Version=19.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;btnToggleFavC.Parent" xml:space="preserve">
+    <value>pnlEditControls</value>
+  </data>
+  <data name="&gt;&gt;btnToggleFavC.ZOrder" xml:space="preserve">
+    <value>6</value>
+  </data>
+  <data name="btnToggleFavB.AccessibleDescription" xml:space="preserve">
+    <value>Toggle Favorite B</value>
+  </data>
+  <data name="btnToggleFavB.Location" type="System.Drawing.Point, System.Drawing">
+    <value>157, 5</value>
+  </data>
+  <data name="btnToggleFavB.Size" type="System.Drawing.Size, System.Drawing">
+    <value>23, 23</value>
+  </data>
+  <data name="btnToggleFavB.TabIndex" type="System.Int32, mscorlib">
+    <value>11</value>
+  </data>
+  <data name="btnToggleFavB.Text" xml:space="preserve">
+    <value>±B</value>
+  </data>
+  <data name="&gt;&gt;btnToggleFavB.Name" xml:space="preserve">
+    <value>btnToggleFavB</value>
+  </data>
+  <data name="&gt;&gt;btnToggleFavB.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.SimpleButton, DevExpress.XtraEditors.v19.2, Version=19.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;btnToggleFavB.Parent" xml:space="preserve">
+    <value>pnlEditControls</value>
+  </data>
+  <data name="&gt;&gt;btnToggleFavB.ZOrder" xml:space="preserve">
+    <value>7</value>
+  </data>
+  <data name="btnToggleFavA.AccessibleDescription" xml:space="preserve">
+    <value>Toggle Favorite A</value>
+  </data>
+  <data name="btnToggleFavA.Location" type="System.Drawing.Point, System.Drawing">
+    <value>132, 5</value>
+  </data>
+  <data name="btnToggleFavA.Size" type="System.Drawing.Size, System.Drawing">
+    <value>23, 23</value>
+  </data>
+  <data name="btnToggleFavA.TabIndex" type="System.Int32, mscorlib">
+    <value>10</value>
+  </data>
+  <data name="btnToggleFavA.Text" xml:space="preserve">
+    <value>±A</value>
+  </data>
+  <data name="&gt;&gt;btnToggleFavA.Name" xml:space="preserve">
+    <value>btnToggleFavA</value>
+  </data>
+  <data name="&gt;&gt;btnToggleFavA.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.SimpleButton, DevExpress.XtraEditors.v19.2, Version=19.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;btnToggleFavA.Parent" xml:space="preserve">
+    <value>pnlEditControls</value>
+  </data>
+  <data name="&gt;&gt;btnToggleFavA.ZOrder" xml:space="preserve">
+    <value>8</value>
+  </data>
+  <data name="btnClearLeftFilter.AccessibleDescription" xml:space="preserve">
+    <value>Remove channel filter criteria from sorted channel list</value>
+  </data>
+  <data name="btnClearLeftFilter.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Tahoma, 8.25pt, style=Strikeout</value>
+  </data>
+  <data name="btnClearLeftFilter.ImageOptions.ImageIndex" type="System.Int32, mscorlib">
+    <value>28</value>
+  </data>
+  <data name="btnClearLeftFilter.Location" type="System.Drawing.Point, System.Drawing">
+    <value>372, 4</value>
+  </data>
+  <data name="btnClearLeftFilter.Size" type="System.Drawing.Size, System.Drawing">
+    <value>66, 23</value>
+  </data>
+  <data name="btnClearLeftFilter.TabIndex" type="System.Int32, mscorlib">
+    <value>9</value>
+  </data>
+  <data name="btnClearLeftFilter.Text" xml:space="preserve">
+    <value>Filter</value>
+  </data>
+  <data name="btnClearLeftFilter.ToolTip" xml:space="preserve">
+    <value>Reset filter</value>
+  </data>
+  <data name="&gt;&gt;btnClearLeftFilter.Name" xml:space="preserve">
+    <value>btnClearLeftFilter</value>
+  </data>
+  <data name="&gt;&gt;btnClearLeftFilter.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.SimpleButton, DevExpress.XtraEditors.v19.2, Version=19.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;btnClearLeftFilter.Parent" xml:space="preserve">
+    <value>pnlEditControls</value>
+  </data>
+  <data name="&gt;&gt;btnClearLeftFilter.ZOrder" xml:space="preserve">
+    <value>9</value>
+  </data>
+  <data name="btnRenum.ImageOptions.ImageIndex" type="System.Int32, mscorlib">
+    <value>22</value>
+  </data>
+  <data name="btnRenum.Location" type="System.Drawing.Point, System.Drawing">
+    <value>98, 5</value>
+  </data>
+  <data name="btnRenum.Size" type="System.Drawing.Size, System.Drawing">
+    <value>23, 23</value>
+  </data>
+  <data name="btnRenum.TabIndex" type="System.Int32, mscorlib">
+    <value>8</value>
+  </data>
+  <data name="btnRenum.Text" xml:space="preserve">
+    <value>Renumber selected channels sequentially</value>
+  </data>
+  <data name="btnRenum.ToolTip" xml:space="preserve">
+    <value>Renumber selected channels</value>
+  </data>
+  <data name="&gt;&gt;btnRenum.Name" xml:space="preserve">
+    <value>btnRenum</value>
+  </data>
+  <data name="&gt;&gt;btnRenum.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.SimpleButton, DevExpress.XtraEditors.v19.2, Version=19.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;btnRenum.Parent" xml:space="preserve">
+    <value>pnlEditControls</value>
+  </data>
+  <data name="&gt;&gt;btnRenum.ZOrder" xml:space="preserve">
+    <value>10</value>
+  </data>
+  <data name="btnDown.ImageOptions.ImageIndex" type="System.Int32, mscorlib">
+    <value>25</value>
+  </data>
+  <data name="btnDown.Location" type="System.Drawing.Point, System.Drawing">
+    <value>34, 5</value>
+  </data>
+  <data name="btnDown.Size" type="System.Drawing.Size, System.Drawing">
+    <value>23, 23</value>
+  </data>
+  <data name="btnDown.TabIndex" type="System.Int32, mscorlib">
+    <value>6</value>
+  </data>
+  <data name="btnDown.Text" xml:space="preserve">
+    <value>Move selected channel down</value>
+  </data>
+  <data name="btnDown.ToolTip" xml:space="preserve">
+    <value>Move selected channels down</value>
+  </data>
+  <data name="&gt;&gt;btnDown.Name" xml:space="preserve">
+    <value>btnDown</value>
+  </data>
+  <data name="&gt;&gt;btnDown.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.SimpleButton, DevExpress.XtraEditors.v19.2, Version=19.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;btnDown.Parent" xml:space="preserve">
+    <value>pnlEditControls</value>
+  </data>
+  <data name="&gt;&gt;btnDown.ZOrder" xml:space="preserve">
+    <value>11</value>
+  </data>
+  <data name="btnUp.ImageOptions.ImageIndex" type="System.Int32, mscorlib">
+    <value>24</value>
+  </data>
+  <data name="btnUp.Location" type="System.Drawing.Point, System.Drawing">
+    <value>5, 5</value>
+  </data>
+  <data name="btnUp.Size" type="System.Drawing.Size, System.Drawing">
+    <value>23, 23</value>
+  </data>
+  <data name="btnUp.TabIndex" type="System.Int32, mscorlib">
+    <value>5</value>
+  </data>
+  <data name="btnUp.Text" xml:space="preserve">
+    <value>Move selected channel up</value>
+  </data>
+  <data name="btnUp.ToolTip" xml:space="preserve">
+    <value>Move selected channels up</value>
+  </data>
+  <data name="&gt;&gt;btnUp.Name" xml:space="preserve">
+    <value>btnUp</value>
+  </data>
+  <data name="&gt;&gt;btnUp.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.SimpleButton, DevExpress.XtraEditors.v19.2, Version=19.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;btnUp.Parent" xml:space="preserve">
+    <value>pnlEditControls</value>
+  </data>
+  <data name="&gt;&gt;btnUp.ZOrder" xml:space="preserve">
+    <value>12</value>
+  </data>
+  <data name="btnRemoveLeft.ImageOptions.ImageIndex" type="System.Int32, mscorlib">
+    <value>11</value>
+  </data>
+  <data name="btnRemoveLeft.Location" type="System.Drawing.Point, System.Drawing">
+    <value>63, 5</value>
+  </data>
+  <data name="btnRemoveLeft.Size" type="System.Drawing.Size, System.Drawing">
+    <value>23, 23</value>
+  </data>
+  <data name="btnRemoveLeft.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="btnRemoveLeft.Text" xml:space="preserve">
+    <value>Remove selected channels from sorted list</value>
+  </data>
+  <data name="btnRemoveLeft.ToolTip" xml:space="preserve">
+    <value>Remove selected channels</value>
+  </data>
+  <data name="&gt;&gt;btnRemoveLeft.Name" xml:space="preserve">
+    <value>btnRemoveLeft</value>
+  </data>
+  <data name="&gt;&gt;btnRemoveLeft.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.SimpleButton, DevExpress.XtraEditors.v19.2, Version=19.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;btnRemoveLeft.Parent" xml:space="preserve">
+    <value>pnlEditControls</value>
+  </data>
+  <data name="&gt;&gt;btnRemoveLeft.ZOrder" xml:space="preserve">
+    <value>13</value>
+  </data>
+  <data name="pnlEditControls.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Top</value>
+  </data>
+  <data name="pnlEditControls.Location" type="System.Drawing.Point, System.Drawing">
+    <value>2, 21</value>
+  </data>
+  <data name="pnlEditControls.Size" type="System.Drawing.Size, System.Drawing">
+    <value>499, 33</value>
+  </data>
+  <data name="pnlEditControls.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="grpOutputList.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="grpOutputList.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="grpOutputList.Size" type="System.Drawing.Size, System.Drawing">
+    <value>503, 494</value>
+  </data>
+  <data name="grpOutputList.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="grpOutputList.Text" xml:space="preserve">
+    <value>Sorted channels</value>
+  </data>
+  <data name="splitContainerControl1.Panel1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="splitContainerControl1.Panel1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>503, 494</value>
+  </data>
+  <data name="splitContainerControl1.Panel1.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="splitContainerControl1.Panel1.Text" xml:space="preserve">
+    <value>Panel1</value>
+  </data>
+  <data name="gridRight.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="gridRight.Location" type="System.Drawing.Point, System.Drawing">
+    <value>2, 54</value>
+  </data>
+  <data name="gviewRight.Appearance.FocusedRow.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Tahoma, 8.25pt, style=Bold</value>
+  </data>
+  <data name="gviewRight.Appearance.HideSelectionRow.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Tahoma, 8.25pt, style=Bold</value>
+  </data>
+  <data name="colIndex.Caption" xml:space="preserve">
+    <value>Pr. index</value>
+  </data>
+  <data name="colSlotOld.Caption" xml:space="preserve">
+    <value>Old Pos</value>
+  </data>
+  <data name="colSlotOld.ToolTip" xml:space="preserve">
+    <value>Old position</value>
+  </data>
+  <data name="colSlotOld.Visible" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="colSlotOld.VisibleIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="colSlotOld.Width" type="System.Int32, mscorlib">
+    <value>50</value>
+  </data>
+  <data name="colSlotNew.Caption" xml:space="preserve">
+    <value>New Pos</value>
+  </data>
+  <data name="colSlotNew.ToolTip" xml:space="preserve">
+    <value>New position</value>
+  </data>
+  <data name="colSlotNew.Visible" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="colSlotNew.VisibleIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="colSlotNew.Width" type="System.Int32, mscorlib">
+    <value>45</value>
+  </data>
+  <data name="colSource.Caption" xml:space="preserve">
+    <value>Source</value>
+  </data>
+  <data name="colSource.Width" type="System.Int32, mscorlib">
+    <value>50</value>
+  </data>
+  <data name="colPrNr.Caption" xml:space="preserve">
+    <value>Pr#</value>
+  </data>
+  <data name="colPrNr.Width" type="System.Int32, mscorlib">
+    <value>30</value>
+  </data>
+  <data name="colName.Caption" xml:space="preserve">
+    <value>Channel name</value>
+  </data>
+  <data name="colName.Visible" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="colName.VisibleIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="colName.Width" type="System.Int32, mscorlib">
+    <value>180</value>
+  </data>
+  <data name="colShortName.Caption" xml:space="preserve">
+    <value>Short name</value>
+  </data>
+  <data name="colShortName.Visible" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="colShortName.VisibleIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="colFavorites.Caption" xml:space="preserve">
+    <value>Favorites</value>
+  </data>
+  <data name="repositoryItemCheckedComboBoxEdit2.AutoHeight" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="repositoryItemCheckedComboBoxEdit2.Buttons" type="DevExpress.XtraEditors.Controls.ButtonPredefines, DevExpress.Utils.v19.2">
+    <value>Combo</value>
+  </data>
+  <data name="repositoryItemCheckedComboBoxEdit2.Mask.EditMask" type="System.Resources.ResXNullRef, System.Windows.Forms">
+    <value />
+  </data>
+  <data name="repositoryItemCheckedComboBoxEdit2.Mask.MaskType" type="DevExpress.XtraEditors.Mask.MaskType, DevExpress.XtraEditors.v19.2">
+    <value>RegEx</value>
+  </data>
+  <data name="colFavorites.Visible" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="colFavorites.VisibleIndex" type="System.Int32, mscorlib">
+    <value>4</value>
+  </data>
+  <data name="colFavorites.Width" type="System.Int32, mscorlib">
+    <value>55</value>
+  </data>
+  <data name="colLock.Caption" xml:space="preserve">
+    <value>Locked</value>
+  </data>
+  <data name="colLock.Visible" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="colLock.VisibleIndex" type="System.Int32, mscorlib">
+    <value>5</value>
+  </data>
+  <data name="colLock.Width" type="System.Int32, mscorlib">
+    <value>40</value>
+  </data>
+  <data name="colSkip.Caption" xml:space="preserve">
+    <value>Skip</value>
+  </data>
+  <data name="colSkip.Visible" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="colSkip.VisibleIndex" type="System.Int32, mscorlib">
+    <value>6</value>
+  </data>
+  <data name="colSkip.Width" type="System.Int32, mscorlib">
+    <value>40</value>
+  </data>
+  <data name="colHidden.Caption" xml:space="preserve">
+    <value>Hide</value>
+  </data>
+  <data name="colHidden.Visible" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="colHidden.VisibleIndex" type="System.Int32, mscorlib">
+    <value>7</value>
+  </data>
+  <data name="colHidden.Width" type="System.Int32, mscorlib">
+    <value>40</value>
+  </data>
+  <data name="colDeleted.Caption" xml:space="preserve">
+    <value>Deleted</value>
+  </data>
+  <data name="colDeleted.Width" type="System.Int32, mscorlib">
+    <value>48</value>
+  </data>
+  <data name="colEncrypted.Caption" xml:space="preserve">
+    <value>Crypt</value>
+  </data>
+  <data name="colEncrypted.ToolTip" xml:space="preserve">
+    <value>Encrypted</value>
+  </data>
+  <data name="colEncrypted.Visible" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="colEncrypted.VisibleIndex" type="System.Int32, mscorlib">
+    <value>8</value>
+  </data>
+  <data name="colEncrypted.Width" type="System.Int32, mscorlib">
+    <value>40</value>
+  </data>
+  <data name="colServiceType.Caption" xml:space="preserve">
+    <value>Service Type ID</value>
+  </data>
+  <data name="colServiceType.Width" type="System.Int32, mscorlib">
+    <value>45</value>
+  </data>
+  <data name="colServiceTypeName.Caption" xml:space="preserve">
+    <value>Service Type</value>
+  </data>
+  <data name="colServiceTypeName.Visible" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="colServiceTypeName.VisibleIndex" type="System.Int32, mscorlib">
+    <value>9</value>
+  </data>
+  <data name="colServiceTypeName.Width" type="System.Int32, mscorlib">
+    <value>45</value>
+  </data>
+  <data name="colFreqInMhz.Caption" xml:space="preserve">
+    <value>Freqency (MHz)</value>
+  </data>
+  <data name="colFreqInMhz.Visible" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="colFreqInMhz.VisibleIndex" type="System.Int32, mscorlib">
+    <value>10</value>
+  </data>
+  <data name="colFreqInMhz.Width" type="System.Int32, mscorlib">
+    <value>57</value>
+  </data>
+  <data name="colPolarity.Caption" xml:space="preserve">
+    <value>Polarity</value>
+  </data>
+  <data name="colPolarity.Visible" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="colPolarity.VisibleIndex" type="System.Int32, mscorlib">
+    <value>11</value>
+  </data>
+  <data name="colPolarity.Width" type="System.Int32, mscorlib">
+    <value>25</value>
+  </data>
+  <data name="colChannelOrTransponder.Caption" xml:space="preserve">
+    <value>Chan/ Transp</value>
+  </data>
+  <data name="colChannelOrTransponder.ToolTip" xml:space="preserve">
+    <value>Channel or transponder number</value>
+  </data>
+  <data name="colChannelOrTransponder.Visible" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="colChannelOrTransponder.VisibleIndex" type="System.Int32, mscorlib">
+    <value>12</value>
+  </data>
+  <data name="colChannelOrTransponder.Width" type="System.Int32, mscorlib">
+    <value>45</value>
+  </data>
+  <data name="colSatellite.Caption" xml:space="preserve">
+    <value>Satellite</value>
+  </data>
+  <data name="colSatellite.Visible" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="colSatellite.VisibleIndex" type="System.Int32, mscorlib">
+    <value>13</value>
+  </data>
+  <data name="colSatellite.Width" type="System.Int32, mscorlib">
+    <value>100</value>
+  </data>
+  <data name="colNetworkId.Caption" xml:space="preserve">
+    <value>Network (ONID)</value>
+  </data>
+  <data name="colNetworkId.Visible" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="colNetworkId.VisibleIndex" type="System.Int32, mscorlib">
+    <value>14</value>
+  </data>
+  <data name="colNetworkId.Width" type="System.Int32, mscorlib">
+    <value>45</value>
+  </data>
+  <data name="colTransportStreamId.Caption" xml:space="preserve">
+    <value>TS ID</value>
+  </data>
+  <data name="colTransportStreamId.ToolTip" xml:space="preserve">
+    <value>Transport Stream ID</value>
+  </data>
+  <data name="colTransportStreamId.Visible" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="colTransportStreamId.VisibleIndex" type="System.Int32, mscorlib">
+    <value>15</value>
+  </data>
+  <data name="colTransportStreamId.Width" type="System.Int32, mscorlib">
+    <value>40</value>
+  </data>
+  <data name="colServiceId.Caption" xml:space="preserve">
+    <value>Service ID</value>
+  </data>
+  <data name="colServiceId.Visible" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="colServiceId.VisibleIndex" type="System.Int32, mscorlib">
+    <value>16</value>
+  </data>
+  <data name="colServiceId.Width" type="System.Int32, mscorlib">
+    <value>45</value>
+  </data>
+  <data name="colPcrPid.Caption" xml:space="preserve">
+    <value>PCR PID</value>
+  </data>
+  <data name="colPcrPid.ToolTip" xml:space="preserve">
+    <value>Program Clock Reference Packet-ID</value>
+  </data>
+  <data name="colPcrPid.Visible" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="colPcrPid.VisibleIndex" type="System.Int32, mscorlib">
+    <value>17</value>
+  </data>
+  <data name="colPcrPid.Width" type="System.Int32, mscorlib">
+    <value>40</value>
+  </data>
+  <data name="colVideoPid.Caption" xml:space="preserve">
+    <value>Video PID</value>
+  </data>
+  <data name="colVideoPid.Visible" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="colVideoPid.VisibleIndex" type="System.Int32, mscorlib">
+    <value>18</value>
+  </data>
+  <data name="colVideoPid.Width" type="System.Int32, mscorlib">
+    <value>40</value>
+  </data>
+  <data name="colAudioPid.Caption" xml:space="preserve">
+    <value>Audio PID</value>
+  </data>
+  <data name="colAudioPid.Visible" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="colAudioPid.VisibleIndex" type="System.Int32, mscorlib">
+    <value>19</value>
+  </data>
+  <data name="colAudioPid.Width" type="System.Int32, mscorlib">
+    <value>40</value>
+  </data>
+  <data name="colSymbolRate.Caption" xml:space="preserve">
+    <value>Symbol rate</value>
+  </data>
+  <data name="colSymbolRate.Visible" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="colSymbolRate.VisibleIndex" type="System.Int32, mscorlib">
+    <value>20</value>
+  </data>
+  <data name="colSymbolRate.Width" type="System.Int32, mscorlib">
+    <value>40</value>
+  </data>
+  <data name="colNetworkName.Caption" xml:space="preserve">
+    <value>Network Name</value>
+  </data>
+  <data name="colNetworkName.Visible" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="colNetworkName.VisibleIndex" type="System.Int32, mscorlib">
+    <value>21</value>
+  </data>
+  <data name="colNetworkOperator.Caption" xml:space="preserve">
+    <value>Network Operator</value>
+  </data>
+  <data name="colNetworkOperator.Visible" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="colNetworkOperator.VisibleIndex" type="System.Int32, mscorlib">
+    <value>22</value>
+  </data>
+  <data name="colProvider.Caption" xml:space="preserve">
+    <value>Provider</value>
+  </data>
+  <data name="colProvider.Visible" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="colProvider.VisibleIndex" type="System.Int32, mscorlib">
+    <value>23</value>
+  </data>
+  <data name="colUid.Caption" xml:space="preserve">
+    <value>Uid</value>
+  </data>
+  <data name="colUid.Width" type="System.Int32, mscorlib">
+    <value>120</value>
+  </data>
+  <data name="colLogicalIndex.Caption" xml:space="preserve">
+    <value>Order</value>
+  </data>
+  <data name="colSignalSource.Caption" xml:space="preserve">
+    <value>Signal source</value>
+  </data>
+  <data name="gridRight.Size" type="System.Drawing.Size, System.Drawing">
+    <value>889, 421</value>
+  </data>
+  <data name="gridRight.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;gridRight.Name" xml:space="preserve">
+    <value>gridRight</value>
+  </data>
+  <data name="&gt;&gt;gridRight.Type" xml:space="preserve">
+    <value>DevExpress.XtraGrid.GridControl, DevExpress.XtraGrid.v19.2, Version=19.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;gridRight.Parent" xml:space="preserve">
+    <value>grpInputList</value>
+  </data>
+  <data name="&gt;&gt;gridRight.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="lblHotkeyRight.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Bottom</value>
+  </data>
+  <data name="lblHotkeyRight.Location" type="System.Drawing.Point, System.Drawing">
+    <value>2, 475</value>
+  </data>
+  <data name="lblHotkeyRight.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>2, 2, 2, 2</value>
+  </data>
+  <data name="lblHotkeyRight.Size" type="System.Drawing.Size, System.Drawing">
+    <value>153, 17</value>
+  </data>
+  <data name="lblHotkeyRight.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="lblHotkeyRight.Text" xml:space="preserve">
+    <value>F5: Filter | F6: List | Enter: add</value>
+  </data>
+  <data name="&gt;&gt;lblHotkeyRight.Name" xml:space="preserve">
+    <value>lblHotkeyRight</value>
+  </data>
+  <data name="&gt;&gt;lblHotkeyRight.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.LabelControl, DevExpress.XtraEditors.v19.2, Version=19.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;lblHotkeyRight.Parent" xml:space="preserve">
+    <value>grpInputList</value>
+  </data>
+  <data name="&gt;&gt;lblHotkeyRight.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="lblPredefinedList.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Tahoma, 12pt, style=Bold</value>
+  </data>
+  <data name="lblPredefinedList.Location" type="System.Drawing.Point, System.Drawing">
+    <value>291, 7</value>
+  </data>
+  <data name="lblPredefinedList.Size" type="System.Drawing.Size, System.Drawing">
+    <value>372, 19</value>
+  </data>
+  <data name="lblPredefinedList.TabIndex" type="System.Int32, mscorlib">
+    <value>8</value>
+  </data>
+  <data name="lblPredefinedList.Text" xml:space="preserve">
+    <value>This is a predefined list and cannot be edited.</value>
+  </data>
+  <data name="lblPredefinedList.ToolTip" xml:space="preserve">
+    <value>During the setup of your TV you selected a predefined channel list. Modifying such a list would cause your TV to malfunction. Please run a full channel scan on your TV and do not select any specific provider, satellite or country lists.</value>
+  </data>
+  <data name="lblPredefinedList.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="&gt;&gt;lblPredefinedList.Name" xml:space="preserve">
+    <value>lblPredefinedList</value>
+  </data>
+  <data name="&gt;&gt;lblPredefinedList.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.LabelControl, DevExpress.XtraEditors.v19.2, Version=19.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;lblPredefinedList.Parent" xml:space="preserve">
+    <value>panelControl3</value>
+  </data>
+  <data name="&gt;&gt;lblPredefinedList.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="btnRemoveRight.ImageOptions.ImageIndex" type="System.Int32, mscorlib">
+    <value>11</value>
+  </data>
+  <data name="btnRemoveRight.Location" type="System.Drawing.Point, System.Drawing">
+    <value>34, 5</value>
+  </data>
+  <data name="btnRemoveRight.Size" type="System.Drawing.Size, System.Drawing">
+    <value>23, 23</value>
+  </data>
+  <data name="btnRemoveRight.TabIndex" type="System.Int32, mscorlib">
+    <value>6</value>
+  </data>
+  <data name="btnRemoveRight.Text" xml:space="preserve">
+    <value>Remove selected channels from sorted list</value>
+  </data>
+  <data name="btnRemoveRight.ToolTip" xml:space="preserve">
+    <value>Remove selected channels from sorted list</value>
+  </data>
+  <data name="&gt;&gt;btnRemoveRight.Name" xml:space="preserve">
+    <value>btnRemoveRight</value>
+  </data>
+  <data name="&gt;&gt;btnRemoveRight.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.SimpleButton, DevExpress.XtraEditors.v19.2, Version=19.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;btnRemoveRight.Parent" xml:space="preserve">
+    <value>panelControl3</value>
+  </data>
+  <data name="&gt;&gt;btnRemoveRight.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="btnAddAll.AccessibleDescription" xml:space="preserve">
+    <value>Append all currently unsorted channels at the end of the list</value>
+  </data>
+  <data name="btnAddAll.Location" type="System.Drawing.Point, System.Drawing">
+    <value>71, 5</value>
+  </data>
+  <data name="btnAddAll.Size" type="System.Drawing.Size, System.Drawing">
+    <value>121, 23</value>
+  </data>
+  <data name="btnAddAll.TabIndex" type="System.Int32, mscorlib">
+    <value>5</value>
+  </data>
+  <data name="btnAddAll.Text" xml:space="preserve">
+    <value>&lt;&lt; Add all</value>
+  </data>
+  <data name="btnAddAll.ToolTip" xml:space="preserve">
+    <value>Append all currently unsorted channels at the end of the list</value>
+  </data>
+  <data name="&gt;&gt;btnAddAll.Name" xml:space="preserve">
+    <value>btnAddAll</value>
+  </data>
+  <data name="&gt;&gt;btnAddAll.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.SimpleButton, DevExpress.XtraEditors.v19.2, Version=19.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;btnAddAll.Parent" xml:space="preserve">
+    <value>panelControl3</value>
+  </data>
+  <data name="&gt;&gt;btnAddAll.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="btnClearRightFilter.AccessibleDescription" xml:space="preserve">
+    <value>Remove channel filter criteria from complete channel list</value>
+  </data>
+  <data name="btnClearRightFilter.Appearance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Tahoma, 8.25pt, style=Strikeout</value>
+  </data>
+  <data name="btnClearRightFilter.ImageOptions.ImageIndex" type="System.Int32, mscorlib">
+    <value>28</value>
+  </data>
+  <data name="btnClearRightFilter.Location" type="System.Drawing.Point, System.Drawing">
+    <value>198, 5</value>
+  </data>
+  <data name="btnClearRightFilter.Size" type="System.Drawing.Size, System.Drawing">
+    <value>66, 23</value>
+  </data>
+  <data name="btnClearRightFilter.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="btnClearRightFilter.Text" xml:space="preserve">
+    <value>Filter</value>
+  </data>
+  <data name="btnClearRightFilter.ToolTip" xml:space="preserve">
+    <value>Reset filter</value>
+  </data>
+  <data name="&gt;&gt;btnClearRightFilter.Name" xml:space="preserve">
+    <value>btnClearRightFilter</value>
+  </data>
+  <data name="&gt;&gt;btnClearRightFilter.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.SimpleButton, DevExpress.XtraEditors.v19.2, Version=19.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;btnClearRightFilter.Parent" xml:space="preserve">
+    <value>panelControl3</value>
+  </data>
+  <data name="&gt;&gt;btnClearRightFilter.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="btnAdd.ImageOptions.ImageIndex" type="System.Int32, mscorlib">
+    <value>39</value>
+  </data>
+  <data name="btnAdd.Location" type="System.Drawing.Point, System.Drawing">
+    <value>5, 5</value>
+  </data>
+  <data name="btnAdd.Size" type="System.Drawing.Size, System.Drawing">
+    <value>23, 23</value>
+  </data>
+  <data name="btnAdd.TabIndex" type="System.Int32, mscorlib">
+    <value>4</value>
+  </data>
+  <data name="btnAdd.Text" xml:space="preserve">
+    <value>Add selected channels to sorted list</value>
+  </data>
+  <data name="btnAdd.ToolTip" xml:space="preserve">
+    <value>Add selected channels to sorted list</value>
+  </data>
+  <data name="&gt;&gt;btnAdd.Name" xml:space="preserve">
+    <value>btnAdd</value>
+  </data>
+  <data name="&gt;&gt;btnAdd.Type" xml:space="preserve">
+    <value>DevExpress.XtraEditors.SimpleButton, DevExpress.XtraEditors.v19.2, Version=19.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;btnAdd.Parent" xml:space="preserve">
+    <value>panelControl3</value>
+  </data>
+  <data name="&gt;&gt;btnAdd.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="panelControl3.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Top</value>
+  </data>
+  <data name="panelControl3.Location" type="System.Drawing.Point, System.Drawing">
+    <value>2, 21</value>
+  </data>
+  <data name="panelControl3.Size" type="System.Drawing.Size, System.Drawing">
+    <value>889, 33</value>
+  </data>
+  <data name="panelControl3.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="grpInputList.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="grpInputList.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="grpInputList.Size" type="System.Drawing.Size, System.Drawing">
+    <value>893, 494</value>
+  </data>
+  <data name="grpInputList.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="grpInputList.Text" xml:space="preserve">
+    <value>Original channels</value>
+  </data>
+  <data name="splitContainerControl1.Panel2.Location" type="System.Drawing.Point, System.Drawing">
+    <value>509, 0</value>
+  </data>
+  <data name="splitContainerControl1.Panel2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>893, 494</value>
+  </data>
+  <data name="splitContainerControl1.Panel2.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="splitContainerControl1.Panel2.Text" xml:space="preserve">
+    <value>Panel2</value>
+  </data>
+  <data name="splitContainerControl1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1402, 494</value>
+  </data>
+  <data name="splitContainerControl1.TabIndex" type="System.Int32, mscorlib">
+    <value>5</value>
+  </data>
+  <data name="splitContainerControl1.Text" xml:space="preserve">
+    <value>splitContainerControl1</value>
+  </data>
   <data name="miFile.Caption" xml:space="preserve">
     <value>&amp;File</value>
   </data>
@@ -795,7 +1755,7 @@
     <value>0, 0</value>
   </data>
   <data name="barDockControlTop.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1402, 26</value>
+    <value>1402, 0</value>
   </data>
   <data name="&gt;&gt;barDockControlTop.Name" xml:space="preserve">
     <value>barDockControlTop</value>
@@ -834,10 +1794,10 @@
     <value>Left</value>
   </data>
   <data name="barDockControlLeft.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 26</value>
+    <value>0, 0</value>
   </data>
   <data name="barDockControlLeft.Size" type="System.Drawing.Size, System.Drawing">
-    <value>0, 525</value>
+    <value>0, 551</value>
   </data>
   <data name="&gt;&gt;barDockControlLeft.Name" xml:space="preserve">
     <value>barDockControlLeft</value>
@@ -855,10 +1815,10 @@
     <value>Right</value>
   </data>
   <data name="barDockControlRight.Location" type="System.Drawing.Point, System.Drawing">
-    <value>1402, 26</value>
+    <value>1402, 0</value>
   </data>
   <data name="barDockControlRight.Size" type="System.Drawing.Size, System.Drawing">
-    <value>0, 525</value>
+    <value>0, 551</value>
   </data>
   <data name="&gt;&gt;barDockControlRight.Name" xml:space="preserve">
     <value>barDockControlRight</value>
@@ -872,17 +1832,68 @@
   <data name="&gt;&gt;barDockControlRight.ZOrder" xml:space="preserve">
     <value>4</value>
   </data>
-  <data name="miMoveUp.Caption" xml:space="preserve">
-    <value>Move up</value>
+  <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
+    <value>6, 13</value>
   </data>
-  <data name="miMoveUp.ImageOptions.ImageIndex" type="System.Int32, mscorlib">
-    <value>24</value>
+  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
+    <value>1402, 551</value>
   </data>
-  <data name="miMoveDown.Caption" xml:space="preserve">
-    <value>Move down</value>
+  <data name="tabSubList.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Bottom, Left, Right</value>
   </data>
-  <data name="miMoveDown.ImageOptions.ImageIndex" type="System.Int32, mscorlib">
-    <value>25</value>
+  <data name="tabSubList.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 5</value>
+  </data>
+  <data name="pageProgNr.Enabled" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="pageProgNr.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1391, 0</value>
+  </data>
+  <data name="pageProgNr.Text" xml:space="preserve">
+    <value>Pr#</value>
+  </data>
+  <data name="tabSubList.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1397, 22</value>
+  </data>
+  <data name="tabSubList.TabIndex" type="System.Int32, mscorlib">
+    <value>6</value>
+  </data>
+  <data name="&gt;&gt;tabSubList.Name" xml:space="preserve">
+    <value>tabSubList</value>
+  </data>
+  <data name="&gt;&gt;tabSubList.Type" xml:space="preserve">
+    <value>DevExpress.XtraTab.XtraTabControl, DevExpress.XtraEditors.v19.2, Version=19.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;tabSubList.Parent" xml:space="preserve">
+    <value>grpSubList</value>
+  </data>
+  <data name="&gt;&gt;tabSubList.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="grpSubList.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Top</value>
+  </data>
+  <data name="grpSubList.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 83</value>
+  </data>
+  <data name="grpSubList.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1402, 27</value>
+  </data>
+  <data name="grpSubList.TabIndex" type="System.Int32, mscorlib">
+    <value>10</value>
+  </data>
+  <data name="grpSubList.Text" xml:space="preserve">
+    <value>Sub List</value>
+  </data>
+  <data name="grpSubList.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="rbInsertSwap.Location" type="System.Drawing.Point, System.Drawing">
+    <value>256, -14</value>
   </data>
   <data name="rbInsertSwap.Properties.Caption" xml:space="preserve">
     <value>swap</value>
@@ -913,7 +1924,7 @@
     <value>True</value>
   </data>
   <data name="rbInsertAfter.Location" type="System.Drawing.Point, System.Drawing">
-    <value>185, 6</value>
+    <value>185, -14</value>
   </data>
   <data name="rbInsertAfter.Properties.Caption" xml:space="preserve">
     <value>after</value>
@@ -937,7 +1948,7 @@
     <value>1</value>
   </data>
   <data name="rbInsertBefore.Location" type="System.Drawing.Point, System.Drawing">
-    <value>107, 6</value>
+    <value>107, -14</value>
   </data>
   <data name="rbInsertBefore.Properties.Caption" xml:space="preserve">
     <value>before</value>
@@ -991,7 +2002,7 @@
     <value>3</value>
   </data>
   <data name="lblInsertMode.Location" type="System.Drawing.Point, System.Drawing">
-    <value>7, 8</value>
+    <value>7, -12</value>
   </data>
   <data name="lblInsertMode.Size" type="System.Drawing.Size, System.Drawing">
     <value>62, 13</value>
@@ -1018,7 +2029,7 @@
     <value>Top, Right</value>
   </data>
   <data name="picDonate.Location" type="System.Drawing.Point, System.Drawing">
-    <value>1224, 4</value>
+    <value>1224, -16</value>
   </data>
   <data name="picDonate.Size" type="System.Drawing.Size, System.Drawing">
     <value>166, 54</value>
@@ -1044,23 +2055,14 @@
   <data name="tabChannelList.Location" type="System.Drawing.Point, System.Drawing">
     <value>0, 33</value>
   </data>
+  <data name="pageEmpty.Enabled" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
   <data name="pageEmpty.Size" type="System.Drawing.Size, System.Drawing">
     <value>1212, 0</value>
   </data>
   <data name="pageEmpty.Text" xml:space="preserve">
     <value>No channel lists</value>
-  </data>
-  <data name="&gt;&gt;pageEmpty.Name" xml:space="preserve">
-    <value>pageEmpty</value>
-  </data>
-  <data name="&gt;&gt;pageEmpty.Type" xml:space="preserve">
-    <value>DevExpress.XtraTab.XtraTabPage, DevExpress.XtraEditors.v19.2, Version=19.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
-  </data>
-  <data name="&gt;&gt;pageEmpty.Parent" xml:space="preserve">
-    <value>tabChannelList</value>
-  </data>
-  <data name="&gt;&gt;pageEmpty.ZOrder" xml:space="preserve">
-    <value>0</value>
   </data>
   <data name="tabChannelList.Size" type="System.Drawing.Size, System.Drawing">
     <value>1218, 22</value>
@@ -1144,25 +2146,13 @@
     <value>Top</value>
   </data>
   <data name="grpTopPanel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 26</value>
+    <value>0, 0</value>
   </data>
   <data name="grpTopPanel.Size" type="System.Drawing.Size, System.Drawing">
     <value>1402, 57</value>
   </data>
   <data name="grpTopPanel.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
-  </data>
-  <data name="&gt;&gt;grpTopPanel.Name" xml:space="preserve">
-    <value>grpTopPanel</value>
-  </data>
-  <data name="&gt;&gt;grpTopPanel.Type" xml:space="preserve">
-    <value>DevExpress.XtraEditors.GroupControl, DevExpress.Utils.v19.2, Version=19.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
-  </data>
-  <data name="&gt;&gt;grpTopPanel.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;grpTopPanel.ZOrder" xml:space="preserve">
-    <value>2</value>
   </data>
   <data name="$this.StartPosition" type="System.Windows.Forms.FormStartPosition, System.Windows.Forms">
     <value>CenterScreen</value>
@@ -1264,7 +2254,7 @@
     <value>globalImageCollection1</value>
   </data>
   <data name="&gt;&gt;globalImageCollection1.Type" xml:space="preserve">
-    <value>ChanSort.Ui.GlobalImageCollection, ChanSort, Version=1.0.7305.33710, Culture=neutral, PublicKeyToken=null</value>
+    <value>ChanSort.Ui.GlobalImageCollection, ChanSort, Version=1.0.7338.19610, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;gviewRight.Name" xml:space="preserve">
     <value>gviewRight</value>
@@ -1468,6 +2458,12 @@
     <value>colSignalSource</value>
   </data>
   <data name="&gt;&gt;colSignalSource.Type" xml:space="preserve">
+    <value>DevExpress.XtraGrid.Columns.GridColumn, DevExpress.XtraGrid.v19.2, Version=19.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="&gt;&gt;colDeliveryType.Name" xml:space="preserve">
+    <value>colDeliveryType</value>
+  </data>
+  <data name="&gt;&gt;colDeliveryType.Type" xml:space="preserve">
     <value>DevExpress.XtraGrid.Columns.GridColumn, DevExpress.XtraGrid.v19.2, Version=19.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
   <data name="&gt;&gt;colDebug.Name" xml:space="preserve">
@@ -1956,1117 +2952,19 @@
   <data name="&gt;&gt;$this.Type" xml:space="preserve">
     <value>DevExpress.XtraEditors.XtraForm, DevExpress.Utils.v19.2, Version=19.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
-  <data name="SharedImageCollection.Timestamp" type="System.DateTime, mscorlib">
-    <value>01/01/2020 18:44:40</value>
+  <data name="miMoveUp.Caption" xml:space="preserve">
+    <value>Move up</value>
   </data>
-  <data name="SharedImageCollection.ImageSize" type="System.Drawing.Size, System.Drawing">
-    <value>16, 16</value>
-  </data>
-  <data name="btnToggleFavH.Location" type="System.Drawing.Point, System.Drawing">
-    <value>307, 5</value>
-  </data>
-  <data name="btnToggleFavH.Size" type="System.Drawing.Size, System.Drawing">
-    <value>23, 23</value>
-  </data>
-  <data name="btnToggleFavH.TabIndex" type="System.Int32, mscorlib">
-    <value>18</value>
-  </data>
-  <data name="btnToggleFavH.Text" xml:space="preserve">
-    <value>±H</value>
-  </data>
-  <data name="&gt;&gt;btnToggleFavH.Name" xml:space="preserve">
-    <value>btnToggleFavH</value>
-  </data>
-  <data name="&gt;&gt;btnToggleFavH.Type" xml:space="preserve">
-    <value>DevExpress.XtraEditors.SimpleButton, DevExpress.XtraEditors.v19.2, Version=19.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
-  </data>
-  <data name="&gt;&gt;btnToggleFavH.Parent" xml:space="preserve">
-    <value>pnlEditControls</value>
-  </data>
-  <data name="&gt;&gt;btnToggleFavH.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="btnToggleFavG.AccessibleDescription" xml:space="preserve">
-    <value>Toggle Favorite G</value>
-  </data>
-  <data name="btnToggleFavG.Location" type="System.Drawing.Point, System.Drawing">
-    <value>282, 5</value>
-  </data>
-  <data name="btnToggleFavG.Size" type="System.Drawing.Size, System.Drawing">
-    <value>23, 23</value>
-  </data>
-  <data name="btnToggleFavG.TabIndex" type="System.Int32, mscorlib">
-    <value>17</value>
-  </data>
-  <data name="btnToggleFavG.Text" xml:space="preserve">
-    <value>±G</value>
-  </data>
-  <data name="&gt;&gt;btnToggleFavG.Name" xml:space="preserve">
-    <value>btnToggleFavG</value>
-  </data>
-  <data name="&gt;&gt;btnToggleFavG.Type" xml:space="preserve">
-    <value>DevExpress.XtraEditors.SimpleButton, DevExpress.XtraEditors.v19.2, Version=19.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
-  </data>
-  <data name="&gt;&gt;btnToggleFavG.Parent" xml:space="preserve">
-    <value>pnlEditControls</value>
-  </data>
-  <data name="&gt;&gt;btnToggleFavG.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="btnToggleFavF.AccessibleDescription" xml:space="preserve">
-    <value>Toggle Favorite F</value>
-  </data>
-  <data name="btnToggleFavF.Location" type="System.Drawing.Point, System.Drawing">
-    <value>257, 5</value>
-  </data>
-  <data name="btnToggleFavF.Size" type="System.Drawing.Size, System.Drawing">
-    <value>23, 23</value>
-  </data>
-  <data name="btnToggleFavF.TabIndex" type="System.Int32, mscorlib">
-    <value>16</value>
-  </data>
-  <data name="btnToggleFavF.Text" xml:space="preserve">
-    <value>±F</value>
-  </data>
-  <data name="&gt;&gt;btnToggleFavF.Name" xml:space="preserve">
-    <value>btnToggleFavF</value>
-  </data>
-  <data name="&gt;&gt;btnToggleFavF.Type" xml:space="preserve">
-    <value>DevExpress.XtraEditors.SimpleButton, DevExpress.XtraEditors.v19.2, Version=19.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
-  </data>
-  <data name="&gt;&gt;btnToggleFavF.Parent" xml:space="preserve">
-    <value>pnlEditControls</value>
-  </data>
-  <data name="&gt;&gt;btnToggleFavF.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="btnToggleLock.ImageOptions.ImageIndex" type="System.Int32, mscorlib">
-    <value>15</value>
-  </data>
-  <data name="btnToggleLock.Location" type="System.Drawing.Point, System.Drawing">
-    <value>334, 5</value>
-  </data>
-  <data name="btnToggleLock.Size" type="System.Drawing.Size, System.Drawing">
-    <value>23, 23</value>
-  </data>
-  <data name="btnToggleLock.TabIndex" type="System.Int32, mscorlib">
-    <value>15</value>
-  </data>
-  <data name="btnToggleLock.Text" xml:space="preserve">
-    <value>Toggle parental lock</value>
-  </data>
-  <data name="btnToggleLock.ToolTip" xml:space="preserve">
-    <value>Parental lock</value>
-  </data>
-  <data name="&gt;&gt;btnToggleLock.Name" xml:space="preserve">
-    <value>btnToggleLock</value>
-  </data>
-  <data name="&gt;&gt;btnToggleLock.Type" xml:space="preserve">
-    <value>DevExpress.XtraEditors.SimpleButton, DevExpress.XtraEditors.v19.2, Version=19.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
-  </data>
-  <data name="&gt;&gt;btnToggleLock.Parent" xml:space="preserve">
-    <value>pnlEditControls</value>
-  </data>
-  <data name="&gt;&gt;btnToggleLock.ZOrder" xml:space="preserve">
-    <value>3</value>
-  </data>
-  <data name="btnToggleFavE.AccessibleDescription" xml:space="preserve">
-    <value>Toggle Favorite E</value>
-  </data>
-  <data name="btnToggleFavE.Location" type="System.Drawing.Point, System.Drawing">
-    <value>232, 5</value>
-  </data>
-  <data name="btnToggleFavE.Size" type="System.Drawing.Size, System.Drawing">
-    <value>23, 23</value>
-  </data>
-  <data name="btnToggleFavE.TabIndex" type="System.Int32, mscorlib">
-    <value>14</value>
-  </data>
-  <data name="btnToggleFavE.Text" xml:space="preserve">
-    <value>±E</value>
-  </data>
-  <data name="&gt;&gt;btnToggleFavE.Name" xml:space="preserve">
-    <value>btnToggleFavE</value>
-  </data>
-  <data name="&gt;&gt;btnToggleFavE.Type" xml:space="preserve">
-    <value>DevExpress.XtraEditors.SimpleButton, DevExpress.XtraEditors.v19.2, Version=19.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
-  </data>
-  <data name="&gt;&gt;btnToggleFavE.Parent" xml:space="preserve">
-    <value>pnlEditControls</value>
-  </data>
-  <data name="&gt;&gt;btnToggleFavE.ZOrder" xml:space="preserve">
-    <value>4</value>
-  </data>
-  <data name="btnToggleFavD.AccessibleDescription" xml:space="preserve">
-    <value>Toggle Favorite D</value>
-  </data>
-  <data name="btnToggleFavD.Location" type="System.Drawing.Point, System.Drawing">
-    <value>207, 5</value>
-  </data>
-  <data name="btnToggleFavD.Size" type="System.Drawing.Size, System.Drawing">
-    <value>23, 23</value>
-  </data>
-  <data name="btnToggleFavD.TabIndex" type="System.Int32, mscorlib">
-    <value>13</value>
-  </data>
-  <data name="btnToggleFavD.Text" xml:space="preserve">
-    <value>±D</value>
-  </data>
-  <data name="&gt;&gt;btnToggleFavD.Name" xml:space="preserve">
-    <value>btnToggleFavD</value>
-  </data>
-  <data name="&gt;&gt;btnToggleFavD.Type" xml:space="preserve">
-    <value>DevExpress.XtraEditors.SimpleButton, DevExpress.XtraEditors.v19.2, Version=19.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
-  </data>
-  <data name="&gt;&gt;btnToggleFavD.Parent" xml:space="preserve">
-    <value>pnlEditControls</value>
-  </data>
-  <data name="&gt;&gt;btnToggleFavD.ZOrder" xml:space="preserve">
-    <value>5</value>
-  </data>
-  <data name="btnToggleFavC.AccessibleDescription" xml:space="preserve">
-    <value>Toggle Favorite C</value>
-  </data>
-  <data name="btnToggleFavC.Location" type="System.Drawing.Point, System.Drawing">
-    <value>182, 5</value>
-  </data>
-  <data name="btnToggleFavC.Size" type="System.Drawing.Size, System.Drawing">
-    <value>23, 23</value>
-  </data>
-  <data name="btnToggleFavC.TabIndex" type="System.Int32, mscorlib">
-    <value>12</value>
-  </data>
-  <data name="btnToggleFavC.Text" xml:space="preserve">
-    <value>±C</value>
-  </data>
-  <data name="&gt;&gt;btnToggleFavC.Name" xml:space="preserve">
-    <value>btnToggleFavC</value>
-  </data>
-  <data name="&gt;&gt;btnToggleFavC.Type" xml:space="preserve">
-    <value>DevExpress.XtraEditors.SimpleButton, DevExpress.XtraEditors.v19.2, Version=19.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
-  </data>
-  <data name="&gt;&gt;btnToggleFavC.Parent" xml:space="preserve">
-    <value>pnlEditControls</value>
-  </data>
-  <data name="&gt;&gt;btnToggleFavC.ZOrder" xml:space="preserve">
-    <value>6</value>
-  </data>
-  <data name="btnToggleFavB.AccessibleDescription" xml:space="preserve">
-    <value>Toggle Favorite B</value>
-  </data>
-  <data name="btnToggleFavB.Location" type="System.Drawing.Point, System.Drawing">
-    <value>157, 5</value>
-  </data>
-  <data name="btnToggleFavB.Size" type="System.Drawing.Size, System.Drawing">
-    <value>23, 23</value>
-  </data>
-  <data name="btnToggleFavB.TabIndex" type="System.Int32, mscorlib">
-    <value>11</value>
-  </data>
-  <data name="btnToggleFavB.Text" xml:space="preserve">
-    <value>±B</value>
-  </data>
-  <data name="&gt;&gt;btnToggleFavB.Name" xml:space="preserve">
-    <value>btnToggleFavB</value>
-  </data>
-  <data name="&gt;&gt;btnToggleFavB.Type" xml:space="preserve">
-    <value>DevExpress.XtraEditors.SimpleButton, DevExpress.XtraEditors.v19.2, Version=19.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
-  </data>
-  <data name="&gt;&gt;btnToggleFavB.Parent" xml:space="preserve">
-    <value>pnlEditControls</value>
-  </data>
-  <data name="&gt;&gt;btnToggleFavB.ZOrder" xml:space="preserve">
-    <value>7</value>
-  </data>
-  <data name="btnToggleFavA.AccessibleDescription" xml:space="preserve">
-    <value>Toggle Favorite A</value>
-  </data>
-  <data name="btnToggleFavA.Location" type="System.Drawing.Point, System.Drawing">
-    <value>132, 5</value>
-  </data>
-  <data name="btnToggleFavA.Size" type="System.Drawing.Size, System.Drawing">
-    <value>23, 23</value>
-  </data>
-  <data name="btnToggleFavA.TabIndex" type="System.Int32, mscorlib">
-    <value>10</value>
-  </data>
-  <data name="btnToggleFavA.Text" xml:space="preserve">
-    <value>±A</value>
-  </data>
-  <data name="&gt;&gt;btnToggleFavA.Name" xml:space="preserve">
-    <value>btnToggleFavA</value>
-  </data>
-  <data name="&gt;&gt;btnToggleFavA.Type" xml:space="preserve">
-    <value>DevExpress.XtraEditors.SimpleButton, DevExpress.XtraEditors.v19.2, Version=19.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
-  </data>
-  <data name="&gt;&gt;btnToggleFavA.Parent" xml:space="preserve">
-    <value>pnlEditControls</value>
-  </data>
-  <data name="&gt;&gt;btnToggleFavA.ZOrder" xml:space="preserve">
-    <value>8</value>
-  </data>
-  <data name="btnClearLeftFilter.AccessibleDescription" xml:space="preserve">
-    <value>Remove channel filter criteria from sorted channel list</value>
-  </data>
-  <data name="btnClearLeftFilter.Appearance.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Tahoma, 8.25pt, style=Strikeout</value>
-  </data>
-  <data name="btnClearLeftFilter.ImageOptions.ImageIndex" type="System.Int32, mscorlib">
-    <value>28</value>
-  </data>
-  <data name="btnClearLeftFilter.Location" type="System.Drawing.Point, System.Drawing">
-    <value>372, 4</value>
-  </data>
-  <data name="btnClearLeftFilter.Size" type="System.Drawing.Size, System.Drawing">
-    <value>66, 23</value>
-  </data>
-  <data name="btnClearLeftFilter.TabIndex" type="System.Int32, mscorlib">
-    <value>9</value>
-  </data>
-  <data name="btnClearLeftFilter.Text" xml:space="preserve">
-    <value>Filter</value>
-  </data>
-  <data name="btnClearLeftFilter.ToolTip" xml:space="preserve">
-    <value>Reset filter</value>
-  </data>
-  <data name="&gt;&gt;btnClearLeftFilter.Name" xml:space="preserve">
-    <value>btnClearLeftFilter</value>
-  </data>
-  <data name="&gt;&gt;btnClearLeftFilter.Type" xml:space="preserve">
-    <value>DevExpress.XtraEditors.SimpleButton, DevExpress.XtraEditors.v19.2, Version=19.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
-  </data>
-  <data name="&gt;&gt;btnClearLeftFilter.Parent" xml:space="preserve">
-    <value>pnlEditControls</value>
-  </data>
-  <data name="&gt;&gt;btnClearLeftFilter.ZOrder" xml:space="preserve">
-    <value>9</value>
-  </data>
-  <data name="btnRenum.ImageOptions.ImageIndex" type="System.Int32, mscorlib">
-    <value>22</value>
-  </data>
-  <data name="btnRenum.Location" type="System.Drawing.Point, System.Drawing">
-    <value>98, 5</value>
-  </data>
-  <data name="btnRenum.Size" type="System.Drawing.Size, System.Drawing">
-    <value>23, 23</value>
-  </data>
-  <data name="btnRenum.TabIndex" type="System.Int32, mscorlib">
-    <value>8</value>
-  </data>
-  <data name="btnRenum.Text" xml:space="preserve">
-    <value>Renumber selected channels sequentially</value>
-  </data>
-  <data name="btnRenum.ToolTip" xml:space="preserve">
-    <value>Renumber selected channels</value>
-  </data>
-  <data name="&gt;&gt;btnRenum.Name" xml:space="preserve">
-    <value>btnRenum</value>
-  </data>
-  <data name="&gt;&gt;btnRenum.Type" xml:space="preserve">
-    <value>DevExpress.XtraEditors.SimpleButton, DevExpress.XtraEditors.v19.2, Version=19.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
-  </data>
-  <data name="&gt;&gt;btnRenum.Parent" xml:space="preserve">
-    <value>pnlEditControls</value>
-  </data>
-  <data name="&gt;&gt;btnRenum.ZOrder" xml:space="preserve">
-    <value>10</value>
-  </data>
-  <data name="btnDown.ImageOptions.ImageIndex" type="System.Int32, mscorlib">
-    <value>25</value>
-  </data>
-  <data name="btnDown.Location" type="System.Drawing.Point, System.Drawing">
-    <value>34, 5</value>
-  </data>
-  <data name="btnDown.Size" type="System.Drawing.Size, System.Drawing">
-    <value>23, 23</value>
-  </data>
-  <data name="btnDown.TabIndex" type="System.Int32, mscorlib">
-    <value>6</value>
-  </data>
-  <data name="btnDown.Text" xml:space="preserve">
-    <value>Move selected channel down</value>
-  </data>
-  <data name="btnDown.ToolTip" xml:space="preserve">
-    <value>Move selected channels down</value>
-  </data>
-  <data name="&gt;&gt;btnDown.Name" xml:space="preserve">
-    <value>btnDown</value>
-  </data>
-  <data name="&gt;&gt;btnDown.Type" xml:space="preserve">
-    <value>DevExpress.XtraEditors.SimpleButton, DevExpress.XtraEditors.v19.2, Version=19.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
-  </data>
-  <data name="&gt;&gt;btnDown.Parent" xml:space="preserve">
-    <value>pnlEditControls</value>
-  </data>
-  <data name="&gt;&gt;btnDown.ZOrder" xml:space="preserve">
-    <value>11</value>
-  </data>
-  <data name="btnUp.ImageOptions.ImageIndex" type="System.Int32, mscorlib">
+  <data name="miMoveUp.ImageOptions.ImageIndex" type="System.Int32, mscorlib">
     <value>24</value>
   </data>
-  <data name="btnUp.Location" type="System.Drawing.Point, System.Drawing">
-    <value>5, 5</value>
+  <data name="miMoveDown.Caption" xml:space="preserve">
+    <value>Move down</value>
   </data>
-  <data name="btnUp.Size" type="System.Drawing.Size, System.Drawing">
-    <value>23, 23</value>
-  </data>
-  <data name="btnUp.TabIndex" type="System.Int32, mscorlib">
-    <value>5</value>
-  </data>
-  <data name="btnUp.Text" xml:space="preserve">
-    <value>Move selected channel up</value>
-  </data>
-  <data name="btnUp.ToolTip" xml:space="preserve">
-    <value>Move selected channels up</value>
-  </data>
-  <data name="&gt;&gt;btnUp.Name" xml:space="preserve">
-    <value>btnUp</value>
-  </data>
-  <data name="&gt;&gt;btnUp.Type" xml:space="preserve">
-    <value>DevExpress.XtraEditors.SimpleButton, DevExpress.XtraEditors.v19.2, Version=19.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
-  </data>
-  <data name="&gt;&gt;btnUp.Parent" xml:space="preserve">
-    <value>pnlEditControls</value>
-  </data>
-  <data name="&gt;&gt;btnUp.ZOrder" xml:space="preserve">
-    <value>12</value>
-  </data>
-  <data name="btnRemoveLeft.ImageOptions.ImageIndex" type="System.Int32, mscorlib">
-    <value>11</value>
-  </data>
-  <data name="btnRemoveLeft.Location" type="System.Drawing.Point, System.Drawing">
-    <value>63, 5</value>
-  </data>
-  <data name="btnRemoveLeft.Size" type="System.Drawing.Size, System.Drawing">
-    <value>23, 23</value>
-  </data>
-  <data name="btnRemoveLeft.TabIndex" type="System.Int32, mscorlib">
-    <value>2</value>
-  </data>
-  <data name="btnRemoveLeft.Text" xml:space="preserve">
-    <value>Remove selected channels from sorted list</value>
-  </data>
-  <data name="btnRemoveLeft.ToolTip" xml:space="preserve">
-    <value>Remove selected channels</value>
-  </data>
-  <data name="&gt;&gt;btnRemoveLeft.Name" xml:space="preserve">
-    <value>btnRemoveLeft</value>
-  </data>
-  <data name="&gt;&gt;btnRemoveLeft.Type" xml:space="preserve">
-    <value>DevExpress.XtraEditors.SimpleButton, DevExpress.XtraEditors.v19.2, Version=19.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
-  </data>
-  <data name="&gt;&gt;btnRemoveLeft.Parent" xml:space="preserve">
-    <value>pnlEditControls</value>
-  </data>
-  <data name="&gt;&gt;btnRemoveLeft.ZOrder" xml:space="preserve">
-    <value>13</value>
-  </data>
-  <data name="pnlEditControls.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Top</value>
-  </data>
-  <data name="pnlEditControls.Location" type="System.Drawing.Point, System.Drawing">
-    <value>2, 21</value>
-  </data>
-  <data name="pnlEditControls.Size" type="System.Drawing.Size, System.Drawing">
-    <value>499, 33</value>
-  </data>
-  <data name="pnlEditControls.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;pnlEditControls.Name" xml:space="preserve">
-    <value>pnlEditControls</value>
-  </data>
-  <data name="&gt;&gt;pnlEditControls.Type" xml:space="preserve">
-    <value>DevExpress.XtraEditors.PanelControl, DevExpress.Utils.v19.2, Version=19.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
-  </data>
-  <data name="&gt;&gt;pnlEditControls.Parent" xml:space="preserve">
-    <value>grpOutputList</value>
-  </data>
-  <data name="&gt;&gt;pnlEditControls.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="grpOutputList.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Fill</value>
-  </data>
-  <data name="grpOutputList.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 0</value>
-  </data>
-  <data name="grpOutputList.Size" type="System.Drawing.Size, System.Drawing">
-    <value>503, 441</value>
-  </data>
-  <data name="grpOutputList.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
-  </data>
-  <data name="grpOutputList.Text" xml:space="preserve">
-    <value>Sorted channels</value>
-  </data>
-  <data name="&gt;&gt;grpOutputList.Name" xml:space="preserve">
-    <value>grpOutputList</value>
-  </data>
-  <data name="&gt;&gt;grpOutputList.Type" xml:space="preserve">
-    <value>DevExpress.XtraEditors.GroupControl, DevExpress.Utils.v19.2, Version=19.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
-  </data>
-  <data name="&gt;&gt;grpOutputList.Parent" xml:space="preserve">
-    <value>splitContainerControl1.Panel1</value>
-  </data>
-  <data name="&gt;&gt;grpOutputList.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="splitContainerControl1.Panel1.Text" xml:space="preserve">
-    <value>Panel1</value>
-  </data>
-  <data name="gridRight.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Fill</value>
-  </data>
-  <data name="gridRight.Location" type="System.Drawing.Point, System.Drawing">
-    <value>2, 54</value>
-  </data>
-  <data name="gviewRight.Appearance.FocusedRow.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Tahoma, 8.25pt, style=Bold</value>
-  </data>
-  <data name="gviewRight.Appearance.HideSelectionRow.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Tahoma, 8.25pt, style=Bold</value>
-  </data>
-  <data name="colIndex.Caption" xml:space="preserve">
-    <value>Pr. index</value>
-  </data>
-  <data name="colSlotOld.Caption" xml:space="preserve">
-    <value>Old Pos</value>
-  </data>
-  <data name="colSlotOld.ToolTip" xml:space="preserve">
-    <value>Old position</value>
-  </data>
-  <data name="colSlotOld.Visible" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="colSlotOld.VisibleIndex" type="System.Int32, mscorlib">
-    <value>0</value>
-  </data>
-  <data name="colSlotOld.Width" type="System.Int32, mscorlib">
-    <value>50</value>
-  </data>
-  <data name="colSlotNew.Caption" xml:space="preserve">
-    <value>New Pos</value>
-  </data>
-  <data name="colSlotNew.ToolTip" xml:space="preserve">
-    <value>New position</value>
-  </data>
-  <data name="colSlotNew.Visible" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="colSlotNew.VisibleIndex" type="System.Int32, mscorlib">
-    <value>1</value>
-  </data>
-  <data name="colSlotNew.Width" type="System.Int32, mscorlib">
-    <value>45</value>
-  </data>
-  <data name="colSource.Caption" xml:space="preserve">
-    <value>Source</value>
-  </data>
-  <data name="colSource.Width" type="System.Int32, mscorlib">
-    <value>50</value>
-  </data>
-  <data name="colPrNr.Caption" xml:space="preserve">
-    <value>Pr#</value>
-  </data>
-  <data name="colPrNr.Width" type="System.Int32, mscorlib">
-    <value>30</value>
-  </data>
-  <data name="colName.Caption" xml:space="preserve">
-    <value>Channel name</value>
-  </data>
-  <data name="colName.Visible" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="colName.VisibleIndex" type="System.Int32, mscorlib">
-    <value>2</value>
-  </data>
-  <data name="colName.Width" type="System.Int32, mscorlib">
-    <value>180</value>
-  </data>
-  <data name="colShortName.Caption" xml:space="preserve">
-    <value>Short name</value>
-  </data>
-  <data name="colShortName.Visible" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="colShortName.VisibleIndex" type="System.Int32, mscorlib">
-    <value>3</value>
-  </data>
-  <data name="colFavorites.Caption" xml:space="preserve">
-    <value>Favorites</value>
-  </data>
-  <data name="repositoryItemCheckedComboBoxEdit2.AutoHeight" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
-  <data name="repositoryItemCheckedComboBoxEdit2.Buttons" type="DevExpress.XtraEditors.Controls.ButtonPredefines, DevExpress.Utils.v19.2">
-    <value>Combo</value>
-  </data>
-  <data name="repositoryItemCheckedComboBoxEdit2.Mask.EditMask" type="System.Resources.ResXNullRef, System.Windows.Forms">
-    <value />
-  </data>
-  <data name="repositoryItemCheckedComboBoxEdit2.Mask.MaskType" type="DevExpress.XtraEditors.Mask.MaskType, DevExpress.XtraEditors.v19.2">
-    <value>RegEx</value>
-  </data>
-  <data name="colFavorites.Visible" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="colFavorites.VisibleIndex" type="System.Int32, mscorlib">
-    <value>4</value>
-  </data>
-  <data name="colFavorites.Width" type="System.Int32, mscorlib">
-    <value>55</value>
-  </data>
-  <data name="colLock.Caption" xml:space="preserve">
-    <value>Locked</value>
-  </data>
-  <data name="colLock.Visible" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="colLock.VisibleIndex" type="System.Int32, mscorlib">
-    <value>5</value>
-  </data>
-  <data name="colLock.Width" type="System.Int32, mscorlib">
-    <value>40</value>
-  </data>
-  <data name="colSkip.Caption" xml:space="preserve">
-    <value>Skip</value>
-  </data>
-  <data name="colSkip.Visible" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="colSkip.VisibleIndex" type="System.Int32, mscorlib">
-    <value>6</value>
-  </data>
-  <data name="colSkip.Width" type="System.Int32, mscorlib">
-    <value>40</value>
-  </data>
-  <data name="colHidden.Caption" xml:space="preserve">
-    <value>Hide</value>
-  </data>
-  <data name="colHidden.Visible" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="colHidden.VisibleIndex" type="System.Int32, mscorlib">
-    <value>7</value>
-  </data>
-  <data name="colHidden.Width" type="System.Int32, mscorlib">
-    <value>40</value>
-  </data>
-  <data name="colDeleted.Caption" xml:space="preserve">
-    <value>Deleted</value>
-  </data>
-  <data name="colDeleted.Width" type="System.Int32, mscorlib">
-    <value>48</value>
-  </data>
-  <data name="colEncrypted.Caption" xml:space="preserve">
-    <value>Crypt</value>
-  </data>
-  <data name="colEncrypted.ToolTip" xml:space="preserve">
-    <value>Encrypted</value>
-  </data>
-  <data name="colEncrypted.Visible" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="colEncrypted.VisibleIndex" type="System.Int32, mscorlib">
-    <value>8</value>
-  </data>
-  <data name="colEncrypted.Width" type="System.Int32, mscorlib">
-    <value>40</value>
-  </data>
-  <data name="colServiceType.Caption" xml:space="preserve">
-    <value>Service Type ID</value>
-  </data>
-  <data name="colServiceType.Width" type="System.Int32, mscorlib">
-    <value>45</value>
-  </data>
-  <data name="colServiceTypeName.Caption" xml:space="preserve">
-    <value>Service Type</value>
-  </data>
-  <data name="colServiceTypeName.Visible" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="colServiceTypeName.VisibleIndex" type="System.Int32, mscorlib">
-    <value>9</value>
-  </data>
-  <data name="colServiceTypeName.Width" type="System.Int32, mscorlib">
-    <value>45</value>
-  </data>
-  <data name="colFreqInMhz.Caption" xml:space="preserve">
-    <value>Freqency (MHz)</value>
-  </data>
-  <data name="colFreqInMhz.Visible" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="colFreqInMhz.VisibleIndex" type="System.Int32, mscorlib">
-    <value>10</value>
-  </data>
-  <data name="colFreqInMhz.Width" type="System.Int32, mscorlib">
-    <value>57</value>
-  </data>
-  <data name="colPolarity.Caption" xml:space="preserve">
-    <value>Polarity</value>
-  </data>
-  <data name="colPolarity.Visible" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="colPolarity.VisibleIndex" type="System.Int32, mscorlib">
-    <value>11</value>
-  </data>
-  <data name="colPolarity.Width" type="System.Int32, mscorlib">
+  <data name="miMoveDown.ImageOptions.ImageIndex" type="System.Int32, mscorlib">
     <value>25</value>
   </data>
-  <data name="colChannelOrTransponder.Caption" xml:space="preserve">
-    <value>Chan/ Transp</value>
-  </data>
-  <data name="colChannelOrTransponder.ToolTip" xml:space="preserve">
-    <value>Channel or transponder number</value>
-  </data>
-  <data name="colChannelOrTransponder.Visible" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="colChannelOrTransponder.VisibleIndex" type="System.Int32, mscorlib">
-    <value>12</value>
-  </data>
-  <data name="colChannelOrTransponder.Width" type="System.Int32, mscorlib">
-    <value>45</value>
-  </data>
-  <data name="colSatellite.Caption" xml:space="preserve">
-    <value>Satellite</value>
-  </data>
-  <data name="colSatellite.Visible" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="colSatellite.VisibleIndex" type="System.Int32, mscorlib">
-    <value>13</value>
-  </data>
-  <data name="colSatellite.Width" type="System.Int32, mscorlib">
-    <value>100</value>
-  </data>
-  <data name="colNetworkId.Caption" xml:space="preserve">
-    <value>Network (ONID)</value>
-  </data>
-  <data name="colNetworkId.Visible" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="colNetworkId.VisibleIndex" type="System.Int32, mscorlib">
-    <value>14</value>
-  </data>
-  <data name="colNetworkId.Width" type="System.Int32, mscorlib">
-    <value>45</value>
-  </data>
-  <data name="colTransportStreamId.Caption" xml:space="preserve">
-    <value>TS ID</value>
-  </data>
-  <data name="colTransportStreamId.ToolTip" xml:space="preserve">
-    <value>Transport Stream ID</value>
-  </data>
-  <data name="colTransportStreamId.Visible" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="colTransportStreamId.VisibleIndex" type="System.Int32, mscorlib">
-    <value>15</value>
-  </data>
-  <data name="colTransportStreamId.Width" type="System.Int32, mscorlib">
-    <value>40</value>
-  </data>
-  <data name="colServiceId.Caption" xml:space="preserve">
-    <value>Service ID</value>
-  </data>
-  <data name="colServiceId.Visible" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="colServiceId.VisibleIndex" type="System.Int32, mscorlib">
-    <value>16</value>
-  </data>
-  <data name="colServiceId.Width" type="System.Int32, mscorlib">
-    <value>45</value>
-  </data>
-  <data name="colPcrPid.Caption" xml:space="preserve">
-    <value>PCR PID</value>
-  </data>
-  <data name="colPcrPid.ToolTip" xml:space="preserve">
-    <value>Program Clock Reference Packet-ID</value>
-  </data>
-  <data name="colPcrPid.Visible" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="colPcrPid.VisibleIndex" type="System.Int32, mscorlib">
-    <value>17</value>
-  </data>
-  <data name="colPcrPid.Width" type="System.Int32, mscorlib">
-    <value>40</value>
-  </data>
-  <data name="colVideoPid.Caption" xml:space="preserve">
-    <value>Video PID</value>
-  </data>
-  <data name="colVideoPid.Visible" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="colVideoPid.VisibleIndex" type="System.Int32, mscorlib">
-    <value>18</value>
-  </data>
-  <data name="colVideoPid.Width" type="System.Int32, mscorlib">
-    <value>40</value>
-  </data>
-  <data name="colAudioPid.Caption" xml:space="preserve">
-    <value>Audio PID</value>
-  </data>
-  <data name="colAudioPid.Visible" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="colAudioPid.VisibleIndex" type="System.Int32, mscorlib">
-    <value>19</value>
-  </data>
-  <data name="colAudioPid.Width" type="System.Int32, mscorlib">
-    <value>40</value>
-  </data>
-  <data name="colSymbolRate.Caption" xml:space="preserve">
-    <value>Symbol rate</value>
-  </data>
-  <data name="colSymbolRate.Visible" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="colSymbolRate.VisibleIndex" type="System.Int32, mscorlib">
-    <value>20</value>
-  </data>
-  <data name="colSymbolRate.Width" type="System.Int32, mscorlib">
-    <value>40</value>
-  </data>
-  <data name="colNetworkName.Caption" xml:space="preserve">
-    <value>Network Name</value>
-  </data>
-  <data name="colNetworkName.Visible" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="colNetworkName.VisibleIndex" type="System.Int32, mscorlib">
-    <value>21</value>
-  </data>
-  <data name="colNetworkOperator.Caption" xml:space="preserve">
-    <value>Network Operator</value>
-  </data>
-  <data name="colNetworkOperator.Visible" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="colNetworkOperator.VisibleIndex" type="System.Int32, mscorlib">
-    <value>22</value>
-  </data>
-  <data name="colProvider.Caption" xml:space="preserve">
-    <value>Provider</value>
-  </data>
-  <data name="colProvider.Visible" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="colProvider.VisibleIndex" type="System.Int32, mscorlib">
-    <value>23</value>
-  </data>
-  <data name="colUid.Caption" xml:space="preserve">
-    <value>Uid</value>
-  </data>
-  <data name="colUid.Width" type="System.Int32, mscorlib">
-    <value>120</value>
-  </data>
-  <data name="colLogicalIndex.Caption" xml:space="preserve">
-    <value>Order</value>
-  </data>
-  <data name="colSignalSource.Caption" xml:space="preserve">
-    <value>Signal source</value>
-  </data>
-  <data name="gridRight.Size" type="System.Drawing.Size, System.Drawing">
-    <value>889, 368</value>
-  </data>
-  <data name="gridRight.TabIndex" type="System.Int32, mscorlib">
-    <value>1</value>
-  </data>
-  <data name="&gt;&gt;gridRight.Name" xml:space="preserve">
-    <value>gridRight</value>
-  </data>
-  <data name="&gt;&gt;gridRight.Type" xml:space="preserve">
-    <value>DevExpress.XtraGrid.GridControl, DevExpress.XtraGrid.v19.2, Version=19.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
-  </data>
-  <data name="&gt;&gt;gridRight.Parent" xml:space="preserve">
-    <value>grpInputList</value>
-  </data>
-  <data name="&gt;&gt;gridRight.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="lblHotkeyRight.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Bottom</value>
-  </data>
-  <data name="lblHotkeyRight.Location" type="System.Drawing.Point, System.Drawing">
-    <value>2, 422</value>
-  </data>
-  <data name="lblHotkeyRight.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>2, 2, 2, 2</value>
-  </data>
-  <data name="lblHotkeyRight.Size" type="System.Drawing.Size, System.Drawing">
-    <value>153, 17</value>
-  </data>
-  <data name="lblHotkeyRight.TabIndex" type="System.Int32, mscorlib">
-    <value>2</value>
-  </data>
-  <data name="lblHotkeyRight.Text" xml:space="preserve">
-    <value>F5: Filter | F6: List | Enter: add</value>
-  </data>
-  <data name="&gt;&gt;lblHotkeyRight.Name" xml:space="preserve">
-    <value>lblHotkeyRight</value>
-  </data>
-  <data name="&gt;&gt;lblHotkeyRight.Type" xml:space="preserve">
-    <value>DevExpress.XtraEditors.LabelControl, DevExpress.XtraEditors.v19.2, Version=19.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
-  </data>
-  <data name="&gt;&gt;lblHotkeyRight.Parent" xml:space="preserve">
-    <value>grpInputList</value>
-  </data>
-  <data name="&gt;&gt;lblHotkeyRight.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="lblPredefinedList.Appearance.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Tahoma, 12pt, style=Bold</value>
-  </data>
-  <data name="lblPredefinedList.Location" type="System.Drawing.Point, System.Drawing">
-    <value>291, 7</value>
-  </data>
-  <data name="lblPredefinedList.Size" type="System.Drawing.Size, System.Drawing">
-    <value>372, 19</value>
-  </data>
-  <data name="lblPredefinedList.TabIndex" type="System.Int32, mscorlib">
-    <value>8</value>
-  </data>
-  <data name="lblPredefinedList.Text" xml:space="preserve">
-    <value>This is a predefined list and cannot be edited.</value>
-  </data>
-  <data name="lblPredefinedList.ToolTip" xml:space="preserve">
-    <value>During the setup of your TV you selected a predefined channel list. Modifying such a list would cause your TV to malfunction. Please run a full channel scan on your TV and do not select any specific provider, satellite or country lists.</value>
-  </data>
-  <data name="lblPredefinedList.Visible" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
-  <data name="&gt;&gt;lblPredefinedList.Name" xml:space="preserve">
-    <value>lblPredefinedList</value>
-  </data>
-  <data name="&gt;&gt;lblPredefinedList.Type" xml:space="preserve">
-    <value>DevExpress.XtraEditors.LabelControl, DevExpress.XtraEditors.v19.2, Version=19.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
-  </data>
-  <data name="&gt;&gt;lblPredefinedList.Parent" xml:space="preserve">
-    <value>panelControl3</value>
-  </data>
-  <data name="&gt;&gt;lblPredefinedList.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="btnRemoveRight.ImageOptions.ImageIndex" type="System.Int32, mscorlib">
-    <value>11</value>
-  </data>
-  <data name="btnRemoveRight.Location" type="System.Drawing.Point, System.Drawing">
-    <value>34, 5</value>
-  </data>
-  <data name="btnRemoveRight.Size" type="System.Drawing.Size, System.Drawing">
-    <value>23, 23</value>
-  </data>
-  <data name="btnRemoveRight.TabIndex" type="System.Int32, mscorlib">
-    <value>6</value>
-  </data>
-  <data name="btnRemoveRight.Text" xml:space="preserve">
-    <value>Remove selected channels from sorted list</value>
-  </data>
-  <data name="btnRemoveRight.ToolTip" xml:space="preserve">
-    <value>Remove selected channels from sorted list</value>
-  </data>
-  <data name="&gt;&gt;btnRemoveRight.Name" xml:space="preserve">
-    <value>btnRemoveRight</value>
-  </data>
-  <data name="&gt;&gt;btnRemoveRight.Type" xml:space="preserve">
-    <value>DevExpress.XtraEditors.SimpleButton, DevExpress.XtraEditors.v19.2, Version=19.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
-  </data>
-  <data name="&gt;&gt;btnRemoveRight.Parent" xml:space="preserve">
-    <value>panelControl3</value>
-  </data>
-  <data name="&gt;&gt;btnRemoveRight.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="btnAddAll.AccessibleDescription" xml:space="preserve">
-    <value>Append all currently unsorted channels at the end of the list</value>
-  </data>
-  <data name="btnAddAll.Location" type="System.Drawing.Point, System.Drawing">
-    <value>71, 5</value>
-  </data>
-  <data name="btnAddAll.Size" type="System.Drawing.Size, System.Drawing">
-    <value>121, 23</value>
-  </data>
-  <data name="btnAddAll.TabIndex" type="System.Int32, mscorlib">
-    <value>5</value>
-  </data>
-  <data name="btnAddAll.Text" xml:space="preserve">
-    <value>&lt;&lt; Add all</value>
-  </data>
-  <data name="btnAddAll.ToolTip" xml:space="preserve">
-    <value>Append all currently unsorted channels at the end of the list</value>
-  </data>
-  <data name="&gt;&gt;btnAddAll.Name" xml:space="preserve">
-    <value>btnAddAll</value>
-  </data>
-  <data name="&gt;&gt;btnAddAll.Type" xml:space="preserve">
-    <value>DevExpress.XtraEditors.SimpleButton, DevExpress.XtraEditors.v19.2, Version=19.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
-  </data>
-  <data name="&gt;&gt;btnAddAll.Parent" xml:space="preserve">
-    <value>panelControl3</value>
-  </data>
-  <data name="&gt;&gt;btnAddAll.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="btnClearRightFilter.AccessibleDescription" xml:space="preserve">
-    <value>Remove channel filter criteria from complete channel list</value>
-  </data>
-  <data name="btnClearRightFilter.Appearance.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Tahoma, 8.25pt, style=Strikeout</value>
-  </data>
-  <data name="btnClearRightFilter.ImageOptions.ImageIndex" type="System.Int32, mscorlib">
-    <value>28</value>
-  </data>
-  <data name="btnClearRightFilter.Location" type="System.Drawing.Point, System.Drawing">
-    <value>198, 5</value>
-  </data>
-  <data name="btnClearRightFilter.Size" type="System.Drawing.Size, System.Drawing">
-    <value>66, 23</value>
-  </data>
-  <data name="btnClearRightFilter.TabIndex" type="System.Int32, mscorlib">
-    <value>2</value>
-  </data>
-  <data name="btnClearRightFilter.Text" xml:space="preserve">
-    <value>Filter</value>
-  </data>
-  <data name="btnClearRightFilter.ToolTip" xml:space="preserve">
-    <value>Reset filter</value>
-  </data>
-  <data name="&gt;&gt;btnClearRightFilter.Name" xml:space="preserve">
-    <value>btnClearRightFilter</value>
-  </data>
-  <data name="&gt;&gt;btnClearRightFilter.Type" xml:space="preserve">
-    <value>DevExpress.XtraEditors.SimpleButton, DevExpress.XtraEditors.v19.2, Version=19.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
-  </data>
-  <data name="&gt;&gt;btnClearRightFilter.Parent" xml:space="preserve">
-    <value>panelControl3</value>
-  </data>
-  <data name="&gt;&gt;btnClearRightFilter.ZOrder" xml:space="preserve">
-    <value>3</value>
-  </data>
-  <data name="btnAdd.ImageOptions.ImageIndex" type="System.Int32, mscorlib">
-    <value>39</value>
-  </data>
-  <data name="btnAdd.Location" type="System.Drawing.Point, System.Drawing">
-    <value>5, 5</value>
-  </data>
-  <data name="btnAdd.Size" type="System.Drawing.Size, System.Drawing">
-    <value>23, 23</value>
-  </data>
-  <data name="btnAdd.TabIndex" type="System.Int32, mscorlib">
-    <value>4</value>
-  </data>
-  <data name="btnAdd.Text" xml:space="preserve">
-    <value>Add selected channels to sorted list</value>
-  </data>
-  <data name="btnAdd.ToolTip" xml:space="preserve">
-    <value>Add selected channels to sorted list</value>
-  </data>
-  <data name="&gt;&gt;btnAdd.Name" xml:space="preserve">
-    <value>btnAdd</value>
-  </data>
-  <data name="&gt;&gt;btnAdd.Type" xml:space="preserve">
-    <value>DevExpress.XtraEditors.SimpleButton, DevExpress.XtraEditors.v19.2, Version=19.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
-  </data>
-  <data name="&gt;&gt;btnAdd.Parent" xml:space="preserve">
-    <value>panelControl3</value>
-  </data>
-  <data name="&gt;&gt;btnAdd.ZOrder" xml:space="preserve">
-    <value>4</value>
-  </data>
-  <data name="panelControl3.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Top</value>
-  </data>
-  <data name="panelControl3.Location" type="System.Drawing.Point, System.Drawing">
-    <value>2, 21</value>
-  </data>
-  <data name="panelControl3.Size" type="System.Drawing.Size, System.Drawing">
-    <value>889, 33</value>
-  </data>
-  <data name="panelControl3.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;panelControl3.Name" xml:space="preserve">
-    <value>panelControl3</value>
-  </data>
-  <data name="&gt;&gt;panelControl3.Type" xml:space="preserve">
-    <value>DevExpress.XtraEditors.PanelControl, DevExpress.Utils.v19.2, Version=19.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
-  </data>
-  <data name="&gt;&gt;panelControl3.Parent" xml:space="preserve">
-    <value>grpInputList</value>
-  </data>
-  <data name="&gt;&gt;panelControl3.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="grpInputList.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Fill</value>
-  </data>
-  <data name="grpInputList.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 0</value>
-  </data>
-  <data name="grpInputList.Size" type="System.Drawing.Size, System.Drawing">
-    <value>893, 441</value>
-  </data>
-  <data name="grpInputList.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
-  </data>
-  <data name="grpInputList.Text" xml:space="preserve">
-    <value>Original channels</value>
-  </data>
-  <data name="&gt;&gt;grpInputList.Name" xml:space="preserve">
-    <value>grpInputList</value>
-  </data>
-  <data name="&gt;&gt;grpInputList.Type" xml:space="preserve">
-    <value>DevExpress.XtraEditors.GroupControl, DevExpress.Utils.v19.2, Version=19.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
-  </data>
-  <data name="&gt;&gt;grpInputList.Parent" xml:space="preserve">
-    <value>splitContainerControl1.Panel2</value>
-  </data>
-  <data name="&gt;&gt;grpInputList.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="splitContainerControl1.Panel2.Text" xml:space="preserve">
-    <value>Panel2</value>
-  </data>
-  <data name="splitContainerControl1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1402, 441</value>
-  </data>
-  <data name="splitContainerControl1.TabIndex" type="System.Int32, mscorlib">
-    <value>5</value>
-  </data>
-  <data name="splitContainerControl1.Text" xml:space="preserve">
-    <value>splitContainerControl1</value>
-  </data>
-  <data name="&gt;&gt;splitContainerControl1.Name" xml:space="preserve">
-    <value>splitContainerControl1</value>
-  </data>
-  <data name="&gt;&gt;splitContainerControl1.Type" xml:space="preserve">
-    <value>DevExpress.XtraEditors.SplitContainerControl, DevExpress.Utils.v19.2, Version=19.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
-  </data>
-  <data name="&gt;&gt;splitContainerControl1.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;splitContainerControl1.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <metadata name="defaultLookAndFeel1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>194, 17</value>
-  </metadata>
-  <metadata name="popupContext.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>781, 17</value>
-  </metadata>
   <metadata name="timerEditDelay.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>911, 17</value>
-  </metadata>
-  <metadata name="popupInputSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>1042, 17</value>
-  </metadata>
-  <metadata name="popupFavList.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>1196, 17</value>
+    <value>328, 212</value>
   </metadata>
 </root>

@@ -49,6 +49,7 @@ namespace ChanSort.Api
     public int AudioPid { get; set; }
     public int OriginalNetworkId { get; set; }
     public int TransportStreamId { get; set; }
+    public int PhysicalChannel { get; set; }
     public string Provider { get; set; }
     public int SymbolRate { get; set; }
     public int ServiceType { get; set; }
@@ -86,8 +87,10 @@ namespace ChanSort.Api
     /// </summary>
     public string Debug { get; private set; }
 
-
-
+    /// <summary>
+    /// delivery number to seperate dvbc/dvbt/dvbs from cableip/antennaip/satip
+    /// </summary>
+    public int DeliveryType { get; set; }
 
     #region ctor()
     protected ChannelInfo()

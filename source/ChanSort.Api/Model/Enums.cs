@@ -61,8 +61,10 @@ namespace ChanSort.Api
     DvbT = Digital + Antenna,
     DvbCT = Digital + Cable + Antenna,
     DvbS = Digital + Sat,
+    AntennaIP = Digital + Antenna + IP,
+    CableIP = Digital + Cable + IP,
     SatIP = Digital + Sat + IP,
-
+    
     CablePrimeD = Digital + Cable + CablePrime,
     HdPlusD = Digital + Sat + AstraHdPlus,
     FreesatD = Digital + Sat + Freesat,

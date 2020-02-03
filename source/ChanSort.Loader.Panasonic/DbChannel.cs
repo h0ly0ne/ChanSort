@@ -13,44 +13,55 @@ namespace ChanSort.Loader.Panasonic
     #region ctor()
     internal DbChannel(SQLiteDataReader r, IDictionary<string, int> field, DataRoot dataRoot, Encoding encoding)
     {
-      this.RecordIndex = r.GetInt32(field["rowid"]);
-      this.RecordOrder = r.GetInt32(field["major_channel"]);
-      this.OldProgramNr = r.GetInt32(field["major_channel"]);
-      if (this.OldProgramNr == 1178)
-      {
-      }
-      int ntype = r.GetInt32(field["ntype"]);
-      if (ntype == 1)
-      {
-        this.SignalSource |= SignalSource.DvbS;
-        if (r.GetInt32(field["ya_svcid"]) >= 0)
-          this.SignalSource |= SignalSource.Freesat;
-      }
-      else if (ntype == 2)
-        this.SignalSource |= SignalSource.DvbT;
-      else if (ntype == 3)
-        this.SignalSource |= SignalSource.DvbC;
-      else if (ntype == 10)
-        this.SignalSource |= SignalSource.AnalogT | SignalSource.Tv;
-      else if (ntype == 14)
-        this.SignalSource |= SignalSource.AnalogC | SignalSource.Tv;
-      else if (ntype == 15)
-        this.SignalSource |= SignalSource.SatIP;
+        this.RecordIndex = r.GetInt32(field["rowid"]);
+        this.RecordOrder = r.GetInt32(field["major_channel"]);
+        this.OldProgramNr = r.GetInt32(field["major_channel"]);
 
-      byte[] buffer = new byte[1000];
-      var len = r.GetBytes(field["delivery"], 0, buffer, 0, 1000);
-      this.AddDebug(buffer, 0, (int) len);
+        //if (this.OldProgramNr == 1178) { }
 
-      this.Skip = r.GetInt32(field["skip"]) != 0;
-      this.Encrypted = r.GetInt32(field["free_CA_mode"]) != 0;
-      this.Lock = r.GetInt32(field["child_lock"]) != 0;
-      this.ParseFavorites(r, field);
-      this.ReadNamesWithEncodingDetection(r, field, encoding);
+        int ntype = r.GetInt32(field["ntype"]);
+        this.DeliveryType = r.GetInt32(field["delivery_type"]);
 
-      if (ntype == 10 || ntype == 14)
-        this.ReadAnalogData(r, field);
-      else
-        this.ReadDvbData(r, field, dataRoot, buffer);
+        if (ntype == 1)
+        {
+            this.SignalSource |= SignalSource.DvbS;
+            if (r.GetInt32(field["ya_svcid"]) >= 0)
+                this.SignalSource |= SignalSource.Freesat;
+        }
+        else if (ntype == 2)
+            this.SignalSource |= SignalSource.DvbT;
+        else if (ntype == 3)
+            this.SignalSource |= SignalSource.DvbC;
+        else if (ntype == 10)
+            this.SignalSource |= SignalSource.AnalogT | SignalSource.Tv;
+        else if (ntype == 14)
+            this.SignalSource |= SignalSource.AnalogC | SignalSource.Tv;
+        else if (ntype == 15)
+        {
+            if (this.DeliveryType == 15)
+                this.SignalSource |= SignalSource.SatIP;
+            //else if (this.DeliveryType == 0) // Currently no sample for AntennaIP found
+            //    this.SignalSource |= SignalSource.AntennaIP;
+            else if (this.DeliveryType == 18)
+                this.SignalSource |= SignalSource.CableIP;
+            else
+                this.SignalSource |= SignalSource.SatIP;
+        }
+
+        byte[] buffer = new byte[1000];
+        var len = r.GetBytes(field["delivery"], 0, buffer, 0, 1000);
+        this.AddDebug(buffer, 0, (int) len);
+
+        this.Skip = r.GetInt32(field["skip"]) != 0;
+        this.Encrypted = r.GetInt32(field["free_CA_mode"]) != 0;
+        this.Lock = r.GetInt32(field["child_lock"]) != 0;
+        this.ParseFavorites(r, field);
+        this.ReadNamesWithEncodingDetection(r, field, encoding);
+
+        if (ntype == 10 || ntype == 14)
+            this.ReadAnalogData(r, field);
+        else
+            this.ReadDvbData(r, field, dataRoot, buffer);
     }
 
     #endregion
@@ -81,42 +92,42 @@ namespace ChanSort.Loader.Panasonic
     #region ReadDvbData()
     protected void ReadDvbData(SQLiteDataReader r, IDictionary<string, int> field, DataRoot dataRoot, byte[] delivery)
     {
-      int stype = r.GetInt32(field["stype"]);
-      this.SignalSource |= LookupData.Instance.IsRadioTvOrData(stype);
-      this.ServiceType = stype;
+        int stype = r.GetInt32(field["stype"]);
+        this.SignalSource |= LookupData.Instance.IsRadioTvOrData(stype);
+        this.ServiceType = stype;
 
-      int freq = r.GetInt32(field["freq"]);
-      if ((this.SignalSource & SignalSource.Sat) != 0)
-      {
-// ReSharper disable PossibleLossOfFraction
-        this.FreqInMhz = freq/10;
-// ReSharper restore PossibleLossOfFraction
-        int satId = r.GetInt32(field["physical_ch"]) >> 12;
-        var sat = dataRoot.Satellites.TryGet(satId);
-        if (sat != null)
-        {
-          this.Satellite = sat.Name;
-          this.SatPosition = sat.OrbitalPosition;
-        }
-        if (delivery.Length >= 7)
-        {
-          this.SymbolRate = (delivery[5] >> 4)*10000 + (delivery[5] & 0x0F)*1000 +
-                            (delivery[6] >> 4)*100 + (delivery[6] & 0x0F)*10;
-        }
-      }
-      else
-      {
-        freq /= 1000;
-        this.FreqInMhz = freq;
-        this.ChannelOrTransponder = (this.SignalSource & SignalSource.Antenna) != 0 ? 
-          LookupData.Instance.GetDvbtTransponder(freq).ToString() : 
-          LookupData.Instance.GetDvbcTransponder(freq).ToString();
-        this.Satellite = (this.SignalSource & SignalSource.Antenna) != 0 ? "DVB-T" : "DVB-C";
-      }
+        int freq = r.GetInt32(field["freq"]);
 
-      this.OriginalNetworkId = r.GetInt32(field["onid"]);
-      this.TransportStreamId = r.GetInt32(field["tsid"]);
-      this.ServiceId = r.GetInt32(field["sid"]);
+        if ((this.SignalSource & SignalSource.Sat) != 0)
+        {
+            this.FreqInMhz = freq / 1000;
+            int satId = r.GetInt32(field["physical_ch"]) >> 12;
+            var sat = dataRoot.Satellites.TryGet(satId);
+
+            if (sat != null)
+            {
+                this.Satellite = sat.Name;
+                this.SatPosition = sat.OrbitalPosition;
+            }
+            if (delivery.Length >= 7)
+            {
+                this.SymbolRate = (delivery[5] >> 4)*10000 + (delivery[5] & 0x0F)*1000 + (delivery[6] >> 4)*100 + (delivery[6] & 0x0F)*10;
+            }
+        }
+        else
+        {
+            this.FreqInMhz = (freq /= 1000);
+            this.ChannelOrTransponder = (this.SignalSource & SignalSource.Antenna) != 0 ? LookupData.Instance.GetDvbtTransponder(freq).ToString() : LookupData.Instance.GetDvbcTransponder(freq).ToString();
+            if ((this.SignalSource & SignalSource.IP) != 0)
+                this.Satellite = "SAT>IP";
+            else
+                this.Satellite = (this.SignalSource & SignalSource.Antenna) != 0 ? "DVB-T" : "DVB-C";
+        }
+
+        this.PhysicalChannel = r.GetInt32(field["physical_ch"]);
+        this.OriginalNetworkId = r.GetInt32(field["onid"]);
+        this.TransportStreamId = r.GetInt32(field["tsid"]);
+        this.ServiceId = r.GetInt32(field["sid"]);
     }
     #endregion
 
