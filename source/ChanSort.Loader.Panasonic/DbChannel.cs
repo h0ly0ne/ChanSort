@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data.SQLite;
+using System.Globalization;
+using System.Linq;
 using System.Text;
 using ChanSort.Api;
 
@@ -96,28 +98,41 @@ namespace ChanSort.Loader.Panasonic
         SignalSource |= LookupData.Instance.IsRadioTvOrData(stype);
         ServiceType = stype;
 
-        int freq = r.GetInt32(field["freq"]);
+        // parse freq from delivery data
+        if (Tools.GetInt32(delivery, 0, true) > 0)
+        {
+            FreqInMhz = Tools.GetInt32(delivery, 0, true);
+            if ((SignalSource & SignalSource.Sat) != 0)
+                FreqInMhz /= 1000;
+            else
+                FreqInMhz /= 100000;
+        }
+        // parse freq from freq column in svl (fallback)
+        else
+        {
+            FreqInMhz = r.GetInt32(field["freq"]);
+            if ((SignalSource & SignalSource.Sat) != 0)
+                FreqInMhz /= 10000;
+            else
+                FreqInMhz /= 1000;
+        }
+
+        if (delivery.Length >= 7)
+            SymbolRate = Tools.GetInt32(delivery, 4, true);
 
         if ((SignalSource & SignalSource.Sat) != 0)
         {
             int satId = r.GetInt32(field["physical_ch"]) >> 12;
             var sat = dataRoot.Satellites.TryGet(satId);
-            FreqInMhz = Convert.ToDecimal(freq / 1000 / 10);
 
             if (sat != null)
             {
                 this.Satellite = sat.Name;
                 this.SatPosition = sat.OrbitalPosition;
             }
-            if (delivery.Length >= 7)
-            {
-                this.SymbolRate = (delivery[5] >> 4)*10000 + (delivery[5] & 0x0F)*1000 + (delivery[6] >> 4)*100 + (delivery[6] & 0x0F)*10;
-            }
         }
         else
         {
-            FreqInMhz = Convert.ToDecimal(freq / 1000);
-
             ChannelOrTransponder = (SignalSource & SignalSource.Antenna) != 0 ? LookupData.Instance.GetDvbtTransponder(FreqInMhz).ToString() : LookupData.Instance.GetDvbcChannelName(FreqInMhz);
 
             //OsOl: Not sure if required or useful!
@@ -125,11 +140,6 @@ namespace ChanSort.Loader.Panasonic
             //    this.Satellite = "SAT>IP";
             //else
             this.Satellite = (this.SignalSource & SignalSource.Antenna) != 0 ? "DVB-T" : "DVB-C";
-
-            if (delivery.Length >= 7)
-            {
-                this.SymbolRate = (delivery[5] >> 4) * 10000 + (delivery[5] & 0x0F) * 1000 + (delivery[6] >> 4) * 100 + (delivery[6] & 0x0F) * 10;
-            }
         }
 
         this.PhysicalChannel = r.GetInt32(field["physical_ch"]);
