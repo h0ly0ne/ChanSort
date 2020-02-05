@@ -63,7 +63,7 @@ from channel c inner join chanseq s on s.listid=c.listid and s.slot=c.slot
       if (this.dvbsBlockSize == 0)
         return;
 
-      var list = this.DataRoot.GetChannelList(SignalSource.DvbS|SignalSource.Tv);
+      var list = this.DataRoot.GetChannelList(SignalSource.DVBS | SignalSource.DVBS);
       if (list == null || list.Count == 0)
         return;
 

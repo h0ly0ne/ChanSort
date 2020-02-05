@@ -113,18 +113,26 @@ namespace ChanSort.Api
       // new lists store a bitmask which defines the type of channel and list it came from
       if (parts.Count >= 6 && parts[5].Length >= 4)
       {
-        SignalSource s = 0;
+        SignalSource s = SignalSource.Any;
         var code = parts[5];
-        if (code[0] == 'A') s |= SignalSource.Analog;
-        else if (code[0] == 'D') s |= SignalSource.Digital;
+        if (code[0] == 'A')
+          FlagsHelper.Set(ref s, SignalSource.Analog);
+        else if (code[0] == 'D')
+          FlagsHelper.Set(ref s, SignalSource.Digital);
 
-        if (code[1] == 'A') s |= SignalSource.Antenna;
-        else if (code[1] == 'C') s |= SignalSource.Cable;
-        else if (code[1] == 'S') s |= SignalSource.Sat;
-        else if (code[1] == 'I') s |= SignalSource.IP;
+        if (code[1] == 'A')
+          FlagsHelper.Set(ref s, SignalSource.Antenna);
+        else if (code[1] == 'C')
+          FlagsHelper.Set(ref s, SignalSource.Cable);
+        else if (code[1] == 'S')
+          FlagsHelper.Set(ref s, SignalSource.Sat);
+        else if (code[1] == 'I')
+          FlagsHelper.Set(ref s, SignalSource.IP);
 
-        if (code[2] == 'T') s |= SignalSource.Tv;
-        else if (code[2] == 'R') s |= SignalSource.Radio;
+        if (code[2] == 'T')
+          FlagsHelper.Set(ref s, SignalSource.TV);
+        else if (code[2] == 'R')
+          FlagsHelper.Set(ref s, SignalSource.Radio);
 
         s |= (SignalSource) (int.Parse(code.Substring(3)) << 12);
         return s;
@@ -133,25 +141,31 @@ namespace ChanSort.Api
       // compatibility for older lists
       var isTv = slot < 0x4000;
       slot &= 0x3FFFF;
-      SignalSource signalSource;
+      SignalSource signalSource = SignalSource.Any;
       switch (uid[0])
       {
         case 'S':
-          signalSource = SignalSource.DvbS;
+          FlagsHelper.Set(ref signalSource, SignalSource.DVBS);
           break;
         case 'C':
-          signalSource = SignalSource.DvbCT;
+          FlagsHelper.Set(ref signalSource, SignalSource.DVBT);
+          FlagsHelper.Set(ref signalSource, SignalSource.DVBC);
           break;
         case 'A':
-          signalSource = SignalSource.AnalogCT;
+          FlagsHelper.Set(ref signalSource, SignalSource.AnalogAntenna | SignalSource.AnalogCable);
           break;
         case 'H':
-          signalSource = SignalSource.HdPlusD;
+          FlagsHelper.Set(ref signalSource, SignalSource.Preset_AstraHdPlus);
           break;
         default:
           return 0;
       }
-      signalSource |= isTv ? SignalSource.Tv : SignalSource.Radio;
+
+      if (isTv)
+          FlagsHelper.Set(ref signalSource, SignalSource.TV);
+      else
+          FlagsHelper.Set(ref signalSource, SignalSource.Radio);
+
       return signalSource;
     }
 
@@ -178,23 +192,21 @@ namespace ChanSort.Api
     private string CreateCaption(SignalSource signalSource)
     {
       var sb = new StringBuilder();
-      if ((signalSource & SignalSource.DvbT) == SignalSource.DvbT)
+      if (FlagsHelper.IsSet(signalSource, SignalSource.DVBT))
         sb.Append("DVB-T");
-      else if ((signalSource & SignalSource.DvbC) == SignalSource.DvbC)
+      else if (FlagsHelper.IsSet(signalSource, SignalSource.DVBC))
         sb.Append("DVB-C");
-      else if ((signalSource & SignalSource.DvbS) == SignalSource.DvbS)
+      else if (FlagsHelper.IsSet(signalSource, SignalSource.DVBS))
         sb.Append("DVB-S");
-      else if ((signalSource & SignalSource.IP) == SignalSource.IP)
+      else if (FlagsHelper.IsSet(signalSource, SignalSource.IP))
         sb.Append("IP");
-      else if ((signalSource & SignalSource.Digital) == SignalSource.Digital)
-        sb.Append("DVB");
-      else if ((signalSource & SignalSource.Analog) == SignalSource.Analog)
+      else if (FlagsHelper.IsSet(signalSource, SignalSource.Analog))
         sb.Append("Analog");
 
       sb.Append(" ");
-      if ((signalSource & SignalSource.Tv) == SignalSource.Tv)
+      if (FlagsHelper.IsSet(signalSource, SignalSource.TV))
         sb.Append("TV");
-      else if ((signalSource & SignalSource.Radio) == SignalSource.Radio)
+      else if (FlagsHelper.IsSet(signalSource, SignalSource.Radio))
         sb.Append("Radio");
       else
         sb.Append("Data");

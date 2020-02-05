@@ -15,7 +15,7 @@ namespace Test.Loader.Panasonic
     [TestMethod]
     public void TestSatChannelsAddedToCorrectLists()
     {
-      this.TestChannelsAddedToCorrectLists("svl-sat.db", SignalSource.DvbS, 1187, 1028, 159);
+      this.TestChannelsAddedToCorrectLists("svl-sat.db", SignalSource.DVBS, 1187, 1028, 159);
     }
     #endregion
 
@@ -23,7 +23,7 @@ namespace Test.Loader.Panasonic
     [TestMethod]
     public void TestCableChannelsAddedToCorrectLists()
     {
-      this.TestChannelsAddedToCorrectLists("svl-cable.db", SignalSource.DvbC, 465, 304, 161);
+      this.TestChannelsAddedToCorrectLists("svl-cable.db", SignalSource.DVBC, 465, 304, 161);
     }
     #endregion
 
@@ -41,7 +41,7 @@ namespace Test.Loader.Panasonic
       var list = root.GetChannelList(signalSource);
       Assert.IsNotNull(list);
       Assert.AreEqual(expectedTotal, list.Channels.Count);
-      Assert.AreEqual(expectedTv, list.Channels.Count(ch => (ch.SignalSource & SignalSource.Tv) != 0));
+      Assert.AreEqual(expectedTv, list.Channels.Count(ch => (ch.SignalSource & SignalSource.TV) != 0));
       Assert.AreEqual(expectedRadio, list.Channels.Count(ch => (ch.SignalSource & SignalSource.Radio) != 0));
 
       // there are no data channels in Panasonic lists
@@ -64,7 +64,7 @@ namespace Test.Loader.Panasonic
 
       // Pr# 130 = ORF2E 
 
-      var dvbs = data.GetChannelList(SignalSource.DvbS);
+      var dvbs = data.GetChannelList(SignalSource.DVBS);
       var orf2e = dvbs.Channels.FirstOrDefault(ch => ch.Name == "ORF2E");
       Assert.IsNotNull(orf2e);
       Assert.AreEqual(130, orf2e.OldProgramNr);
@@ -88,7 +88,7 @@ namespace Test.Loader.Panasonic
       data.ApplyCurrentProgramNumbers();
 
       // channel was deleted from database
-      dvbs = data.GetChannelList(SignalSource.DvbS);
+      dvbs = data.GetChannelList(SignalSource.DVBS);
       orf2e = dvbs.Channels.FirstOrDefault(ch => ch.Name == "ORF2E");
       Assert.IsNull(orf2e);
     }

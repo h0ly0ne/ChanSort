@@ -12,7 +12,7 @@ namespace Test.Loader.SilvaSchneider
     [TestMethod]
     public void TestSatChannelsAddedToCorrectLists()
     {
-      this.TestChannelsAddedToCorrectLists("silva_schneider.sdx", SignalSource.DvbS, 1108, 948, 160);
+      this.TestChannelsAddedToCorrectLists("silva_schneider.sdx", SignalSource.DVBS, 1108, 948, 160);
     }
     #endregion
 
@@ -30,7 +30,7 @@ namespace Test.Loader.SilvaSchneider
       var list = root.GetChannelList(signalSource);
       Assert.IsNotNull(list);
       Assert.AreEqual(expectedTotal, list.Channels.Count);
-      Assert.AreEqual(expectedTv, list.Channels.Count(ch => (ch.SignalSource & SignalSource.Tv) != 0));
+      Assert.AreEqual(expectedTv, list.Channels.Count(ch => (ch.SignalSource & SignalSource.TV) != 0));
       Assert.AreEqual(expectedRadio, list.Channels.Count(ch => (ch.SignalSource & SignalSource.Radio) != 0));
 
       // check that data channel is in the TV list
@@ -58,7 +58,7 @@ namespace Test.Loader.SilvaSchneider
 
       // Pr# 128 = ORF2E 
 
-      var dvbs = data.GetChannelList(SignalSource.DvbS);
+      var dvbs = data.GetChannelList(SignalSource.DVBS);
       var orf2e = dvbs.Channels.FirstOrDefault(ch => ch.Name == "ORF2E");
       Assert.IsNotNull(orf2e);
       Assert.AreEqual(128, orf2e.OldProgramNr);
@@ -82,7 +82,7 @@ namespace Test.Loader.SilvaSchneider
       data.ApplyCurrentProgramNumbers();
 
       // channel was deleted from file
-      dvbs = data.GetChannelList(SignalSource.DvbS);
+      dvbs = data.GetChannelList(SignalSource.DVBS);
       orf2e = dvbs.Channels.FirstOrDefault(ch => ch.Name == "ORF2E");
       Assert.IsNull(orf2e);
     }

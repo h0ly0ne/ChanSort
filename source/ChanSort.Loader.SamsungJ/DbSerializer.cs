@@ -286,11 +286,11 @@ namespace ChanSort.Loader.SamsungJ
     {
       switch (chType)
       {
-        case 1: return SignalSource.AnalogT;
-        case 2: return SignalSource.DvbT;
-        case 3: return SignalSource.AnalogC;
-        case 4: return SignalSource.DvbC;
-        case 7: return SignalSource.DvbS;
+        case 1: return SignalSource.AnalogAntenna;
+        case 2: return SignalSource.DVBT;
+        case 3: return SignalSource.AnalogCable;
+        case 4: return SignalSource.DVBC;
+        case 7: return SignalSource.DVBS;
         default: return 0;
       }      
     }

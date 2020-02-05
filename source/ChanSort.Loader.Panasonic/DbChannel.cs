@@ -15,55 +15,53 @@ namespace ChanSort.Loader.Panasonic
     #region ctor()
     internal DbChannel(SQLiteDataReader r, IDictionary<string, int> field, DataRoot dataRoot, Encoding encoding)
     {
-        this.RecordIndex = r.GetInt32(field["rowid"]);
-        this.RecordOrder = r.GetInt32(field["major_channel"]);
-        this.OldProgramNr = r.GetInt32(field["major_channel"]);
-
-        //if (this.OldProgramNr == 1178) { }
+        RecordIndex = r.GetInt32(field["rowid"]);
+        RecordOrder = r.GetInt32(field["major_channel"]);
+        OldProgramNr = r.GetInt32(field["major_channel"]);
 
         int ntype = r.GetInt32(field["ntype"]);
-        this.DeliveryType = r.GetInt32(field["delivery_type"]);
+        DeliveryType = r.GetInt32(field["delivery_type"]);
 
         if (ntype == 1)
         {
-            this.SignalSource |= SignalSource.DvbS;
+            SignalSource = FlagsHelper.Set(SignalSource, SignalSource.DVBS);
             if (r.GetInt32(field["ya_svcid"]) >= 0)
-                this.SignalSource |= SignalSource.Freesat;
+                SignalSource = FlagsHelper.Set(SignalSource, SignalSource.Preset_Freesat);
         }
         else if (ntype == 2)
-            this.SignalSource |= SignalSource.DvbT;
+            SignalSource = FlagsHelper.Set(SignalSource, SignalSource.DVBT);
         else if (ntype == 3)
-            this.SignalSource |= SignalSource.DvbC;
+            SignalSource = FlagsHelper.Set(SignalSource, SignalSource.DVBC);
         else if (ntype == 10)
-            this.SignalSource |= SignalSource.AnalogT | SignalSource.Tv;
+            SignalSource = FlagsHelper.Set(SignalSource, SignalSource.AnalogAntenna | SignalSource.TV);
         else if (ntype == 14)
-            this.SignalSource |= SignalSource.AnalogC | SignalSource.Tv;
+            SignalSource = FlagsHelper.Set(SignalSource, SignalSource.AnalogCable | SignalSource.TV);
         else if (ntype == 15)
         {
-            if (this.DeliveryType == 15)
-                this.SignalSource |= SignalSource.SatIP;
+            if (DeliveryType == 15)
+                SignalSource = FlagsHelper.Set(SignalSource, SignalSource.DVBIPSat);
             //else if (this.DeliveryType == 0) // Currently no sample for AntennaIP found
-            //    this.SignalSource |= SignalSource.AntennaIP;
-            else if (this.DeliveryType == 18)
-                this.SignalSource |= SignalSource.CableIP;
+            //    SignalSource = FlagsHelper.Set(SignalSource, SignalSource.DVBIPAntenna);
+            else if (DeliveryType == 18)
+                SignalSource = FlagsHelper.Set(SignalSource, SignalSource.DVBIPCable);
             else
-                this.SignalSource |= SignalSource.SatIP;
+                SignalSource = FlagsHelper.Set(SignalSource, SignalSource.DVBIPSat);
         }
 
         byte[] buffer = new byte[1000];
         var len = r.GetBytes(field["delivery"], 0, buffer, 0, 1000);
-        this.AddDebug(buffer, 0, (int) len);
+        AddDebug(buffer, 0, (int) len);
 
-        this.Skip = r.GetInt32(field["skip"]) != 0;
-        this.Encrypted = r.GetInt32(field["free_CA_mode"]) != 0;
-        this.Lock = r.GetInt32(field["child_lock"]) != 0;
-        this.ParseFavorites(r, field);
-        this.ReadNamesWithEncodingDetection(r, field, encoding);
+        Skip = r.GetInt32(field["skip"]) != 0;
+        Encrypted = r.GetInt32(field["free_CA_mode"]) != 0;
+        Lock = r.GetInt32(field["child_lock"]) != 0;
+        ParseFavorites(r, field);
+        ReadNamesWithEncodingDetection(r, field, encoding);
 
         if (ntype == 10 || ntype == 14)
-            this.ReadAnalogData(r, field);
+            ReadAnalogData(r, field);
         else
-            this.ReadDvbData(r, field, dataRoot, buffer);
+            ReadDvbData(r, field, dataRoot, buffer);
     }
 
     #endregion

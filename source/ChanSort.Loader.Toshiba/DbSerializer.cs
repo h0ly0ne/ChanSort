@@ -11,11 +11,11 @@ namespace ChanSort.Loader.Toshiba
     private const string FILE_dvbSysData_db = "\\dvb_type001\\dvbSysData.db";
     private const string FILE_dvbMainData_db = "\\dvb_type001\\dvbMainData.db";
 
-    private readonly ChannelList atvChannels = new ChannelList(SignalSource.AnalogCT, "Analog");
-    private readonly ChannelList dtvTvChannels = new ChannelList(SignalSource.DvbCT | SignalSource.Tv, "DTV");
-    private readonly ChannelList dtvRadioChannels = new ChannelList(SignalSource.DvbCT | SignalSource.Radio, "Radio");
-    private readonly ChannelList satTvChannels = new ChannelList(SignalSource.DvbS | SignalSource.Tv, "Sat-TV");
-    private readonly ChannelList satRadioChannels = new ChannelList(SignalSource.DvbS | SignalSource.Radio, "Sat-Radio");
+    private readonly ChannelList atvChannels = new ChannelList(SignalSource.AnalogAntennaCable, "Analog");
+    private readonly ChannelList dtvTvChannels = new ChannelList(SignalSource.DVBTC | SignalSource.TV, "DTV");
+    private readonly ChannelList dtvRadioChannels = new ChannelList(SignalSource.DVBTC | SignalSource.Radio, "Radio");
+    private readonly ChannelList satTvChannels = new ChannelList(SignalSource.DVBS | SignalSource.TV, "Sat-TV");
+    private readonly ChannelList satRadioChannels = new ChannelList(SignalSource.DVBS | SignalSource.Radio, "Sat-Radio");
     private readonly Dictionary<string, bool> channelInfoByUid = new Dictionary<string, bool>();
 
     #region ctor()
@@ -173,14 +173,14 @@ namespace ChanSort.Loader.Toshiba
     #region ReadDtvChannels()
     private void ReadDtvChannels(SQLiteCommand cmd)
     {
-      this.ReadDigitalChannels(cmd, "EuroDTVChanList", SignalSource.DvbCT, this.dtvTvChannels, this.dtvRadioChannels);
+      this.ReadDigitalChannels(cmd, "EuroDTVChanList", SignalSource.DVBTC, this.dtvTvChannels, this.dtvRadioChannels);
     }
     #endregion
 
     #region ReadSatChannels()
     private void ReadSatChannels(SQLiteCommand cmd)
     {
-      this.ReadDigitalChannels(cmd, "EuroSATChanList", SignalSource.DvbS, this.satTvChannels, this.satRadioChannels);
+      this.ReadDigitalChannels(cmd, "EuroSATChanList", SignalSource.DVBS, this.satTvChannels, this.satRadioChannels);
     }
     #endregion
 

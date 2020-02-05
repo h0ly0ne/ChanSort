@@ -29,7 +29,7 @@ namespace Test.Loader.VDR
       var list = root.ChannelLists.FirstOrDefault();
       Assert.IsNotNull(list);
       Assert.AreEqual(expectedTotal, list.Channels.Count);
-      Assert.AreEqual(expectedTv, list.Channels.Count(ch => (ch.SignalSource & SignalSource.Tv) != 0));
+      Assert.AreEqual(expectedTv, list.Channels.Count(ch => (ch.SignalSource & SignalSource.TV) != 0));
       Assert.AreEqual(expectedRadio, list.Channels.Count(ch => (ch.SignalSource & SignalSource.Radio) != 0));
 
       // no data channels in channels.conf files
@@ -52,7 +52,7 @@ namespace Test.Loader.VDR
 
       // Pr# 421 = ORF2E 
 
-      var dvbs = data.GetChannelList(SignalSource.DvbS);
+      var dvbs = data.GetChannelList(SignalSource.DVBS);
       var orf2e = dvbs.Channels.FirstOrDefault(ch => ch.Name == "ORF2E");
       Assert.IsNotNull(orf2e);
       Assert.AreEqual(421, orf2e.OldProgramNr);
@@ -75,7 +75,7 @@ namespace Test.Loader.VDR
       data.ApplyCurrentProgramNumbers();
 
       // channel was deleted from file
-      dvbs = data.GetChannelList(SignalSource.DvbS);
+      dvbs = data.GetChannelList(SignalSource.DVBS);
       orf2e = dvbs.Channels.FirstOrDefault(ch => ch.Name == "ORF2E");
       Assert.IsNull(orf2e);
     }

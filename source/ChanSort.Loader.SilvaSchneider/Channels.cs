@@ -27,7 +27,7 @@ namespace ChanSort.Loader.SilvaSchneider
       this.Satellite = line.Substring(10, 18);
 
       var type = line[28];
-      this.SignalSource = SignalSource.Digital | SignalSource.Sat | (type == 'T' ? SignalSource.Tv : type == 'R' ? SignalSource.Radio : 0);
+      this.SignalSource = SignalSource.Digital | SignalSource.Sat | (type == 'T' ? SignalSource.TV : type == 'R' ? SignalSource.Radio : 0);
       this.ServiceType = type == 'T' ? 1 : type == 'R' ? 2 : 0; // 1=SD-TV, 2=Radio
 
       if (int.TryParse(line.Substring(34, 5), out var mhz))

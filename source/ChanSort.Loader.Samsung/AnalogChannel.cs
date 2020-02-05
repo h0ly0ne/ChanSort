@@ -11,7 +11,7 @@ namespace ChanSort.Loader.Samsung
     public AnalogChannel(int slot, bool isCable, DataMapping mapping, decimal freq, FavoritesIndexMode sortedFavorites) :
       base(mapping, sortedFavorites)
     {
-      var signalSource = SignalSource.Analog | SignalSource.Tv;
+      var signalSource = SignalSource.Analog | SignalSource.TV;
       signalSource |= isCable ? SignalSource.Cable : SignalSource.Antenna;
       this.InitCommonData(slot, signalSource, mapping);
 

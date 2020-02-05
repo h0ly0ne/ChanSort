@@ -28,6 +28,7 @@ namespace ChanSort.Api
     /// original program number from the file, except for channels with IsDeleted==true, which will have the value -1
     /// </summary>
     public int OldProgramNr { get; set; }
+
     /// <summary>
     /// new program number or -1, if the channel isn't assigned a number or has IsDeleted==true
     /// </summary>
@@ -80,7 +81,7 @@ namespace ChanSort.Api
     /// <summary>
     /// A proxy channel is inserted into the current channel list when there was no match for a reference list channel
     /// </summary>
-    public bool IsProxy => this.RecordIndex < 0;
+    public bool IsProxy => RecordIndex < 0;
     
     /// <summary>
     /// arbitrary information that can be shown in a UI column to assist in analyzing a file format while coding a plugin
@@ -95,17 +96,17 @@ namespace ChanSort.Api
     #region ctor()
     protected ChannelInfo()
     {
-      this.OldProgramNr = -1;
-      this.NewProgramNr = -1;
-      this.FavIndex = new List<int>(MAX_FAV_LISTS);
-      this.OldFavIndex = new List<int>(MAX_FAV_LISTS);
+      OldProgramNr = -1;
+      NewProgramNr = -1;
+      FavIndex = new List<int>(MAX_FAV_LISTS);
+      OldFavIndex = new List<int>(MAX_FAV_LISTS);
       for (int i = 0; i < MAX_FAV_LISTS; i++)
       {
-        this.FavIndex.Add(-1);
-        this.OldFavIndex.Add(-1);
+        FavIndex.Add(-1);
+        OldFavIndex.Add(-1);
       }
-      this.Name = "";
-      this.ShortName = "";
+      Name = "";
+      ShortName = "";
     }
 
     /// <summary>
@@ -113,12 +114,12 @@ namespace ChanSort.Api
     /// </summary>
     public ChannelInfo(SignalSource source, long index, int oldProgNr, string name) : this()
     {
-      this.SignalSource = source;
-      this.RecordIndex = index;
-      this.RecordOrder = (int)index;
-      this.OldProgramNr = oldProgNr;
-      this.Name = name;
-      this.Encrypted = null;
+      SignalSource = source;
+      RecordIndex = index;
+      RecordOrder = (int)index;
+      OldProgramNr = oldProgNr;
+      Name = name;
+      Encrypted = null;
     }
 
     /// <summary>
@@ -126,14 +127,14 @@ namespace ChanSort.Api
     /// </summary>
     public ChannelInfo(SignalSource source, string uid, int newProgNr, string name) : this()
     {
-      this.SignalSource = source;
-      this.Uid = uid;
-      this.RecordIndex = -1;
-      this.RecordOrder = -1;
-      this.OldProgramNr = -1;
-      this.NewProgramNr = newProgNr;
-      this.Name = name;
-      this.Encrypted = null;
+      SignalSource = source;
+      Uid = uid;
+      RecordIndex = -1;
+      RecordOrder = -1;
+      OldProgramNr = -1;
+      NewProgramNr = newProgNr;
+      Name = name;
+      Encrypted = null;
     }
     #endregion
 
@@ -145,28 +146,27 @@ namespace ChanSort.Api
     /// </summary>
     public string Uid
     {
-      get
-      {
-        if (this.uid == null)
+        get
         {
-          if ((this.SignalSource & SignalSource.MaskAnalogDigital) == SignalSource.Analog)
-            this.uid = "A-0-" + (int) (this.FreqInMhz*20) + "-0";
-          else
-          {
-            if ((this.SignalSource & SignalSource.MaskAntennaCableSat) == SignalSource.Sat)
-              this.uid = "S" + /*this.SatPosition + */ "-" + this.OriginalNetworkId + "-" + this.TransportStreamId + "-" + this.ServiceId;
-            else if ((this.SignalSource & SignalSource.MaskAntennaCableSat) == SignalSource.Antenna || (this.SignalSource & SignalSource.MaskAntennaCableSat) == SignalSource.Cable)
-            {
-              // ChannelOrTransponder is needed for DVB-T where the same ONID+TSID+SID can be received from 2 different radio transmitters, but on different frequencies/channels
-              this.uid = "C-" + this.OriginalNetworkId + "-" + this.TransportStreamId + "-" + this.ServiceId + "-" + this.ChannelOrTransponder;
-            }
+            if (uid != null) return uid;
+            if (FlagsHelper.IsSet(SignalSource, SignalSource.Analog))
+                uid = "A-0-" + (int) (FreqInMhz*20) + "-0";
             else
-              this.uid = this.OriginalNetworkId + "-" + this.TransportStreamId + "-" + this.ServiceId;
-          }
+            {
+                if (FlagsHelper.IsSet(SignalSource, SignalSource.Sat))
+                    uid = "S" + /*this.SatPosition + */ "-" + OriginalNetworkId + "-" + TransportStreamId + "-" + ServiceId;
+                else if (FlagsHelper.IsSet(SignalSource, SignalSource.Antenna) || FlagsHelper.IsSet(SignalSource, SignalSource.Cable))
+                {
+                    // ChannelOrTransponder is needed for DVB-T where the same ONID+TSID+SID can be received from 2 different radio transmitters, but on different frequencies/channels
+                    uid = "C-" + OriginalNetworkId + "-" + TransportStreamId + "-" + ServiceId + "-" + ChannelOrTransponder;
+                }
+                else
+                    uid = OriginalNetworkId + "-" + TransportStreamId + "-" + ServiceId;
+            }
+
+            return uid;
         }
-        return this.uid;
-      }
-      set { this.uid = value; }
+        set => uid = value;
     }
     #endregion
 
@@ -174,8 +174,8 @@ namespace ChanSort.Api
 
     public override string ToString()
     {
-      string nr = this.NewProgramNr != -1 ? this.NewProgramNr.ToString() : "@" + this.RecordIndex;
-      return nr + ": " + this.Name;
+      string nr = NewProgramNr != -1 ? NewProgramNr.ToString() : "@" + RecordIndex;
+      return nr + ": " + Name;
     }
 
     public override bool Equals(object obj)
@@ -187,7 +187,7 @@ namespace ChanSort.Api
 
     public override int GetHashCode()
     {
-      return this.Uid.GetHashCode() + this.OldProgramNr;
+      return Uid.GetHashCode() + OldProgramNr;
     }
 
     #endregion
@@ -197,8 +197,8 @@ namespace ChanSort.Api
     {
       get
       {
-        var network = LookupData.Instance.GetNetwork(this.OriginalNetworkId);
-        return network == null ? null : network.Name;
+        var network = LookupData.Instance.GetNetwork(OriginalNetworkId);
+        return network?.Name;
       }
     }
 
@@ -206,8 +206,8 @@ namespace ChanSort.Api
     {
       get
       {
-        var network = LookupData.Instance.GetNetwork(this.OriginalNetworkId);
-        return network == null ? null : network.Operator;
+        var network = LookupData.Instance.GetNetwork(OriginalNetworkId);
+        return network?.Operator;
       }
     }
     #endregion
@@ -216,8 +216,8 @@ namespace ChanSort.Api
 
     public string ServiceTypeName
     {
-      get { return this.serviceTypeName ?? (this.serviceTypeName = LookupData.Instance.GetServiceTypeDescription(this.ServiceType)); }
-      set { this.serviceTypeName = value; }
+      get => serviceTypeName ?? (serviceTypeName = LookupData.Instance.GetServiceTypeDescription(ServiceType));
+      set => serviceTypeName = value;
     }
     #endregion
 
@@ -243,40 +243,40 @@ namespace ChanSort.Api
     #region AddDebug()
     public void AddDebug(byte val)
     {
-      if (this.Debug == null)
-        this.Debug = val.ToString("x2");
+      if (Debug == null)
+        Debug = val.ToString("x2");
       else
-        this.Debug += " " + val.ToString("x2");
+        Debug += " " + val.ToString("x2");
     }
 
     public void AddDebug(ushort val)
     {
-      if (this.Debug == null)
-        this.Debug = val.ToString("x4");
+      if (Debug == null)
+        Debug = val.ToString("x4");
       else
-        this.Debug += " " + val.ToString("x4");
+        Debug += " " + val.ToString("x4");
     }
 
     public void AddDebug(uint val)
     {
-      if (this.Debug == null)
-        this.Debug = val.ToString("x8");
+      if (Debug == null)
+        Debug = val.ToString("x8");
       else
-        this.Debug += " " + val.ToString("x8");
+        Debug += " " + val.ToString("x8");
     }
 
     public void AddDebug(byte[] data, int offset, int len)
     {
       for (int i = 0; i < len; i++)
-        this.AddDebug(data[offset + i]);
+        AddDebug(data[offset + i]);
     }
 
     public void AddDebug(string val)
     {
-      if (this.Debug == null)
-        this.Debug = val;
+      if (Debug == null)
+        Debug = val;
       else
-        this.Debug += " " + val;
+        Debug += " " + val;
     }
     #endregion
 
@@ -306,7 +306,7 @@ namespace ChanSort.Api
     /// </summary>
     public int GetPosition(int subListIndex)
     {
-      return subListIndex == 0 ? this.NewProgramNr : this.FavIndex[subListIndex - 1];
+      return subListIndex == 0 ? NewProgramNr : FavIndex[subListIndex - 1];
     }
 
     /// <summary>
@@ -314,7 +314,7 @@ namespace ChanSort.Api
     /// </summary>
     public int GetOldPosition(int subListIndex)
     {
-      return subListIndex == 0 ? this.OldProgramNr : this.OldFavIndex[subListIndex - 1];
+      return subListIndex == 0 ? OldProgramNr : OldFavIndex[subListIndex - 1];
     }
 
     /// <summary>
@@ -323,15 +323,15 @@ namespace ChanSort.Api
     public void SetPosition(int subListIndex, int newPos)
     {
       if (subListIndex == 0)
-        this.NewProgramNr = newPos;
+        NewProgramNr = newPos;
       else
       {
-        this.FavIndex[subListIndex - 1] = newPos;
+        FavIndex[subListIndex - 1] = newPos;
         int mask = 1 << (subListIndex - 1);
         if (newPos == -1)
-          this.Favorites &= (Favorites)~mask;
+          Favorites &= (Favorites)~mask;
         else
-          this.Favorites |= (Favorites)mask;
+          Favorites |= (Favorites)mask;
       }
     }
 
@@ -341,9 +341,9 @@ namespace ChanSort.Api
     public void SetOldPosition(int subListIndex, int oldPos)
     {
       if (subListIndex == 0)
-        this.OldProgramNr = oldPos;
+        OldProgramNr = oldPos;
       else
-        this.OldFavIndex[subListIndex - 1] = oldPos;
+        OldFavIndex[subListIndex - 1] = oldPos;
     }
 
     /// <summary>
@@ -352,9 +352,9 @@ namespace ChanSort.Api
     internal void ChangePosition(int subListIndex, int delta)
     {
       if (subListIndex == 0)
-        this.NewProgramNr += delta;
+        NewProgramNr += delta;
       else
-        this.FavIndex[subListIndex - 1] += delta;      
+        FavIndex[subListIndex - 1] += delta;      
     }
     #endregion
   }

@@ -57,15 +57,15 @@ namespace Test.Loader.Samsung
 
           var fileName = Path.GetFileName(file) ?? "";
           var model = this.GetSamsungModel(file);
-          var analogAirList = serializer.DataRoot.GetChannelList(ChanSort.Api.SignalSource.AnalogT | ChanSort.Api.SignalSource.Tv);
-          var analogCableList = serializer.DataRoot.GetChannelList(ChanSort.Api.SignalSource.AnalogC | ChanSort.Api.SignalSource.Tv);
-          var digitalAirList = serializer.DataRoot.GetChannelList(ChanSort.Api.SignalSource.DvbT | ChanSort.Api.SignalSource.Tv);
-          var digitalCableList = serializer.DataRoot.GetChannelList(ChanSort.Api.SignalSource.DvbC | ChanSort.Api.SignalSource.Tv);
-          var satChannelList = serializer.DataRoot.GetChannelList(ChanSort.Api.SignalSource.DvbS | ChanSort.Api.SignalSource.Tv);
-          var primeChannelList = serializer.DataRoot.GetChannelList(ChanSort.Api.SignalSource.CablePrimeD | ChanSort.Api.SignalSource.Tv);
-          var hdplusChannelList = serializer.DataRoot.GetChannelList(ChanSort.Api.SignalSource.HdPlusD | ChanSort.Api.SignalSource.Tv);
-          var freesatChannelList = serializer.DataRoot.GetChannelList(ChanSort.Api.SignalSource.FreesatD | ChanSort.Api.SignalSource.Tv);
-          var tivusatChannelList = serializer.DataRoot.GetChannelList(ChanSort.Api.SignalSource.TivuSatD | ChanSort.Api.SignalSource.Tv);
+          var analogAirList = serializer.DataRoot.GetChannelList(ChanSort.Api.SignalSource.AnalogAntenna | ChanSort.Api.SignalSource.TV);
+          var analogCableList = serializer.DataRoot.GetChannelList(ChanSort.Api.SignalSource.AnalogCable | ChanSort.Api.SignalSource.TV);
+          var digitalAirList = serializer.DataRoot.GetChannelList(ChanSort.Api.SignalSource.DVBT | ChanSort.Api.SignalSource.TV);
+          var digitalCableList = serializer.DataRoot.GetChannelList(ChanSort.Api.SignalSource.DVBC | ChanSort.Api.SignalSource.TV);
+          var satChannelList = serializer.DataRoot.GetChannelList(ChanSort.Api.SignalSource.DVBS | ChanSort.Api.SignalSource.TV);
+          var primeChannelList = serializer.DataRoot.GetChannelList(ChanSort.Api.SignalSource.Preset_Samsung_CablePrimeD | ChanSort.Api.SignalSource.TV);
+          var hdplusChannelList = serializer.DataRoot.GetChannelList(ChanSort.Api.SignalSource.Preset_Samsung_HdPlusD | ChanSort.Api.SignalSource.TV);
+          var freesatChannelList = serializer.DataRoot.GetChannelList(ChanSort.Api.SignalSource.Preset_Samsung_FreesatD | ChanSort.Api.SignalSource.TV);
+          var tivusatChannelList = serializer.DataRoot.GetChannelList(ChanSort.Api.SignalSource.Preset_Samsung_TivuSatD | ChanSort.Api.SignalSource.TV);
 
           string key = serializer.Series + 
             "\t" + model +
@@ -108,9 +108,9 @@ namespace Test.Loader.Samsung
           key = Path.GetFileName(Path.GetDirectoryName(file)) + "\\" + Path.GetFileName(file);
           if (expectedData.TryGetValue(key, out exp))
           {
-            var analogTv = serializer.DataRoot.GetChannelList(ChanSort.Api.SignalSource.AnalogC);
-            var dtvTv = serializer.DataRoot.GetChannelList(ChanSort.Api.SignalSource.DvbC);
-            var satTv = serializer.DataRoot.GetChannelList(ChanSort.Api.SignalSource.DvbS);
+            var analogTv = serializer.DataRoot.GetChannelList(ChanSort.Api.SignalSource.AnalogCable);
+            var dtvTv = serializer.DataRoot.GetChannelList(ChanSort.Api.SignalSource.DVBC);
+            var satTv = serializer.DataRoot.GetChannelList(ChanSort.Api.SignalSource.DVBS);
             expectedData.Remove(key);
             if (exp.AnalogChannels != 0 || analogTv != null)
               Assert.AreEqual(exp.AnalogChannels, analogTv.Channels.Count, file + ": analog");
@@ -159,7 +159,7 @@ namespace Test.Loader.Samsung
 
       // Pr# 122 = ORF2W HD 
 
-      var dvbs = data.GetChannelList(SignalSource.DvbS);
+      var dvbs = data.GetChannelList(SignalSource.DVBS);
       var orf2w = dvbs.Channels.FirstOrDefault(ch => ch.Name == "ORF2W HD");
       Assert.AreEqual(122, orf2w.OldProgramNr);
       Assert.AreEqual(122, orf2w.NewProgramNr);
@@ -182,7 +182,7 @@ namespace Test.Loader.Samsung
       data.ApplyCurrentProgramNumbers();
 
 
-      dvbs = data.GetChannelList(SignalSource.DvbS);
+      dvbs = data.GetChannelList(SignalSource.DVBS);
       orf2w = dvbs.Channels.FirstOrDefault(ch => ch.Name == "ORF2W HD");
       
       // For .scm sat-channels, there is no known "IsDeleted" flag. Instead, the "IsUsed" flag is set to false when saving a channel with IsDeleted==true
@@ -208,7 +208,7 @@ namespace Test.Loader.Samsung
 
       // Pr# 2 = ORF 2 Wien HD 
 
-      var dvbc = data.GetChannelList(SignalSource.DvbC);
+      var dvbc = data.GetChannelList(SignalSource.DVBC);
       var orf2w = dvbc.Channels.FirstOrDefault(ch => ch.Name == "ORF 2 Wien HD");
       Assert.IsNotNull(orf2w);
       Assert.AreEqual(2, orf2w.OldProgramNr);
@@ -232,7 +232,7 @@ namespace Test.Loader.Samsung
       data.ApplyCurrentProgramNumbers();
 
 
-      dvbc = data.GetChannelList(SignalSource.DvbC);
+      dvbc = data.GetChannelList(SignalSource.DVBC);
       orf2w = dvbc.Channels.FirstOrDefault(ch => ch.Name == "ORF 2 Wien HD");
 
       // For .scm sat-channels, there is no known "IsDeleted" flag. Instead, the "IsUsed" flag is set to false when saving a channel with IsDeleted==true

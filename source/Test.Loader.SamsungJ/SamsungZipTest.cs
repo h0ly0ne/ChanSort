@@ -15,7 +15,7 @@ namespace Test.Loader.SamsungJ
     [TestMethod]
     public void TestSatChannelsAddedToCorrectLists()
     {
-      this.TestChannelsAddedToCorrectLists("Channel_list_T-KTSUDEUC-1007.1.zip", SignalSource.DvbS, 1323, 878, 380, 4008, "Humax ESD 160C");
+      this.TestChannelsAddedToCorrectLists("Channel_list_T-KTSUDEUC-1007.1.zip", SignalSource.DVBS, 1323, 878, 380, 4008, "Humax ESD 160C");
     }
     #endregion
 
@@ -23,7 +23,7 @@ namespace Test.Loader.SamsungJ
     [TestMethod]
     public void TestCableChannelsAddedToCorrectLists()
     {
-      this.TestChannelsAddedToCorrectLists("Channel_list_T-KTMDEUC-1132.6.zip", SignalSource.DvbC, 146, 65, 75, 4008, "Humax 160C");
+      this.TestChannelsAddedToCorrectLists("Channel_list_T-KTMDEUC-1132.6.zip", SignalSource.DVBC, 146, 65, 75, 4008, "Humax 160C");
     }
     #endregion
 
@@ -31,7 +31,7 @@ namespace Test.Loader.SamsungJ
     [TestMethod]
     public void TestAntennaChannelsAddedToCorrectLists()
     {
-      this.TestChannelsAddedToCorrectLists("Channel_list_T-KTSUDEUC-1007.2.zip", SignalSource.DvbT, 77, 71, 4, 3995, "Irdeto Code 4");
+      this.TestChannelsAddedToCorrectLists("Channel_list_T-KTSUDEUC-1007.2.zip", SignalSource.DVBT, 77, 71, 4, 3995, "Irdeto Code 4");
     }
     #endregion
 
@@ -49,7 +49,7 @@ namespace Test.Loader.SamsungJ
       var list = root.GetChannelList(signalSource);
       Assert.IsNotNull(list);
       Assert.AreEqual(expectedTotal, list.Channels.Count);
-      Assert.AreEqual(expectedTv, list.Channels.Count(ch => (ch.SignalSource & SignalSource.Tv) != 0));
+      Assert.AreEqual(expectedTv, list.Channels.Count(ch => (ch.SignalSource & SignalSource.TV) != 0));
       Assert.AreEqual(expectedRadio, list.Channels.Count(ch => (ch.SignalSource & SignalSource.Radio) != 0));
 
       // check that data channel is in the TV list
@@ -77,7 +77,7 @@ namespace Test.Loader.SamsungJ
 
       // Pr# 418 = ORF2E 
 
-      var dvbs = data.GetChannelList(SignalSource.DvbS);
+      var dvbs = data.GetChannelList(SignalSource.DVBS);
       var orf2e = dvbs.Channels.FirstOrDefault(ch => ch.Name == "ORF2E");
       Assert.IsNotNull(orf2e);
       Assert.AreEqual(418, orf2e.OldProgramNr);
@@ -101,7 +101,7 @@ namespace Test.Loader.SamsungJ
       data.ApplyCurrentProgramNumbers();
 
 
-      dvbs = data.GetChannelList(SignalSource.DvbS);
+      dvbs = data.GetChannelList(SignalSource.DVBS);
       orf2e = dvbs.Channels.FirstOrDefault(ch => ch.Name == "ORF2E");
       Assert.IsNull(orf2e);
     }

@@ -9,7 +9,7 @@ namespace ChanSort.Loader.LG
 
     public AnalogChannel(int slot, DataMapping data) : base(data)
     {
-      this.InitCommonData(slot, SignalSource.AnalogCT, data);
+      this.InitCommonData(slot, SignalSource.AnalogAntennaCable, data);
 
       this.FreqInMhz = (decimal)data.GetWord(_Freqency) / 20;
       int channelAndBand = data.GetWord(_FreqBand);

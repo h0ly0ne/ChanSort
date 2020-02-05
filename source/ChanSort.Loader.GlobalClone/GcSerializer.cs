@@ -10,11 +10,11 @@ namespace ChanSort.Loader.GlobalClone
 {
   class GcSerializer : SerializerBase
   {
-    private readonly ChannelList atvChannels = new ChannelList(SignalSource.AnalogCT, "Analog");
-    private readonly ChannelList dtvTvChannels = new ChannelList(SignalSource.DvbCT | SignalSource.TvAndData, "DTV");
-    private readonly ChannelList dtvRadioChannels = new ChannelList(SignalSource.DvbCT | SignalSource.Radio, "Radio");
-    private readonly ChannelList satTvChannels = new ChannelList(SignalSource.DvbS | SignalSource.TvAndData, "Sat-TV");
-    private readonly ChannelList satRadioChannels = new ChannelList(SignalSource.DvbS | SignalSource.Radio, "Sat-Radio");
+    private readonly ChannelList atvChannels = new ChannelList(SignalSource.AnalogAntennaCable, "Analog");
+    private readonly ChannelList dtvTvChannels = new ChannelList(SignalSource.DVBTC | SignalSource.TVAndData, "DTV");
+    private readonly ChannelList dtvRadioChannels = new ChannelList(SignalSource.DVBTC | SignalSource.Radio, "Radio");
+    private readonly ChannelList satTvChannels = new ChannelList(SignalSource.DVBS | SignalSource.TVAndData, "Sat-TV");
+    private readonly ChannelList satRadioChannels = new ChannelList(SignalSource.DVBS | SignalSource.Radio, "Sat-Radio");
     private XmlDocument doc;
     private readonly DvbStringDecoder dvbStringDecoder = new DvbStringDecoder(Encoding.Default);
     private string modelName;
@@ -207,7 +207,7 @@ namespace ChanSort.Loader.GlobalClone
         if (itemNode.LocalName != "ITEM")
           continue;
         ++i;
-        GcChannel ch = new GcChannel(analog ? SignalSource.AnalogCT | SignalSource.Tv : SignalSource.Digital, i, itemNode);
+        GcChannel ch = new GcChannel(analog ? SignalSource.AnalogAntennaCable | SignalSource.TV : SignalSource.Digital, i, itemNode);
         this.ParseChannelInfoNodes(itemNode, ch);
 
         var list = this.DataRoot.GetChannelList(ch.SignalSource);

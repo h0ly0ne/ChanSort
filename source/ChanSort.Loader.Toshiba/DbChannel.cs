@@ -34,7 +34,7 @@ namespace ChanSort.Loader.Toshiba
         return;
       }
 
-      if (isTv) this.SignalSource |= SignalSource.Tv;
+      if (isTv) this.SignalSource |= SignalSource.TV;
       if (isRadio) this.SignalSource |= SignalSource.Radio;
       this.Lock = (Bits & BITS_Locked) != 0;
       this.OldProgramNr = r.GetInt32(field["channel_number"]);

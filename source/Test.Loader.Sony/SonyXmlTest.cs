@@ -14,23 +14,23 @@ namespace Test.Loader.Sony
     [TestMethod]
     public void TestAndroidSatChannelsAddedToCorrectLists()
     {
-      this.TestChannelsAddedToCorrectLists("android_sdb-sat.xml", SignalSource.DvbS, 1163, 1004, 159);
-      this.TestChannelsAddedToCorrectLists("android_sdb-sat.xml", SignalSource.DvbS | SignalSource.Provider1, 397, 265, 132);
-      this.TestChannelsAddedToCorrectLists("android_sdb-sat.xml", SignalSource.DvbS | SignalSource.Provider2, 0, 0, 0);
+      this.TestChannelsAddedToCorrectLists("android_sdb-sat.xml", SignalSource.DVBS, 1163, 1004, 159);
+      this.TestChannelsAddedToCorrectLists("android_sdb-sat.xml", SignalSource.DVBS | SignalSource.Preset_Sony_Provider1, 397, 265, 132);
+      this.TestChannelsAddedToCorrectLists("android_sdb-sat.xml", SignalSource.DVBS | SignalSource.Preset_Sony_Provider2, 0, 0, 0);
     }
 
     [TestMethod]
     public void TestAndroidCableChannelsAddedToCorrectLists()
     {
-      this.TestChannelsAddedToCorrectLists("android_sdb-cable.xml", SignalSource.DvbC | SignalSource.Tv, 314, 314, 0);
-      this.TestChannelsAddedToCorrectLists("android_sdb-cable.xml", SignalSource.DvbC | SignalSource.Radio, 112, 0, 112);
+      this.TestChannelsAddedToCorrectLists("android_sdb-cable.xml", SignalSource.DVBC | SignalSource.TV, 314, 314, 0);
+      this.TestChannelsAddedToCorrectLists("android_sdb-cable.xml", SignalSource.DVBC | SignalSource.Radio, 112, 0, 112);
     }
 
     [TestMethod]
     public void TestAndroidAntennaChannelsAddedToCorrectLists()
     {
-      this.TestChannelsAddedToCorrectLists("android_sdb-antenna.xml", SignalSource.DvbT | SignalSource.Tv, 53, 53, 0);
-      this.TestChannelsAddedToCorrectLists("android_sdb-antenna.xml", SignalSource.DvbT | SignalSource.Radio, 6, 0, 6);
+      this.TestChannelsAddedToCorrectLists("android_sdb-antenna.xml", SignalSource.DVBT | SignalSource.TV, 53, 53, 0);
+      this.TestChannelsAddedToCorrectLists("android_sdb-antenna.xml", SignalSource.DVBT | SignalSource.Radio, 6, 0, 6);
     }
     #endregion
 
@@ -38,16 +38,16 @@ namespace Test.Loader.Sony
     [TestMethod]
     public void TestKdlSatChannelsAddedToCorrectLists()
     {
-      this.TestChannelsAddedToCorrectLists("kdl_sdb-cable-sat.xml", SignalSource.DvbS, 1540, 1191, 173, 7216, "HUMAX DOWNLOAD SVC");
+      this.TestChannelsAddedToCorrectLists("kdl_sdb-cable-sat.xml", SignalSource.DVBS, 1540, 1191, 173, 7216, "HUMAX DOWNLOAD SVC");
     }
 
     [TestMethod]
     public void TestKdlCableChannelsAddedToCorrectLists()
     {
       // there are 237 tv+radio channels in the list, but only a subset has assigned program numbers
-      this.TestChannelsAddedToCorrectLists("kdl_sdb-cable-sat.xml", SignalSource.DvbC | SignalSource.Tv, 189, 189, 0);
-      this.TestChannelsAddedToCorrectLists("kdl_sdb-cable-sat.xml", SignalSource.DvbC | SignalSource.Radio, 47, 0, 47);
-      this.TestChannelsAddedToCorrectLists("kdl_sdb-cable-sat.xml", SignalSource.DvbC | SignalSource.Data, 1, 0, 0, 5024, "Zapp PDS");
+      this.TestChannelsAddedToCorrectLists("kdl_sdb-cable-sat.xml", SignalSource.DVBC | SignalSource.TV, 189, 189, 0);
+      this.TestChannelsAddedToCorrectLists("kdl_sdb-cable-sat.xml", SignalSource.DVBC | SignalSource.Radio, 47, 0, 47);
+      this.TestChannelsAddedToCorrectLists("kdl_sdb-cable-sat.xml", SignalSource.DVBC | SignalSource.Data, 1, 0, 0, 5024, "Zapp PDS");
     }
     #endregion
 
@@ -65,7 +65,7 @@ namespace Test.Loader.Sony
       var list = root.GetChannelList(signalSource);
       Assert.IsNotNull(list);
       Assert.AreEqual(expectedTotal, list.Channels.Count);
-      Assert.AreEqual(expectedTv, list.Channels.Count(ch => (ch.SignalSource & SignalSource.Tv) != 0));
+      Assert.AreEqual(expectedTv, list.Channels.Count(ch => (ch.SignalSource & SignalSource.TV) != 0));
       Assert.AreEqual(expectedRadio, list.Channels.Count(ch => (ch.SignalSource & SignalSource.Radio) != 0));
 
       // check that data channel is in the TV list
@@ -94,7 +94,7 @@ namespace Test.Loader.Sony
 
       // Pr# 128 = ORF2E 
 
-      var dvbs = data.GetChannelList(SignalSource.DvbS);
+      var dvbs = data.GetChannelList(SignalSource.DVBS);
       var orf2e = dvbs.Channels.FirstOrDefault(ch => ch.Name == "ORF2E");
       Assert.IsNotNull(orf2e);
       Assert.AreEqual(127, orf2e.OldProgramNr);
@@ -118,7 +118,7 @@ namespace Test.Loader.Sony
       data.ApplyCurrentProgramNumbers();
 
       // channel was marked deleted
-      dvbs = data.GetChannelList(SignalSource.DvbS);
+      dvbs = data.GetChannelList(SignalSource.DVBS);
       orf2e = dvbs.Channels.FirstOrDefault(ch => ch.Name == "ORF2E");
       Assert.IsNotNull(orf2e);
       Assert.IsTrue(orf2e.IsDeleted);
@@ -141,7 +141,7 @@ namespace Test.Loader.Sony
 
       // Pr# 128 = ORF2E 
 
-      var dvbs = data.GetChannelList(SignalSource.DvbS);
+      var dvbs = data.GetChannelList(SignalSource.DVBS);
       var orf2e = dvbs.Channels.FirstOrDefault(ch => ch.Name == "ORF2E");
       Assert.IsNotNull(orf2e);
       Assert.AreEqual(693, orf2e.OldProgramNr);
@@ -164,7 +164,7 @@ namespace Test.Loader.Sony
       data.ApplyCurrentProgramNumbers();
 
       // channel was not assigned a number in the file
-      dvbs = data.GetChannelList(SignalSource.DvbS);
+      dvbs = data.GetChannelList(SignalSource.DVBS);
       orf2e = dvbs.Channels.FirstOrDefault(ch => ch.Name == "ORF2E");
       Assert.IsNotNull(orf2e);
       Assert.IsTrue(orf2e.IsDeleted);

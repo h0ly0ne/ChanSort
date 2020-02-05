@@ -126,7 +126,7 @@
     <value>0, 57</value>
   </data>
   <metadata name="dsChannels.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>893, 173</value>
+    <value>378, 212</value>
   </metadata>
   <data name="gridLeft.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Fill</value>
@@ -1893,7 +1893,7 @@
     <value>False</value>
   </data>
   <data name="rbInsertSwap.Location" type="System.Drawing.Point, System.Drawing">
-    <value>256, -14</value>
+    <value>256, -34</value>
   </data>
   <data name="rbInsertSwap.Properties.Caption" xml:space="preserve">
     <value>swap</value>
@@ -1924,7 +1924,7 @@
     <value>True</value>
   </data>
   <data name="rbInsertAfter.Location" type="System.Drawing.Point, System.Drawing">
-    <value>185, -14</value>
+    <value>185, -34</value>
   </data>
   <data name="rbInsertAfter.Properties.Caption" xml:space="preserve">
     <value>after</value>
@@ -1948,7 +1948,7 @@
     <value>1</value>
   </data>
   <data name="rbInsertBefore.Location" type="System.Drawing.Point, System.Drawing">
-    <value>107, -14</value>
+    <value>107, -34</value>
   </data>
   <data name="rbInsertBefore.Properties.Caption" xml:space="preserve">
     <value>before</value>
@@ -2002,7 +2002,7 @@
     <value>3</value>
   </data>
   <data name="lblInsertMode.Location" type="System.Drawing.Point, System.Drawing">
-    <value>7, -12</value>
+    <value>7, -32</value>
   </data>
   <data name="lblInsertMode.Size" type="System.Drawing.Size, System.Drawing">
     <value>62, 13</value>
@@ -2029,7 +2029,7 @@
     <value>Top, Right</value>
   </data>
   <data name="picDonate.Location" type="System.Drawing.Point, System.Drawing">
-    <value>1224, -16</value>
+    <value>1224, -36</value>
   </data>
   <data name="picDonate.Size" type="System.Drawing.Size, System.Drawing">
     <value>166, 54</value>
@@ -2254,7 +2254,7 @@
     <value>globalImageCollection1</value>
   </data>
   <data name="&gt;&gt;globalImageCollection1.Type" xml:space="preserve">
-    <value>ChanSort.Ui.GlobalImageCollection, ChanSort, Version=1.0.7338.19610, Culture=neutral, PublicKeyToken=null</value>
+    <value>ChanSort.Ui.GlobalImageCollection, ChanSort, Version=1.0.7338.35739, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;gviewRight.Name" xml:space="preserve">
     <value>gviewRight</value>
@@ -2965,6 +2965,6 @@
     <value>25</value>
   </data>
   <metadata name="timerEditDelay.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>328, 212</value>
+    <value>492, 212</value>
   </metadata>
 </root>

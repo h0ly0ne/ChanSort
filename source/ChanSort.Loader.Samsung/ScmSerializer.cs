@@ -20,20 +20,20 @@ namespace ChanSort.Loader.Samsung
     private readonly MappingPool<DataMapping> transponderMappings = new MappingPool<DataMapping>("TransponderDataBase");
     private readonly MappingPool<DataMapping> serviceProviderMappings = new MappingPool<DataMapping>("ServiceProvider");
 
-    private readonly ChannelList avbtChannels = new ChannelList(SignalSource.AnalogT, "Analog Air");
-    private readonly ChannelList avbcChannels = new ChannelList(SignalSource.AnalogC, "Analog Cable");
-    private readonly ChannelList avbxChannels = new ChannelList(SignalSource.AnalogCT, "Analog Air/Cable");
-    private readonly ChannelList dvbtChannels = new ChannelList(SignalSource.DvbT, "Digital Air");
-    private readonly ChannelList dvbcChannels = new ChannelList(SignalSource.DvbC, "Digital Cable");
-    private readonly ChannelList dvbxChannels = new ChannelList(SignalSource.DvbCT, "Digital Air/Cable");
-    private readonly ChannelList dvbsChannels = new ChannelList(SignalSource.DvbS, "Satellite");
-    private readonly ChannelList primeChannels = new ChannelList(SignalSource.CablePrimeD, "Cable Prime");
-    private readonly ChannelList hdplusChannels = new ChannelList(SignalSource.HdPlusD, "Astra HD+");
-    private readonly ChannelList freesatChannels = new ChannelList(SignalSource.FreesatD, "Freesat");
-    private readonly ChannelList tivusatChannels = new ChannelList(SignalSource.TivuSatD, "TivuSat");
-    private readonly ChannelList canalDigitalChannels = new ChannelList(SignalSource.CanalDigitalSatD, "Canal Digital Sat");
-    private readonly ChannelList digitalPlusChannels = new ChannelList(SignalSource.DigitalPlusD, "Canal+ Digital");
-    private readonly ChannelList cyfraPlusChannels = new ChannelList(SignalSource.CyfraPlusD, "Cyfra+ Digital");
+    private readonly ChannelList avbtChannels = new ChannelList(SignalSource.AnalogAntenna, "Analog Air");
+    private readonly ChannelList avbcChannels = new ChannelList(SignalSource.AnalogCable, "Analog Cable");
+    private readonly ChannelList avbxChannels = new ChannelList(SignalSource.AnalogAntennaCable, "Analog Air/Cable");
+    private readonly ChannelList dvbtChannels = new ChannelList(SignalSource.DVBT, "Digital Air");
+    private readonly ChannelList dvbcChannels = new ChannelList(SignalSource.DVBC, "Digital Cable");
+    private readonly ChannelList dvbxChannels = new ChannelList(SignalSource.DVBTC, "Digital Air/Cable");
+    private readonly ChannelList dvbsChannels = new ChannelList(SignalSource.DVBS, "Satellite");
+    private readonly ChannelList primeChannels = new ChannelList(SignalSource.Preset_Samsung_CablePrimeD, "Cable Prime");
+    private readonly ChannelList hdplusChannels = new ChannelList(SignalSource.Preset_Samsung_HdPlusD, "Astra HD+");
+    private readonly ChannelList freesatChannels = new ChannelList(SignalSource.Preset_Samsung_FreesatD, "Freesat");
+    private readonly ChannelList tivusatChannels = new ChannelList(SignalSource.Preset_Samsung_TivuSatD, "TivuSat");
+    private readonly ChannelList canalDigitalChannels = new ChannelList(SignalSource.Preset_Samsung_CanalDigitalSatD, "Canal Digital Sat");
+    private readonly ChannelList digitalPlusChannels = new ChannelList(SignalSource.Preset_Samsung_DigitalPlusD, "Canal+ Digital");
+    private readonly ChannelList cyfraPlusChannels = new ChannelList(SignalSource.Preset_Samsung_CyfraPlusD, "Cyfra+ Digital");
     
     private readonly Dictionary<int, decimal> avbtFrequency = new Dictionary<int, decimal>();
     private readonly Dictionary<int, decimal> avbcFrequency = new Dictionary<int, decimal>();
@@ -619,7 +619,7 @@ namespace ChanSort.Loader.Samsung
       mapping.SetDataPtr(hdplusFileContent, 0);
       for (int slotIndex = 0; slotIndex < count; slotIndex++)
       {
-        SatChannel ci = new SatChannel(slotIndex, SignalSource.AstraHdPlus, mapping, this.DataRoot, c.SortedFavorites, this.serviceProviderNames);
+        SatChannel ci = new SatChannel(slotIndex, SignalSource.Preset_Samsung_HdPlusD, mapping, this.DataRoot, c.SortedFavorites, this.serviceProviderNames);
         if (ci.InUse)
           this.DataRoot.AddChannel(this.hdplusChannels, ci);
         mapping.BaseOffset += entrySize;

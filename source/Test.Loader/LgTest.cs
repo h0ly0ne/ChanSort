@@ -38,10 +38,10 @@ namespace Test.Loader
 
           var fileName = Path.GetFileName(file) ?? "";
           var model = this.GetLgModel(file);
-          var analogList = serializer.DataRoot.GetChannelList(ChanSort.Api.SignalSource.AnalogCT | ChanSort.Api.SignalSource.Tv);
-          var dvbcList = serializer.DataRoot.GetChannelList(ChanSort.Api.SignalSource.DvbC | ChanSort.Api.SignalSource.Tv);
-          var dvbtList = serializer.DataRoot.GetChannelList(ChanSort.Api.SignalSource.DvbT | ChanSort.Api.SignalSource.Tv);
-          var satChannelList = serializer.DataRoot.GetChannelList(ChanSort.Api.SignalSource.DvbS | ChanSort.Api.SignalSource.Tv);
+          var analogList = serializer.DataRoot.GetChannelList(ChanSort.Api.SignalSource.AnalogAntennaCable | ChanSort.Api.SignalSource.TV);
+          var dvbcList = serializer.DataRoot.GetChannelList(ChanSort.Api.SignalSource.DVBC | ChanSort.Api.SignalSource.TV);
+          var dvbtList = serializer.DataRoot.GetChannelList(ChanSort.Api.SignalSource.DVBT | ChanSort.Api.SignalSource.TV);
+          var satChannelList = serializer.DataRoot.GetChannelList(ChanSort.Api.SignalSource.DVBS | ChanSort.Api.SignalSource.TV);
           string key = 
             model +
             "\t" + serializer.ACTChannelLength+
@@ -88,11 +88,11 @@ namespace Test.Loader
           key = Path.GetFileName(Path.GetDirectoryName(file)) + "\\" + Path.GetFileName(file);
           if (expectedData.TryGetValue(key, out exp))
           {
-            var analogTv = serializer.DataRoot.GetChannelList(ChanSort.Api.SignalSource.AnalogCT|ChanSort.Api.SignalSource.Tv);
-            var dvbcTv = serializer.DataRoot.GetChannelList(ChanSort.Api.SignalSource.DvbC|ChanSort.Api.SignalSource.Tv);
-            var dvbtTv = serializer.DataRoot.GetChannelList(ChanSort.Api.SignalSource.DvbT | ChanSort.Api.SignalSource.Tv);
+            var analogTv = serializer.DataRoot.GetChannelList(ChanSort.Api.SignalSource.AnalogAntennaCable | ChanSort.Api.SignalSource.TV);
+            var dvbcTv = serializer.DataRoot.GetChannelList(ChanSort.Api.SignalSource.DVBC | ChanSort.Api.SignalSource.TV);
+            var dvbtTv = serializer.DataRoot.GetChannelList(ChanSort.Api.SignalSource.DVBT | ChanSort.Api.SignalSource.TV);
             var dtvTv = dvbcTv.Channels.Count > 0 ? dvbcTv : dvbtTv;
-            var satTv = serializer.DataRoot.GetChannelList(ChanSort.Api.SignalSource.DvbS | ChanSort.Api.SignalSource.Tv);
+            var satTv = serializer.DataRoot.GetChannelList(ChanSort.Api.SignalSource.DVBS | ChanSort.Api.SignalSource.TV);
             expectedData.Remove(key);
             Assert.AreEqual(exp.AnalogChannels, analogTv.Channels.Count, file + ": analog");
             Assert.AreEqual(exp.DtvChannels, dtvTv.Channels.Count, file + ": DTV");

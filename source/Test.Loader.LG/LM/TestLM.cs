@@ -55,7 +55,7 @@ namespace Test.Loader.LG
 
       // Pr# 127 = ORF2 HD 
 
-      var dvbs = data.GetChannelList(SignalSource.DvbS);
+      var dvbs = data.GetChannelList(SignalSource.DVBS);
       var orf2 = dvbs.Channels.FirstOrDefault(ch => ch.Name == "ORF2 HD");
       Assert.AreEqual(127, orf2.OldProgramNr);
       Assert.AreEqual(127, orf2.NewProgramNr);
@@ -75,7 +75,7 @@ namespace Test.Loader.LG
       data.ValidateAfterLoad();
       data.ApplyCurrentProgramNumbers();
 
-      dvbs = data.GetChannelList(SignalSource.DvbS);
+      dvbs = data.GetChannelList(SignalSource.DVBS);
       orf2 = dvbs.Channels.FirstOrDefault(ch => ch.Name == "ORF2 HD");
 
       Assert.IsTrue(orf2.IsDeleted);

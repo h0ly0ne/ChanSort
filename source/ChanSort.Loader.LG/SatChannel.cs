@@ -15,7 +15,7 @@ namespace ChanSort.Loader.LG
       if (!InUse)
         return;
 
-      this.InitCommonData(slot, SignalSource.DvbS, data);
+      this.InitCommonData(slot, SignalSource.DVBS, data);
       this.InitDvbData(data);
 
       int transponderIndex = data.GetWord(_TransponderIndex);

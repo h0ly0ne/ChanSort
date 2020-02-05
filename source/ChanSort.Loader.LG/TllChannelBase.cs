@@ -45,7 +45,7 @@ namespace ChanSort.Loader.LG
     {
       this.RecordIndex = slot;
       var nr = data.GetWord(_ProgramNr);
-      this.SignalSource = signalSource | ((nr & 0x4000) == 0 ? SignalSource.Tv : SignalSource.Radio);
+      this.SignalSource = signalSource | ((nr & 0x4000) == 0 ? SignalSource.TV : SignalSource.Radio);
       this.OldProgramNr = (nr & 0x3FFF);
 
       this.ParseNames();

@@ -330,9 +330,9 @@ namespace ChanSort.Loader.Hisense
             if (ci.ServiceType != 0)
               ci.ServiceTypeName = LookupData.Instance.GetServiceTypeDescription(ci.ServiceType);
 
-            if ((ci.SignalSource & SignalSource.DvbT) == SignalSource.DvbT)
+            if ((ci.SignalSource & SignalSource.DVBT) == SignalSource.DVBT)
               ci.ChannelOrTransponder = LookupData.Instance.GetDvbtTransponder(ci.FreqInMhz).ToString();
-            else if ((ci.SignalSource & SignalSource.DvbC) == SignalSource.DvbC)
+            else if ((ci.SignalSource & SignalSource.DVBC) == SignalSource.DVBC)
               ci.ChannelOrTransponder = LookupData.Instance.GetDvbcTransponder(ci.FreqInMhz).ToString();
 
 #if LOCK_LCN_LISTS
@@ -456,18 +456,18 @@ namespace ChanSort.Loader.Hisense
     {
       SignalSource ssource = 0;
       if (bmedium == BroadcastMedium.AnaCab)
-        ssource = SignalSource.AnalogC;
+        ssource = SignalSource.AnalogCable;
       else if (bmedium == BroadcastMedium.AnaSat)
-        ssource = SignalSource.Analog | SignalSource.Sat;
+        ssource = SignalSource.AnalogSat;
       else if (bmedium == BroadcastMedium.AnaTer)
-        ssource = SignalSource.AnalogT;
+        ssource = SignalSource.AnalogAntenna;
       else if (bmedium == BroadcastMedium.DigCab)
-        ssource = SignalSource.DvbC;
+        ssource = SignalSource.DVBC;
       else if (bmedium == BroadcastMedium.DigSat)
-        ssource = SignalSource.DvbS;
+        ssource = SignalSource.DVBS;
       else if (bmedium == BroadcastMedium.DigTer)
-        ssource = SignalSource.DvbT;
-      ssource |= stype == ServiceType.Radio ? SignalSource.Radio : SignalSource.Tv;
+        ssource = SignalSource.DVBT;
+      ssource |= stype == ServiceType.Radio ? SignalSource.Radio : SignalSource.TV;
       return ssource;
     }
 

@@ -70,15 +70,15 @@ namespace ChanSort.Loader.Sony
       this.Features.CanHideChannels = false; // true in Android/e-format
 
 
-      this.DataRoot.AddChannelList(new ChannelList(SignalSource.DvbT | SignalSource.Tv, "DVB-T TV"));
-      this.DataRoot.AddChannelList(new ChannelList(SignalSource.DvbT | SignalSource.Radio, "DVB-T Radio"));
-      this.DataRoot.AddChannelList(new ChannelList(SignalSource.DvbT | SignalSource.Data, "DVB-T Other"));
-      this.DataRoot.AddChannelList(new ChannelList(SignalSource.DvbC | SignalSource.Tv, "DVB-C TV"));
-      this.DataRoot.AddChannelList(new ChannelList(SignalSource.DvbC | SignalSource.Radio, "DVB-C Radio"));
-      this.DataRoot.AddChannelList(new ChannelList(SignalSource.DvbC | SignalSource.Data, "DVB-C Other"));
-      this.DataRoot.AddChannelList(new ChannelList(SignalSource.DvbS | SignalSource.Provider0, "DVB-S"));
-      this.DataRoot.AddChannelList(new ChannelList(SignalSource.DvbS | SignalSource.Provider1, "DVB-S Preset"));
-      this.DataRoot.AddChannelList(new ChannelList(SignalSource.DvbS | SignalSource.Provider2, "DVB-S Ci"));
+      this.DataRoot.AddChannelList(new ChannelList(SignalSource.DVBT | SignalSource.TV, "DVB-T TV"));
+      this.DataRoot.AddChannelList(new ChannelList(SignalSource.DVBT | SignalSource.Radio, "DVB-T Radio"));
+      this.DataRoot.AddChannelList(new ChannelList(SignalSource.DVBT | SignalSource.Data, "DVB-T Other"));
+      this.DataRoot.AddChannelList(new ChannelList(SignalSource.DVBC | SignalSource.TV, "DVB-C TV"));
+      this.DataRoot.AddChannelList(new ChannelList(SignalSource.DVBC | SignalSource.Radio, "DVB-C Radio"));
+      this.DataRoot.AddChannelList(new ChannelList(SignalSource.DVBC | SignalSource.Data, "DVB-C Other"));
+      this.DataRoot.AddChannelList(new ChannelList(SignalSource.DVBS | SignalSource.Preset_Sony_Provider0, "DVB-S"));
+      this.DataRoot.AddChannelList(new ChannelList(SignalSource.DVBS | SignalSource.Preset_Sony_Provider1, "DVB-S Preset"));
+      this.DataRoot.AddChannelList(new ChannelList(SignalSource.DVBS | SignalSource.Preset_Sony_Provider2, "DVB-S Ci"));
 
       foreach (var list in this.DataRoot.ChannelLists)
       {
@@ -171,7 +171,7 @@ namespace ChanSort.Loader.Sony
         this.Features.CanHideChannels = true;
         this.Features.MixedSourceFavorites = true;
         this.Features.SortedFavorites = true;
-        this.mixedFavList = new ChannelList(SignalSource.All, "Favorites");
+        this.mixedFavList = new ChannelList(SignalSource.DVBAll, "Favorites");
         this.mixedFavList.IsMixedSourceFavoritesList = true;
         this.DataRoot.AddChannelList(this.mixedFavList);
       }
@@ -183,15 +183,15 @@ namespace ChanSort.Loader.Sony
       {
         var name = child.LocalName.ToLowerInvariant();
         if (name == "sdbt")
-          ReadSdb(child, SignalSource.DvbT, 0, "DvbT");
+          ReadSdb(child, SignalSource.DVBT, 0, "DvbT");
         else if (name == "sdbc")
-          ReadSdb(child, SignalSource.DvbC, 0x10000, "DvbC");
+          ReadSdb(child, SignalSource.DVBC, 0x10000, "DvbC");
         else if (name == "sdbgs")
-          ReadSdb(child, SignalSource.DvbS | SignalSource.Provider0, 0x20000, "DvbS");
+          ReadSdb(child, SignalSource.DVBS | SignalSource.Preset_Sony_Provider0, 0x20000, "DvbS");
         else if (name == "sdbps")
-          ReadSdb(child, SignalSource.DvbS | SignalSource.Provider1, 0x30000, "DvbS");
+          ReadSdb(child, SignalSource.DVBS | SignalSource.Preset_Sony_Provider1, 0x30000, "DvbS");
         else if (name == "sdbcis")
-          ReadSdb(child, SignalSource.DvbS | SignalSource.Provider2, 0x40000, "DvbS");
+          ReadSdb(child, SignalSource.DVBS | SignalSource.Preset_Sony_Provider2, 0x40000, "DvbS");
       }
     }
     #endregion
@@ -203,7 +203,7 @@ namespace ChanSort.Loader.Sony
       {
         foreach (var list in this.DataRoot.ChannelLists)
         {
-          if ((list.SignalSource & (SignalSource.MaskAdInput | SignalSource.MaskProvider)) == signalSource)
+          if ((list.SignalSource & (SignalSource.AllAnalogDigitalInput | SignalSource.AllProvider)) == signalSource)
             list.ReadOnly = true;
         }
       }
@@ -566,27 +566,28 @@ namespace ChanSort.Loader.Sony
     #region Save()
     public override void Save(string tvOutputFile)
     {
-      if (this.channeListNodes.TryGetValue(SignalSource.DvbT, out var nodes))
+      if (this.channeListNodes.TryGetValue(SignalSource.DVBT, out var nodes))
       {
-        var dvbt = this.DataRoot.GetChannelList(SignalSource.DvbT | SignalSource.Tv).Channels
-          .Concat(this.DataRoot.GetChannelList(SignalSource.DvbT | SignalSource.Radio).Channels)
-          .Concat(this.DataRoot.GetChannelList(SignalSource.DvbT | SignalSource.Data).Channels)
+        var dvbt = this.DataRoot.GetChannelList(SignalSource.DVBT | SignalSource.TV).Channels
+          .Concat(this.DataRoot.GetChannelList(SignalSource.DVBT | SignalSource.Radio).Channels)
+          .Concat(this.DataRoot.GetChannelList(SignalSource.DVBT | SignalSource.Data).Channels)
           .ToList();
         this.UpdateChannelList(dvbt, nodes);
       }
 
-      if (this.channeListNodes.TryGetValue(SignalSource.DvbC, out nodes))
+      if (this.channeListNodes.TryGetValue(SignalSource.DVBC, out nodes))
       {
-        var dvbc = this.DataRoot.GetChannelList(SignalSource.DvbC | SignalSource.Tv).Channels
-          .Concat(this.DataRoot.GetChannelList(SignalSource.DvbC | SignalSource.Radio).Channels)
-          .Concat(this.DataRoot.GetChannelList(SignalSource.DvbC | SignalSource.Data).Channels)
+        var dvbc = this.DataRoot.GetChannelList(SignalSource.DVBC | SignalSource.TV).Channels
+          .Concat(this.DataRoot.GetChannelList(SignalSource.DVBC | SignalSource.Radio).Channels)
+          .Concat(this.DataRoot.GetChannelList(SignalSource.DVBC | SignalSource.Data).Channels)
           .ToList();
         this.UpdateChannelList(dvbc, nodes);
       }
 
       foreach (var list in this.DataRoot.ChannelLists)
       {
-        if ((list.SignalSource & SignalSource.DvbS) == SignalSource.DvbS && this.channeListNodes.TryGetValue(list.SignalSource & ~SignalSource.MaskTvRadioData, out nodes))
+        // ToDo - ShiT
+        if ((list.SignalSource & SignalSource.DVBS) == SignalSource.DVBS && this.channeListNodes.TryGetValue(list.SignalSource & ~SignalSource.TVAndRadioAndData, out nodes))
           this.UpdateChannelList(list.Channels, nodes);
       }
 

@@ -230,12 +230,12 @@ namespace ChanSort.Loader.Hisense2017
     {
       List<Tuple<string,SignalSource,string>> inputs = new List<Tuple<string, SignalSource, string>>
       {
-        Tuple.Create("C", SignalSource.DvbC, "symbolrate"),
-        Tuple.Create("C2", SignalSource.DvbC, "bandwidth"),
-        Tuple.Create("S", SignalSource.DvbS, "symbolrate"),
-        Tuple.Create("S2", SignalSource.DvbS, "symbolrate"),
-        Tuple.Create("T", SignalSource.DvbT, "bandwidth"),
-        Tuple.Create("T2", SignalSource.DvbT, "bandwidth"),
+        Tuple.Create("C", SignalSource.DVBC, "symbolrate"),
+        Tuple.Create("C2", SignalSource.DVBC, "bandwidth"),
+        Tuple.Create("S", SignalSource.DVBS, "symbolrate"),
+        Tuple.Create("S2", SignalSource.DVBS, "symbolrate"),
+        Tuple.Create("T", SignalSource.DVBT, "bandwidth"),
+        Tuple.Create("T2", SignalSource.DVBT, "bandwidth"),
       };
 
       foreach (var input in inputs)
@@ -315,8 +315,8 @@ left outer join DVBService digs on digs.ServiceId=s.Pid
             var mediaType = r.GetInt32(11);
             if (mediaType == 1)
             {
-              ci.SignalSource |= SignalSource.Tv;
-              ci.ServiceTypeName = "TV";
+                ci.SignalSource = FlagsHelper.Set(ci.SignalSource, SignalSource.TV);
+                ci.ServiceTypeName = "TV";
             }
             else if (mediaType == 2)
             {
@@ -380,9 +380,11 @@ left outer join Lcn l on l.ServiceId=fi.ServiceId and l.FavoriteId=fi.FavoriteId
             ci.Hidden = r.GetInt32(4) == 0;
             ci.IsDeleted = r.GetInt32(5) != 0;
             ci.Source = list.ShortCaption;
+
             if (ci.IsDeleted)
               ci.OldProgramNr = -1;
-            if ((ci.SignalSource & (SignalSource.MaskAntennaCableSat | SignalSource.MaskAnalogDigital)) == SignalSource.DvbS)
+
+            if (FlagsHelper.IsSet(ci.SignalSource, SignalSource.DVBS))
               ci.Satellite = list.ShortCaption;
 
             DataRoot.AddChannel(list, ci);

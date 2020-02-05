@@ -1453,9 +1453,9 @@ namespace ChanSort.Ui
       var currentLayout = GetGridLayout(this.gviewRight);
       if ((signalSource & SignalSource.Analog) != 0)
         Config.Default.InputGridLayoutAnalog = currentLayout;
-      else if ((signalSource & SignalSource.DvbS) != 0)
+      else if ((signalSource & SignalSource.DVBS) != 0)
         Config.Default.InputGridLayoutDvbS = currentLayout;
-      else //if ((signalSource & SignalSource.DvbCT) != 0)
+      else //if ((signalSource & SignalSource.DVBTC) != 0)
         Config.Default.InputGridLayoutDvbCT = currentLayout;
     }
 

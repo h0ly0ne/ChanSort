@@ -10,7 +10,7 @@ namespace ChanSort.Loader.Samsung
     public SatChannel(int slot, SignalSource presetList, DataMapping data, DataRoot dataRoot, FavoritesIndexMode sortedFavorites, IDictionary<int,string> providerNames) :
       base(data, sortedFavorites)
     {
-      this.InitCommonData(slot, SignalSource.DvbS | presetList, data);
+      this.InitCommonData(slot, SignalSource.DVBS | presetList, data);
       if (!this.InUse)
       {
         this.IsDeleted = true;
@@ -23,7 +23,7 @@ namespace ChanSort.Loader.Samsung
       Transponder transponder = dataRoot.Transponder.TryGet(transponderIndex);
       if (transponder == null)
       {
-        var list = dataRoot.GetChannelList(this.SignalSource|SignalSource.Tv);
+        var list = dataRoot.GetChannelList(this.SignalSource | SignalSource.TV);
         dataRoot.Warnings.AppendFormat("{0} channel record #{1} (Pr# {2} \"{3}\") contains invalid transponder index {4}\r\n",
           list.ShortCaption, slot, this.OldProgramNr, this.Name, transponderIndex);
         return;

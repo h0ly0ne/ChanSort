@@ -118,9 +118,9 @@ namespace ChanSort.Loader.Samsung
       if (data.Settings.GetInt(_ServiceProviderId, -1) != -1)
       {
         int source = -1;
-        if ((this.SignalSource & SignalSource.MaskProvider) == SignalSource.Freesat)
+        if ((this.SignalSource & SignalSource.AllProvider) == SignalSource.Preset_Samsung_FreesatD)
           source = 4;
-        else if ((this.SignalSource & SignalSource.MaskProvider) == SignalSource.TivuSat)
+        else if ((this.SignalSource & SignalSource.AllProvider) == SignalSource.Preset_Samsung_TivuSatD)
           source = 6;
         else if ((this.SignalSource & SignalSource.Antenna) != 0)
           source = 0;

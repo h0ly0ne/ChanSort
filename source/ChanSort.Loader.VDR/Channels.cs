@@ -76,18 +76,18 @@ namespace ChanSort.Loader.VDR
                     switch (ntype[0])
                     {
                         case 'S':
-                            this.SignalSource |= SignalSource.DvbS;
+                            SignalSource = FlagsHelper.Set(SignalSource, SignalSource.DVBS);
                             this.Satellite = ntype.Substring(1,ntype.Length -1);
                             this.SatPosition = ntype.Substring(1, ntype.Length - 1);
                             break;
 
                         case 'C':
-                            this.SignalSource |= SignalSource.DvbC;
+                            SignalSource = FlagsHelper.Set(SignalSource, SignalSource.DVBC);
                             this.Satellite = "DVB-C";
                             break;
 
                         case 'T':
-                            this.SignalSource |= SignalSource.DvbT;
+                            SignalSource = FlagsHelper.Set(SignalSource, SignalSource.DVBT);
                             this.Satellite = "DVB-T";
                             break;
 
@@ -101,7 +101,7 @@ namespace ChanSort.Loader.VDR
                     string tmp = fields[5];
                     if (tmp.IndexOf('=') >= 0 || tmp.IndexOf('+') >= 0)
                     {
-                        this.SignalSource |= SignalSource.Tv;
+                        SignalSource = FlagsHelper.Set(SignalSource, SignalSource.TV);
                         if (tmp.IndexOf('+') >= 0)
                         {
                             this.VideoPid = Convert.ToInt32(fields[5].Split('+').GetValue(0));

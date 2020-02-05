@@ -28,13 +28,13 @@ namespace ChanSort.Loader.LG
     private readonly MappingPool<FirmwareData> firmwareMappings = new MappingPool<FirmwareData>("Firmware");
     private readonly MappingPool<DataMapping> lnbMappings = new MappingPool<DataMapping>("LNB Config"); 
 
-    private readonly ChannelList atvChannels = new ChannelList(SignalSource.AnalogCT | SignalSource.Tv, "Analog TV");
-    private readonly ChannelList dvbcTvChannels = new ChannelList(SignalSource.DvbC | SignalSource.Tv, "DVB-C TV");
-    private readonly ChannelList dvbtTvChannels = new ChannelList(SignalSource.DvbT | SignalSource.Tv, "DVB-T TV");
-    private readonly ChannelList dvbcRadioChannels = new ChannelList(SignalSource.DvbC | SignalSource.Radio, "DVB-C Radio");
-    private readonly ChannelList dvbtRadioChannels = new ChannelList(SignalSource.DvbT | SignalSource.Radio, "DVB-T Radio");
-    private readonly ChannelList satTvChannels = new ChannelList(SignalSource.DvbS | SignalSource.Tv, "Sat TV");
-    private readonly ChannelList satRadioChannels = new ChannelList(SignalSource.DvbS | SignalSource.Radio, "Sat Radio");
+    private readonly ChannelList atvChannels = new ChannelList(SignalSource.AnalogAntennaCable | SignalSource.TV, "Analog TV");
+    private readonly ChannelList dvbcTvChannels = new ChannelList(SignalSource.DVBC | SignalSource.TV, "DVB-C TV");
+    private readonly ChannelList dvbtTvChannels = new ChannelList(SignalSource.DVBT | SignalSource.TV, "DVB-T TV");
+    private readonly ChannelList dvbcRadioChannels = new ChannelList(SignalSource.DVBC | SignalSource.Radio, "DVB-C Radio");
+    private readonly ChannelList dvbtRadioChannels = new ChannelList(SignalSource.DVBT | SignalSource.Radio, "DVB-T Radio");
+    private readonly ChannelList satTvChannels = new ChannelList(SignalSource.DVBS | SignalSource.TV, "Sat TV");
+    private readonly ChannelList satRadioChannels = new ChannelList(SignalSource.DVBS | SignalSource.Radio, "Sat Radio");
 
     private byte[] fileContent;
     private SpecialHandlingModels specialModel = SpecialHandlingModels.Standard;
@@ -932,7 +932,7 @@ namespace ChanSort.Loader.LG
           {
             if ((channel.SignalSource & SignalSource.Analog) != 0)
               ++newAnalogChannelCount;
-            else if ((channel.SignalSource & SignalSource.DvbCT) != 0)
+            else if ((channel.SignalSource & SignalSource.DVBTC) != 0)
               ++newDvbctChannelCount;
           }
 

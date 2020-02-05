@@ -12,13 +12,15 @@ namespace ChanSort.Loader.Panasonic
     class Serializer : SerializerBase
     {
         private const string ERR_FileFormatOrEncryption = "File uses an unknown format or encryption";
-        private readonly ChannelList avbtChannels = new ChannelList(SignalSource.AnalogT, "Analog Antenna");
-        private readonly ChannelList avbcChannels = new ChannelList(SignalSource.AnalogC, "Analog Cable");
-        private readonly ChannelList dvbtChannels = new ChannelList(SignalSource.DvbT, "DVB-T");
-        private readonly ChannelList dvbcChannels = new ChannelList(SignalSource.DvbC, "DVB-C");
-        private readonly ChannelList dvbsChannels = new ChannelList(SignalSource.DvbS, "DVB-S");
-        private readonly ChannelList satipChannels = new ChannelList(SignalSource.SatIP, "SAT>IP");
-        private readonly ChannelList freesatChannels = new ChannelList(SignalSource.DvbS | SignalSource.Freesat, "Freesat");
+        private readonly ChannelList avbtChannels = new ChannelList(SignalSource.AnalogAntenna | SignalSource.TVAndRadio, "Analog Antenna");
+        private readonly ChannelList avbcChannels = new ChannelList(SignalSource.AnalogCable | SignalSource.TVAndRadio, "Analog Cable");
+        private readonly ChannelList dvbtChannels = new ChannelList(SignalSource.DVBT | SignalSource.TVAndRadioAndData, "DVB-T");
+        private readonly ChannelList dvbcChannels = new ChannelList(SignalSource.DVBC | SignalSource.TVAndRadioAndData, "DVB-C");
+        private readonly ChannelList dvbsChannels = new ChannelList(SignalSource.DVBS | SignalSource.TVAndRadioAndData, "DVB-S");
+        private readonly ChannelList antennaipChannels = new ChannelList(SignalSource.DVBIPAntenna | SignalSource.TVAndRadioAndData, "ANTENNA>IP");
+        private readonly ChannelList cableipChannels = new ChannelList(SignalSource.DVBIPCable | SignalSource.TVAndRadioAndData, "CABLE>IP");
+        private readonly ChannelList satipChannels = new ChannelList(SignalSource.DVBIPSat | SignalSource.TVAndRadioAndData, "SAT>IP");
+        private readonly ChannelList freesatChannels = new ChannelList(SignalSource.DVBS | SignalSource.TVAndRadioAndData | SignalSource.Preset_Freesat, "Freesat");
 
         private string workFile;
         private CypherMode cypherMode;
@@ -54,6 +56,8 @@ namespace ChanSort.Loader.Panasonic
             DataRoot.AddChannelList(dvbtChannels);
             DataRoot.AddChannelList(dvbcChannels);
             DataRoot.AddChannelList(dvbsChannels);
+            DataRoot.AddChannelList(antennaipChannels);
+            DataRoot.AddChannelList(cableipChannels);
             DataRoot.AddChannelList(satipChannels);
             DataRoot.AddChannelList(freesatChannels);
 
@@ -340,6 +344,8 @@ namespace ChanSort.Loader.Panasonic
                         WriteChannels(cmd, dvbtChannels);
                         WriteChannels(cmd, dvbcChannels);
                         WriteChannels(cmd, dvbsChannels);
+                        WriteChannels(cmd, antennaipChannels);
+                        WriteChannels(cmd, cableipChannels);
                         WriteChannels(cmd, satipChannels);
                         WriteChannels(cmd, freesatChannels);
                         trans.Commit();

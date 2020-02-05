@@ -13,7 +13,7 @@ namespace Test.Loader.Toshiba
     [TestMethod]
     public void TestSatChannelsAddedToCorrectLists()
     {
-      this.TestChannelsAddedToCorrectLists("Toshiba-SL863G.zip", SignalSource.DvbS, 338, 172);
+      this.TestChannelsAddedToCorrectLists("Toshiba-SL863G.zip", SignalSource.DVBS, 338, 172);
     }
 
     #endregion
@@ -23,7 +23,7 @@ namespace Test.Loader.Toshiba
     [TestMethod]
     public void TestAnalogChannelsAddedToCorrectLists()
     {
-      this.TestChannelsAddedToCorrectLists("Toshiba-SL863G.zip", SignalSource.AnalogCT, 1, 0);
+      this.TestChannelsAddedToCorrectLists("Toshiba-SL863G.zip", SignalSource.AnalogAntennaCable, 1, 0);
     }
 
     #endregion
@@ -40,7 +40,7 @@ namespace Test.Loader.Toshiba
 
       var root = ser.DataRoot;
 
-      var tv = root.GetChannelList(signalSource | SignalSource.Tv);
+      var tv = root.GetChannelList(signalSource | SignalSource.TV);
       if (expectedTv > 0)
       {
         Assert.IsNotNull(tv);
@@ -81,7 +81,7 @@ namespace Test.Loader.Toshiba
 
       // Pr# 128 = ORF2E 
 
-      var dvbs = data.GetChannelList(SignalSource.DvbS);
+      var dvbs = data.GetChannelList(SignalSource.DVBS);
       var orf2e = dvbs.Channels.FirstOrDefault(ch => ch.Name == "ORF2E");
       Assert.IsNotNull(orf2e);
       Assert.AreEqual(336, orf2e.OldProgramNr);
@@ -104,7 +104,7 @@ namespace Test.Loader.Toshiba
       data.ApplyCurrentProgramNumbers();
 
       // channel was deleted from database
-      dvbs = data.GetChannelList(SignalSource.DvbS);
+      dvbs = data.GetChannelList(SignalSource.DVBS);
       orf2e = dvbs.Channels.FirstOrDefault(ch => ch.Name == "ORF2E");
       Assert.IsNull(orf2e);
     }

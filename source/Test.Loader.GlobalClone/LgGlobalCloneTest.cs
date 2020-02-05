@@ -15,7 +15,7 @@ namespace Test.Loader.GlobalClone
     [TestMethod]
     public void TestSatChannelsAddedToCorrectLists()
     {
-      this.ChannelsAddedToCorrectLists("GlobalClone00001.TLL", SignalSource.DvbS, 1138, 160, 8692, "DOWNLOAD G10 HUMAX");
+      this.ChannelsAddedToCorrectLists("GlobalClone00001.TLL", SignalSource.DVBS, 1138, 160, 8692, "DOWNLOAD G10 HUMAX");
     }
     #endregion
 
@@ -23,7 +23,7 @@ namespace Test.Loader.GlobalClone
     [TestMethod]
     public void TestCableChannelsAddedToCorrectLists()
     {
-      this.ChannelsAddedToCorrectLists("GlobalClone00002.TLL", SignalSource.DvbC, 405, 113, 11105, "ITV Content 01");
+      this.ChannelsAddedToCorrectLists("GlobalClone00002.TLL", SignalSource.DVBC, 405, 113, 11105, "ITV Content 01");
     }
     #endregion
 
@@ -31,7 +31,7 @@ namespace Test.Loader.GlobalClone
     [TestMethod]
     public void TestAntennaChannelsAddedToCorrectLists()
     {
-      this.ChannelsAddedToCorrectLists("GlobalClone00003.TLL", SignalSource.DvbT, 67, 6, 14120, "SRT8505 OTA");
+      this.ChannelsAddedToCorrectLists("GlobalClone00003.TLL", SignalSource.DVBT, 67, 6, 14120, "SRT8505 OTA");
     }
     #endregion
 
@@ -46,7 +46,7 @@ namespace Test.Loader.GlobalClone
 
       var root = ser.DataRoot;
 
-      var tv = root.GetChannelList(signalSource | SignalSource.Tv);
+      var tv = root.GetChannelList(signalSource | SignalSource.TV);
       Assert.IsNotNull(tv);
       Assert.AreEqual(expectedTv, tv.Channels.Count);
 
@@ -76,7 +76,7 @@ namespace Test.Loader.GlobalClone
 
       // Pr# 122 = ORF2W HD 
 
-      var dvbs = data.GetChannelList(SignalSource.DvbS);
+      var dvbs = data.GetChannelList(SignalSource.DVBS);
       var orf2w = dvbs.Channels.FirstOrDefault(ch => ch.Name == "ORF2W HD");
       Assert.AreEqual(122, orf2w.OldProgramNr);
       Assert.AreEqual(122, orf2w.NewProgramNr);
@@ -99,7 +99,7 @@ namespace Test.Loader.GlobalClone
       data.ApplyCurrentProgramNumbers();
     
 
-      dvbs = data.GetChannelList(SignalSource.DvbS);
+      dvbs = data.GetChannelList(SignalSource.DVBS);
       orf2w = dvbs.Channels.FirstOrDefault(ch => ch.Name == "ORF2W HD");
       Assert.IsTrue(orf2w.IsDeleted);
       Assert.AreEqual(-1, orf2w.OldProgramNr);

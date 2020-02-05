@@ -46,11 +46,11 @@ namespace ChanSort.Loader.PhilipsXml
    */
   class Serializer : SerializerBase
   {
-    private readonly ChannelList terrChannels = new ChannelList(SignalSource.DvbT, "DVB-T");
-    private readonly ChannelList cableChannels = new ChannelList(SignalSource.DvbC, "DVB-C");
-    private readonly ChannelList satChannels = new ChannelList(SignalSource.DvbS, "DVB-S");
-    private readonly ChannelList allSatChannels = new ChannelList(SignalSource.DvbS, "DVB-S all");
-    private readonly ChannelList favChannels = new ChannelList(SignalSource.All, "Favorites");
+    private readonly ChannelList terrChannels = new ChannelList(SignalSource.DVBT, "DVB-T");
+    private readonly ChannelList cableChannels = new ChannelList(SignalSource.DVBC, "DVB-C");
+    private readonly ChannelList satChannels = new ChannelList(SignalSource.DVBS, "DVB-S");
+    private readonly ChannelList allSatChannels = new ChannelList(SignalSource.DVBS, "DVB-S all");
+    private readonly ChannelList favChannels = new ChannelList(SignalSource.DVBAll, "Favorites");
 
     private readonly List<FileData> fileDataList = new List<FileData>();
     //private XmlDocument doc;
@@ -286,7 +286,7 @@ namespace ChanSort.Loader.PhilipsXml
 
       if (!data.ContainsKey("UniqueID") || !int.TryParse(data["UniqueID"], out var uniqueId)) // UniqueId only exists in ChannelMap_105 and later
         uniqueId = rowId;
-      var chan = new Channel(curList.SignalSource & SignalSource.MaskAdInput, rowId, uniqueId, setupNode);
+      var chan = new Channel(curList.SignalSource & SignalSource.AllAnalogDigitalInput, rowId, uniqueId, setupNode);
       chan.OldProgramNr = -1;
       chan.IsDeleted = false;
       if (file.formatVersion == 1)
@@ -294,9 +294,9 @@ namespace ChanSort.Loader.PhilipsXml
       else if (file.formatVersion == 2)
         this.ParseChannelFormat2(data, chan);
 
-      if ((chan.SignalSource & SignalSource.MaskAdInput) == SignalSource.DvbT)
+      if (FlagsHelper.IsSet(chan.SignalSource, SignalSource.DVBT))
         chan.ChannelOrTransponder = LookupData.Instance.GetDvbtTransponder(chan.FreqInMhz).ToString();
-      else if ((chan.SignalSource & SignalSource.MaskAdInput) == SignalSource.DvbC)
+      else if (FlagsHelper.IsSet(chan.SignalSource, SignalSource.DVBC))
         chan.ChannelOrTransponder = LookupData.Instance.GetDvbcChannelName(chan.FreqInMhz);
 
       DataRoot.AddChannel(curList, chan);

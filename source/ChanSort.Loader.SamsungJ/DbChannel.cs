@@ -16,9 +16,9 @@ namespace ChanSort.Loader.SamsungJ
       this.OldProgramNr = r.GetInt32(field["major"]);
       this.FreqInMhz = (decimal)r.GetInt32(field["freq"]) / 1000;
       this.ChannelOrTransponder = 
-        (this.SignalSource & SignalSource.DvbT) == SignalSource.DvbT ? LookupData.Instance.GetDvbtTransponder(this.FreqInMhz).ToString() :
-        (this.SignalSource & SignalSource.DvbC) == SignalSource.DvbC ? LookupData.Instance.GetDvbcTransponder(this.FreqInMhz).ToString() :
-        (this.SignalSource & SignalSource.DvbS) == SignalSource.DvbS ? LookupData.Instance.GetAstraTransponder((int)this.FreqInMhz).ToString() :
+        (this.SignalSource & SignalSource.DVBT) == SignalSource.DVBT ? LookupData.Instance.GetDvbtTransponder(this.FreqInMhz).ToString() :
+        (this.SignalSource & SignalSource.DVBC) == SignalSource.DVBC ? LookupData.Instance.GetDvbcTransponder(this.FreqInMhz).ToString() :
+        (this.SignalSource & SignalSource.DVBS) == SignalSource.DVBS ? LookupData.Instance.GetAstraTransponder((int)this.FreqInMhz).ToString() :
         "";
       this.Name = DbSerializer.ReadUtf16(r, 6);
       this.Hidden = r.GetBoolean(field["hidden"]);

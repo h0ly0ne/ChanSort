@@ -41,7 +41,7 @@ namespace Test.Loader.Hisense2017
       var list = root.ChannelLists.FirstOrDefault(l => l.Caption.StartsWith(listCaption));
       Assert.IsNotNull(list);
       Assert.AreEqual(expectedTotal, list.Channels.Count);
-      Assert.AreEqual(expectedTv, list.Channels.Count(ch => (ch.SignalSource & SignalSource.Tv) != 0));
+      Assert.AreEqual(expectedTv, list.Channels.Count(ch => (ch.SignalSource & SignalSource.TV) != 0));
       Assert.AreEqual(expectedRadio, list.Channels.Count(ch => (ch.SignalSource & SignalSource.Radio) != 0));
 
       // no data channels in Hisense/Loewe servicelist.db files
@@ -63,7 +63,7 @@ namespace Test.Loader.Hisense2017
 
       // Pr# 910 = ORF2E 
 
-      var dvbs = data.GetChannelList(SignalSource.DvbS);
+      var dvbs = data.GetChannelList(SignalSource.DVBS);
       var orf2e = dvbs.Channels.FirstOrDefault(ch => ch.Name == "ORF2E");
       Assert.IsNotNull(orf2e);
       Assert.AreEqual(910, orf2e.OldProgramNr);
@@ -87,7 +87,7 @@ namespace Test.Loader.Hisense2017
       data.ApplyCurrentProgramNumbers();
 
       // channel was marked deleted in database
-      dvbs = data.GetChannelList(SignalSource.DvbS);
+      dvbs = data.GetChannelList(SignalSource.DVBS);
       orf2e = dvbs.Channels.FirstOrDefault(ch => ch.Name == "ORF2E");
       Assert.IsNotNull(orf2e);
       Assert.IsTrue(orf2e.IsDeleted);
