@@ -265,17 +265,17 @@ namespace ChanSort.Loader.Panasonic
         {
             string[] fieldNames = {
                                         "rowid", "major_channel", "physical_ch","sname", "freq", "skip", "running_status","free_CA_mode","child_lock",
-                                        "profile1index","profile2index","profile3index","profile4index","stype", "onid", "tsid", "sid", "ntype", "ya_svcid",
+                                        "profile1index","profile2index","profile3index","profile4index","stype", "onid", "tsid", "svcid", "ntype", "ya_svcid",
                                         "delivery", "delivery_type"
                                     };
 
             string sql = string.Join(" ",
                                 "SELECT",
-                                "s.rowid, s.major_channel, s.physical_ch, cast(s.sname as blob), t.freq,s.skip, s.running_status,",
+                                "s.rowid, s.major_channel, s.physical_ch, cast(s.sname as blob), t.freq, s.skip, s.running_status,",
                                 "s.free_CA_mode, s.child_lock, s.profile1index, s.profile2index, s.profile3index, s.profile4index, s.stype,",
-                                "s.onid, s.tsid, s.svcid, s.ntype, s.ya_svcid, t.delivery, t.delivery_type",
+                                "s.onid, s.tsid, s.svcid, s.ntype, s.ya_svcid, t.delivery, ifnull(t.delivery_type, 0)",
                                 "FROM SVL s",
-                                "LEFT OUTER JOIN TSL t ON s.physical_ch = t.physical_ch and s.onid = t.onid and s.tsid = t.tsid",
+                                "LEFT OUTER JOIN TSL t ON s.physical_ch = t.physical_ch and s.tsid = t.tsid",
                                 "ORDER BY s.ntype, major_channel");
 
             var fields = GetFieldMap(fieldNames);
@@ -401,9 +401,9 @@ namespace ChanSort.Loader.Panasonic
                 cmd.ExecuteNonQuery();
             }
 
-            // remove unassigned/deleted channels from SVL table
             foreach (ChannelInfo channel in channelList.Channels)
             {
+                // remove unassigned/deleted channels from SVL table
                 if (channel.IsDeleted && channel.OldProgramNr >= 0)
                 {
                     cmd.CommandText = "DELETE FROM SVL WHERE rowid=@rowid";
@@ -412,16 +412,19 @@ namespace ChanSort.Loader.Panasonic
                     cmd.Parameters["@rowid"].Value = channel.RecordIndex;
                     cmd.ExecuteNonQuery();
 
-                    // remove unassigned/deleted channels from TSL table
-                    cmd.CommandText = "DELETE FROM TSL WHERE physical_ch=@physical_ch and onid=@onid and tsid=@tsid";
-                    cmd.Parameters.Clear();
-                    cmd.Parameters.Add(new SQLiteParameter("@physical_ch", DbType.Int32));
-                    cmd.Parameters["@physical_ch"].Value = channel.PhysicalChannel;
-                    cmd.Parameters.Add(new SQLiteParameter("@onid", DbType.Int32));
-                    cmd.Parameters["@onid"].Value = channel.OriginalNetworkId;
-                    cmd.Parameters.Add(new SQLiteParameter("@tsid", DbType.Int32));
-                    cmd.Parameters["@tsid"].Value = channel.TransportStreamId;
-                    cmd.ExecuteNonQuery();
+                    // remove unassigned/deleted transponders from TSL table
+                    // add. info: only digital transponders should be deleted as import
+                    //            generates error when no analog transponders are found
+                    if ((channel.SignalSource & SignalSource.Digital) != 0)
+                    {
+                        cmd.CommandText = "DELETE FROM TSL WHERE physical_ch=@physical_ch AND tsid=@tsid AND physical_ch NOT IN ( SELECT physical_ch FROM SVL WHERE physical_ch IS NOT NULL ) ";
+                        cmd.Parameters.Clear();
+                        cmd.Parameters.Add(new SQLiteParameter("@physical_ch", DbType.Int32));
+                        cmd.Parameters["@physical_ch"].Value = channel.PhysicalChannel;
+                        cmd.Parameters.Add(new SQLiteParameter("@tsid", DbType.Int32));
+                        cmd.Parameters["@tsid"].Value = channel.TransportStreamId;
+                        cmd.ExecuteNonQuery();
+                    }
                 }
             }
         }

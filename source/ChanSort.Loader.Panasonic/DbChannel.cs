@@ -49,8 +49,11 @@ namespace ChanSort.Loader.Panasonic
         }
 
         byte[] buffer = new byte[1000];
-        var len = r.GetBytes(field["delivery"], 0, buffer, 0, 1000);
-        AddDebug(buffer, 0, (int) len);
+        if (!r.IsDBNull(field["delivery"]))
+        {
+            var len = r.GetBytes(field["delivery"], 0, buffer, 0, 1000);
+            AddDebug(buffer, 0, (int)len);
+        }
 
         Skip = r.GetInt32(field["skip"]) != 0;
         Encrypted = r.GetInt32(field["free_CA_mode"]) != 0;
@@ -85,65 +88,70 @@ namespace ChanSort.Loader.Panasonic
     private void ReadAnalogData(SQLiteDataReader r, IDictionary<string, int> field)
     {
       this.FreqInMhz = r.IsDBNull(field["freq"]) ? 0 : (decimal)r.GetInt32(field["freq"]) / 1000;
-      this.ChannelOrTransponder = Tools.GetAnalogChannelNumber((int)this.FreqInMhz);
+      this.ChannelOrTransponder = r.IsDBNull(field["freq"]) ? r.GetString(field["physical_ch"]) : Tools.GetAnalogChannelNumber((int)this.FreqInMhz);
+      
+      this.PhysicalChannel = r.GetInt32(field["physical_ch"]);
+      this.OriginalNetworkId = r.GetInt32(field["onid"]);
+      this.TransportStreamId = r.GetInt32(field["tsid"]);
+      this.ServiceId = r.GetInt32(field["svcid"]);
     }
     #endregion
 
     #region ReadDvbData()
     protected void ReadDvbData(SQLiteDataReader r, IDictionary<string, int> field, DataRoot dataRoot, byte[] delivery)
     {
-        int stype = r.GetInt32(field["stype"]);
-        SignalSource |= LookupData.Instance.IsRadioTvOrData(stype);
-        ServiceType = stype;
+      int stype = r.GetInt32(field["stype"]);
+      SignalSource |= LookupData.Instance.IsRadioTvOrData(stype);
+      ServiceType = stype;
 
-        // parse freq from delivery data
-        if (Tools.GetInt32(delivery, 0, true) > 0)
-        {
-            FreqInMhz = Tools.GetInt32(delivery, 0, true);
-            if ((SignalSource & SignalSource.Sat) != 0)
-                FreqInMhz /= 1000;
-            else
-                FreqInMhz /= 100000;
-        }
-        // parse freq from freq column in svl (fallback)
-        else
-        {
-            FreqInMhz = r.GetInt32(field["freq"]);
-            if ((SignalSource & SignalSource.Sat) != 0)
-                FreqInMhz /= 10000;
-            else
-                FreqInMhz /= 1000;
-        }
-
-        if (delivery.Length >= 7)
-            SymbolRate = Tools.GetInt32(delivery, 4, true);
-
+      // parse freq from delivery data
+      if (Tools.GetInt32(delivery, 0, true) > 0)
+      {
+        FreqInMhz = Tools.GetInt32(delivery, 0, true);
         if ((SignalSource & SignalSource.Sat) != 0)
-        {
-            int satId = r.GetInt32(field["physical_ch"]) >> 12;
-            var sat = dataRoot.Satellites.TryGet(satId);
-
-            if (sat != null)
-            {
-                this.Satellite = sat.Name;
-                this.SatPosition = sat.OrbitalPosition;
-            }
-        }
+            FreqInMhz /= 1000;
         else
+            FreqInMhz /= 100000;
+      }
+      // parse freq from freq column in svl (fallback)
+      else
+      {
+        FreqInMhz = r.GetInt32(field["freq"]);
+        if ((SignalSource & SignalSource.Sat) != 0)
+            FreqInMhz /= 10000;
+        else
+            FreqInMhz /= 1000;
+      }
+
+      if (delivery.Length >= 7)
+        SymbolRate = Tools.GetInt32(delivery, 4, true);
+
+      if ((SignalSource & SignalSource.Sat) != 0)
+      {
+        int satId = r.GetInt32(field["physical_ch"]) >> 12;
+        var sat = dataRoot.Satellites.TryGet(satId);
+
+        if (sat != null)
         {
-            ChannelOrTransponder = (SignalSource & SignalSource.Antenna) != 0 ? LookupData.Instance.GetDvbtTransponder(FreqInMhz).ToString() : LookupData.Instance.GetDvbcChannelName(FreqInMhz);
-
-            //OsOl: Not sure if required or useful!
-            //if ((this.SignalSource & SignalSource.IP) != 0)
-            //    this.Satellite = "SAT>IP";
-            //else
-            this.Satellite = (this.SignalSource & SignalSource.Antenna) != 0 ? "DVB-T" : "DVB-C";
+            this.Satellite = sat.Name;
+            this.SatPosition = sat.OrbitalPosition;
         }
+      }
+      else
+      {
+        ChannelOrTransponder = (SignalSource & SignalSource.Antenna) != 0 ? LookupData.Instance.GetDvbtTransponder(FreqInMhz).ToString() : LookupData.Instance.GetDvbcChannelName(FreqInMhz);
 
-        this.PhysicalChannel = r.GetInt32(field["physical_ch"]);
-        this.OriginalNetworkId = r.GetInt32(field["onid"]);
-        this.TransportStreamId = r.GetInt32(field["tsid"]);
-        this.ServiceId = r.GetInt32(field["sid"]);
+        //OsOl: Not sure if required or useful!
+        //if ((this.SignalSource & SignalSource.IP) != 0)
+        //    this.Satellite = "SAT>IP";
+        //else
+        this.Satellite = (this.SignalSource & SignalSource.Antenna) != 0 ? "DVB-T" : "DVB-C";
+      }
+
+      this.PhysicalChannel = r.GetInt32(field["physical_ch"]);
+      this.OriginalNetworkId = r.GetInt32(field["onid"]);
+      this.TransportStreamId = r.GetInt32(field["tsid"]);
+      this.ServiceId = r.GetInt32(field["svcid"]);
     }
     #endregion
 

@@ -1488,7 +1488,7 @@ namespace ChanSort.Ui
 
       var source = list.SignalSource;
       if (col == this.colPrNr) return this.subListIndex > 0;
-      if (col == this.colChannelOrTransponder) return (source & SignalSource.Sat) == 0;
+      if (col == this.colChannelOrTransponder) return col.Visible;
       if (col == this.colShortName) return (source & SignalSource.Digital) != 0;
       if (col == this.colEncrypted) return (source & SignalSource.Digital) != 0;
       if (col == this.colServiceId) return (source & SignalSource.Digital) != 0;
