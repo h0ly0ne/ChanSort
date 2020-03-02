@@ -40,7 +40,7 @@ namespace ChanSort.Loader.Panasonic
         #region ctor()
         public Serializer(string inputFile) : base(inputFile)
         {
-            DepencencyChecker.AssertVc2010RedistPackageX86Installed();
+            DepencencyChecker.AssertVCRedistInstalled();
 
             Features.ChannelNameEdit = ChannelNameEditMode.All;
             Features.DeleteMode = DeleteMode.Physically;

@@ -21,7 +21,7 @@ namespace ChanSort.Loader.Toshiba
     #region ctor()
     public DbSerializer(string inputFile) : base(inputFile)
     {
-      DepencencyChecker.AssertVc2010RedistPackageX86Installed();      
+      DepencencyChecker.AssertVCRedistInstalled();      
 
       this.Features.ChannelNameEdit = ChannelNameEditMode.All;
       this.Features.DeleteMode = DeleteMode.Physically;
