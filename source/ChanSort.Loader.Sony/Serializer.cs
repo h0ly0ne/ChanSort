@@ -54,6 +54,16 @@ namespace ChanSort.Loader.Sony
       NotDeletedByUserOption = 0x0200,
       Radio = 0x0400,
       Encrypted = 0x0800,
+
+      MaskWhenDeleted = 0x0206
+    }
+
+    [Flags]
+    private enum NwOptionMask : uint
+    {
+      NameEdited = 1 << 3, // guess based on values from Hisense
+      ChNumEdited = 1 << 10, // used by Sony Channel Editor 1.2.0, SetEdit 1.21 and Hisense
+      DeletedByUser = 1 << 13 // used by Sony Channel Editor 1.2.0 and Hisense
     }
     #endregion
 
@@ -70,15 +80,15 @@ namespace ChanSort.Loader.Sony
       this.Features.CanHideChannels = false; // true in Android/e-format
 
 
-      this.DataRoot.AddChannelList(new ChannelList(SignalSource.DVBT | SignalSource.TV, "DVB-T TV"));
-      this.DataRoot.AddChannelList(new ChannelList(SignalSource.DVBT | SignalSource.Radio, "DVB-T Radio"));
-      this.DataRoot.AddChannelList(new ChannelList(SignalSource.DVBT | SignalSource.Data, "DVB-T Other"));
-      this.DataRoot.AddChannelList(new ChannelList(SignalSource.DVBC | SignalSource.TV, "DVB-C TV"));
-      this.DataRoot.AddChannelList(new ChannelList(SignalSource.DVBC | SignalSource.Radio, "DVB-C Radio"));
-      this.DataRoot.AddChannelList(new ChannelList(SignalSource.DVBC | SignalSource.Data, "DVB-C Other"));
-      this.DataRoot.AddChannelList(new ChannelList(SignalSource.DVBS | SignalSource.Preset_Sony_Provider0, "DVB-S"));
-      this.DataRoot.AddChannelList(new ChannelList(SignalSource.DVBS | SignalSource.Preset_Sony_Provider1, "DVB-S Preset"));
-      this.DataRoot.AddChannelList(new ChannelList(SignalSource.DVBS | SignalSource.Preset_Sony_Provider2, "DVB-S Ci"));
+      this.DataRoot.AddChannelList(new ChannelList(SignalSource.DvbT | SignalSource.Tv, "DVB-T TV"));
+      this.DataRoot.AddChannelList(new ChannelList(SignalSource.DvbT | SignalSource.Radio, "DVB-T Radio"));
+      this.DataRoot.AddChannelList(new ChannelList(SignalSource.DvbT | SignalSource.Data, "DVB-T Other"));
+      this.DataRoot.AddChannelList(new ChannelList(SignalSource.DvbC | SignalSource.Tv, "DVB-C TV"));
+      this.DataRoot.AddChannelList(new ChannelList(SignalSource.DvbC | SignalSource.Radio, "DVB-C Radio"));
+      this.DataRoot.AddChannelList(new ChannelList(SignalSource.DvbC | SignalSource.Data, "DVB-C Other"));
+      this.DataRoot.AddChannelList(new ChannelList(SignalSource.DvbS | SignalSource.Provider0, "DVB-S"));
+      this.DataRoot.AddChannelList(new ChannelList(SignalSource.DvbS | SignalSource.Provider1, "DVB-S Preset"));
+      this.DataRoot.AddChannelList(new ChannelList(SignalSource.DvbS | SignalSource.Provider2, "DVB-S Ci"));
 
       foreach (var list in this.DataRoot.ChannelLists)
       {
@@ -171,7 +181,7 @@ namespace ChanSort.Loader.Sony
         this.Features.CanHideChannels = true;
         this.Features.MixedSourceFavorites = true;
         this.Features.SortedFavorites = true;
-        this.mixedFavList = new ChannelList(SignalSource.DVBAll, "Favorites");
+        this.mixedFavList = new ChannelList(SignalSource.All, "Favorites");
         this.mixedFavList.IsMixedSourceFavoritesList = true;
         this.DataRoot.AddChannelList(this.mixedFavList);
       }
@@ -183,15 +193,15 @@ namespace ChanSort.Loader.Sony
       {
         var name = child.LocalName.ToLowerInvariant();
         if (name == "sdbt")
-          ReadSdb(child, SignalSource.DVBT, 0, "DvbT");
+          ReadSdb(child, SignalSource.DvbT, 0, "DvbT");
         else if (name == "sdbc")
-          ReadSdb(child, SignalSource.DVBC, 0x10000, "DvbC");
+          ReadSdb(child, SignalSource.DvbC, 0x10000, "DvbC");
         else if (name == "sdbgs")
-          ReadSdb(child, SignalSource.DVBS | SignalSource.Preset_Sony_Provider0, 0x20000, "DvbS");
+          ReadSdb(child, SignalSource.DvbS | SignalSource.Provider0, 0x20000, "DvbS");
         else if (name == "sdbps")
-          ReadSdb(child, SignalSource.DVBS | SignalSource.Preset_Sony_Provider1, 0x30000, "DvbS");
+          ReadSdb(child, SignalSource.DvbS | SignalSource.Provider1, 0x30000, "DvbS");
         else if (name == "sdbcis")
-          ReadSdb(child, SignalSource.DVBS | SignalSource.Preset_Sony_Provider2, 0x40000, "DvbS");
+          ReadSdb(child, SignalSource.DvbS | SignalSource.Provider2, 0x40000, "DvbS");
       }
     }
     #endregion
@@ -203,7 +213,7 @@ namespace ChanSort.Loader.Sony
       {
         foreach (var list in this.DataRoot.ChannelLists)
         {
-          if ((list.SignalSource & (SignalSource.AllAnalogDigitalInput | SignalSource.AllProvider)) == signalSource)
+          if ((list.SignalSource & (SignalSource.MaskAdInput | SignalSource.MaskProvider)) == signalSource)
             list.ReadOnly = true;
         }
       }
@@ -325,7 +335,8 @@ namespace ChanSort.Loader.Sony
       {
         var recId = int.Parse(svcData["ui2_svl_rec_id"][i]);
         var chan = new Channel(signalSource, i, recId);
-        chan.OldProgramNr = (ParseInt(svcData["No"][i]) >> 18) & 0x3FFFF;
+        var no = ParseInt(svcData["No"][i]);
+        chan.OldProgramNr = (int)((uint)no >> 18);
         var nwMask = (NwMask)uint.Parse(svcData["ui4_nw_mask"][i]);
         chan.AddDebug("NW=");
         chan.AddDebug((uint)nwMask);
@@ -338,7 +349,7 @@ namespace ChanSort.Loader.Sony
         chan.Encrypted |= dvbData["t_free_ca_mode"][i] == "1";
         chan.Favorites = (Favorites) ((uint)(nwMask & NwMask.FavMask) >> 4);
         chan.ServiceId = int.Parse(svcData["ui2_prog_id"][i]);
-        chan.Name = svcData["Name"][i];
+        chan.Name = svcData["Name"][i].Replace("&amp;", "&");
         var favNumbers = svcData["aui1_custom_data"][i]?.Split(' ');
         if (favNumbers != null)
         {
@@ -375,10 +386,12 @@ namespace ChanSort.Loader.Sony
         }
 
         chan.ServiceType = int.Parse(dvbData["ui1_sdt_service_type"][i]);
-        if ((nwMask & NwMask.Radio) != 0)
+        if ((no & 0x07) == 1)
+          chan.SignalSource |= SignalSource.Tv;
+        else if ((no & 0x07) == 2)
           chan.SignalSource |= SignalSource.Radio;
         else
-          chan.SignalSource |= LookupData.Instance.IsRadioTvOrData(chan.ServiceType); 
+          chan.SignalSource |= SignalSource.Data;
 
         CopyDataValues(serviceNode, svcData, i, chan.ServiceData);
 
@@ -466,7 +479,10 @@ namespace ChanSort.Loader.Sony
       {
         if (node.Attributes?["loop"] == null)
           continue;
-        var lines = node.InnerText.Trim('\n').Split('\n');
+        var inner = node.InnerText;
+        if (inner.Length >= 2)
+          inner = inner.Substring(1, inner.Length - 2); // remove new-lines that follow/lead the XML tag
+        var lines = inner.Split('\n');
         dict[node.LocalName] = lines.Length == 1 && lines[0] == "" ? new string[0] : lines;
       }
 
@@ -566,29 +582,29 @@ namespace ChanSort.Loader.Sony
     #region Save()
     public override void Save(string tvOutputFile)
     {
-      if (this.channeListNodes.TryGetValue(SignalSource.DVBT, out var nodes))
+      // sdbT
+      if (this.channeListNodes.TryGetValue(SignalSource.DvbT, out var nodes))
       {
-        var dvbt = this.DataRoot.GetChannelList(SignalSource.DVBT | SignalSource.TV).Channels
-          .Concat(this.DataRoot.GetChannelList(SignalSource.DVBT | SignalSource.Radio).Channels)
-          .Concat(this.DataRoot.GetChannelList(SignalSource.DVBT | SignalSource.Data).Channels)
-          .ToList();
-        this.UpdateChannelList(dvbt, nodes);
+        this.UpdateChannelListNode(nodes, 
+          this.DataRoot.GetChannelList(SignalSource.DvbT | SignalSource.Tv),
+          this.DataRoot.GetChannelList(SignalSource.DvbT | SignalSource.Radio),
+          this.DataRoot.GetChannelList(SignalSource.DvbT | SignalSource.Data));
       }
 
-      if (this.channeListNodes.TryGetValue(SignalSource.DVBC, out nodes))
+      // sdbC
+      if (this.channeListNodes.TryGetValue(SignalSource.DvbC, out nodes))
       {
-        var dvbc = this.DataRoot.GetChannelList(SignalSource.DVBC | SignalSource.TV).Channels
-          .Concat(this.DataRoot.GetChannelList(SignalSource.DVBC | SignalSource.Radio).Channels)
-          .Concat(this.DataRoot.GetChannelList(SignalSource.DVBC | SignalSource.Data).Channels)
-          .ToList();
-        this.UpdateChannelList(dvbc, nodes);
+        this.UpdateChannelListNode(nodes,
+          this.DataRoot.GetChannelList(SignalSource.DvbC | SignalSource.Tv),
+          this.DataRoot.GetChannelList(SignalSource.DvbC | SignalSource.Radio),
+          this.DataRoot.GetChannelList(SignalSource.DvbC | SignalSource.Data));
       }
 
+      // sdbGs, sdbPs, sdbCis
       foreach (var list in this.DataRoot.ChannelLists)
       {
-        // ToDo - ShiT
-        if ((list.SignalSource & SignalSource.DVBS) == SignalSource.DVBS && this.channeListNodes.TryGetValue(list.SignalSource & ~SignalSource.TVAndRadioAndData, out nodes))
-          this.UpdateChannelList(list.Channels, nodes);
+        if ((list.SignalSource & SignalSource.DvbS) == SignalSource.DvbS && this.channeListNodes.TryGetValue(list.SignalSource & ~SignalSource.MaskTvRadioData, out nodes))
+          this.UpdateChannelListNode(nodes, list);
       }
 
       // by default .NET reformats the whole XML. These settings produce almost same format as the TV xml files use
@@ -633,26 +649,24 @@ namespace ChanSort.Loader.Sony
     }
     #endregion
 
-    #region UpdateChannelList()
-    private void UpdateChannelList(IList<ChannelInfo> channels, ChannelListNodes nodes)
+    #region UpdateChannelListNode()
+    private void UpdateChannelListNode(ChannelListNodes nodes, params ChannelList[] channelLists)
     {
-      if (this.isEFormat || channels.Any(ch => ch.IsNameModified))
-        this.UpdateDataInChildNodes(nodes.Service, channels.OrderBy(c => c.RecordOrder), ch => true, ch => ch.ServiceData, this.GetNewValueForServiceNode);
-
-      if (!this.isEFormat)
-        this.UpdateDataInChildNodes(nodes.Programme, channels.OrderBy(c => c.NewProgramNr), ch => !(ch.IsDeleted || ch.NewProgramNr < 0), ch => ch.ProgrammeData, this.GetNewValueForProgrammeNode);
+      int serviceCount = 0, programmeCount = 0;
+      var sbService = this.CreateStringBuilderDict(nodes.Service);
+      var sbProgramme = this.CreateStringBuilderDict(nodes.Programme);
+      foreach(var list in channelLists)
+        this.UpdateChannelList(sbService, sbProgramme, ref serviceCount, ref programmeCount, list.Channels);
+      this.ApplyStringBuilderDictToXmlNodes(nodes.Service, sbService, serviceCount);
+      this.ApplyStringBuilderDictToXmlNodes(nodes.Programme, sbProgramme, programmeCount);
     }
     #endregion
 
-    #region UpdateDataInChildNodes()
-    void UpdateDataInChildNodes(
-      XmlNode parentNode, 
-      IEnumerable<ChannelInfo> channels, 
-      Predicate<ChannelInfo> accept, 
-      Func<Channel,Dictionary<string,string>> getChannelData, 
-      Func<Channel, string, string, string> getNewValue)
+    #region CreateStringBuilderDict()
+    private Dictionary<string, StringBuilder> CreateStringBuilderDict(XmlNode parentNode)
     {
-      var count = 0;
+      if (parentNode == null)
+        return null;
       var sbDict = new Dictionary<string, StringBuilder>();
       foreach (XmlNode node in parentNode.ChildNodes)
       {
@@ -660,6 +674,42 @@ namespace ChanSort.Loader.Sony
           sbDict[node.LocalName] = new StringBuilder(this.newline);
       }
 
+      return sbDict;
+    }
+    #endregion
+
+    #region UpdateChannelList()
+    private void UpdateChannelList(Dictionary<string, StringBuilder> sbDictService, Dictionary<string, StringBuilder> sbDictProgramme, 
+      ref int serviceCount, ref int programmeCount, IList<ChannelInfo> channels)
+    {
+      if (this.isEFormat)
+      {
+        // keep original record order in the <Service> element so that we don't need to reorder data in <Service><dvb_info> and its
+        // <t_svc_replmnt_info>, <t_ca_replmnt_info>, <t_cmplt_eit_replmnt_info>, <t_hd_simulcat_info>, <t_orig_simulcat_info> child nodes
+        // (Sony Channel Editor 1.2.0 does it the same way, but that tool is questionable since it generates an invalid checksum)
+        // however, as some sample files suggest, when the TV re-exports a modified list, it re-orders the channels by "ServiceFilter"+"No"
+        this.AddDataToStringBuilders(sbDictService, ref serviceCount, channels.OrderBy(c => c.RecordOrder), ch => true, ch => ch.ServiceData, this.GetNewValueForServiceNode);
+      }
+      else
+      {
+        if (channels.Any(ch => ch.IsNameModified))
+          this.AddDataToStringBuilders(sbDictService, ref serviceCount, channels.OrderBy(c => c.RecordOrder), ch => true, ch => ch.ServiceData, this.GetNewValueForServiceNode);
+
+        this.AddDataToStringBuilders(sbDictProgramme, ref programmeCount, channels.OrderBy(c => c.NewProgramNr), ch => !(ch.IsDeleted || ch.NewProgramNr < 0), ch => ch.ProgrammeData,
+          this.GetNewValueForProgrammeNode);
+      }
+    }
+    #endregion
+
+    #region AddDataToStringBuilders()
+    void AddDataToStringBuilders(
+      Dictionary<string, StringBuilder> sbDict,
+      ref int count, 
+      IEnumerable<ChannelInfo> channels, 
+      Predicate<ChannelInfo> accept, 
+      Func<Channel,Dictionary<string,string>> getChannelData, 
+      Func<Channel, string, string, string> getNewValue)
+    {
       foreach (var channel in channels)
       {
         var ch = channel as Channel;
@@ -677,14 +727,6 @@ namespace ChanSort.Loader.Sony
         }
         ++count;
       }
-      foreach (XmlNode node in parentNode.ChildNodes)
-      {
-        if (sbDict.TryGetValue(node.LocalName, out var sb))
-        {
-          node.InnerText = sb.ToString();
-          node.Attributes["loop"].InnerText = count.ToString();
-        }
-      }
     }
     #endregion
 
@@ -692,16 +734,23 @@ namespace ChanSort.Loader.Sony
     private string GetNewValueForServiceNode(Channel ch, string field, string value)
     {
       if (field == "Name")
-        return ch.IsNameModified ? ch.Name : value;
+        return ch.IsNameModified ? ch.Name.Replace("&", "&amp;") : value; // TV has the XML element double-escaped like &amp;amp;
 
       if (this.isEFormat)
       {
         if (field == "b_deleted_by_user")
           return ch.IsDeleted ? "0" : "1"; // file seems to contain reverse logic (1 = not deleted)
         if (field == "No")
-          return ((ch.NewProgramNr << 18) | (int.Parse(value) & 0x3FFFF)).ToString();
+          return ((ch.NewProgramNr << 18) | (int.Parse(value) & 0x3FFFF)).ToString(); // Sony Channel Editor 1.2.0 exports 9999 as new No for all deleted channels, we use unique numbers
         if (field == "ui4_nw_mask")
-          return (((uint)ch.Favorites << 4) | (ch.Hidden ? 0u : (uint)NwMask.Visible) | (uint.Parse(value) & ~(uint)(NwMask.FavMask|NwMask.Visible))).ToString();
+        {
+          var mask = ((uint) ch.Favorites << 4) | (ch.Hidden ? 0u : (uint) NwMask.Visible) | (uint.Parse(value) & ~(uint) (NwMask.FavMask | NwMask.Visible));
+          if (ch.IsDeleted)
+            mask &= ~(uint)NwMask.MaskWhenDeleted;
+          return mask.ToString();
+        }
+        if (field == "ui4_nw_option_mask")
+          return (uint.Parse(value) | (uint)(NwOptionMask.ChNumEdited | (ch.IsNameModified ? NwOptionMask.NameEdited : 0) | (ch.IsDeleted ? NwOptionMask.DeletedByUser : 0))).ToString();
         if (field == "aui1_custom_data") // mixed favorite list position
         {
           var vals = value.Split(' ');
@@ -722,6 +771,23 @@ namespace ChanSort.Loader.Sony
       if (field == "Flag")
         return ((int)ch.Favorites & 0x0F).ToString();
       return value;
+    }
+    #endregion
+
+    #region ApplyStringBuilderDictToXmlNodes()
+    private void ApplyStringBuilderDictToXmlNodes(XmlNode parentNode, Dictionary<string, StringBuilder> sbDict, int count)
+    {
+      if (parentNode == null)
+        return;
+
+      foreach (XmlNode node in parentNode.ChildNodes)
+      {
+        if (sbDict.TryGetValue(node.LocalName, out var sb))
+        {
+          node.InnerText = sb.ToString();
+          node.Attributes["loop"].InnerText = count.ToString();
+        }
+      }
     }
     #endregion
   }
