@@ -4,6 +4,7 @@ using System.Data.SQLite;
 using System.Globalization;
 using System.Linq;
 using System.Text;
+
 using ChanSort.Api;
 
 namespace ChanSort.Loader.Panasonic
