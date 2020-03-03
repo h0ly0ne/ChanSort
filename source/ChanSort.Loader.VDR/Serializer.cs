@@ -11,7 +11,7 @@ namespace ChanSort.Loader.VDR
     #region ctor()
     public Serializer(string inputFile) : base(inputFile)
     {
-      DepencencyChecker.AssertVCRedistInstalled();      
+      DependencyChecker.AssertVCRedistInstalled();      
 
       this.Features.ChannelNameEdit = ChannelNameEditMode.None;
       this.Features.DeleteMode = DeleteMode.Physically;

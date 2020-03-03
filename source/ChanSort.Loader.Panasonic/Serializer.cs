@@ -40,7 +40,7 @@ namespace ChanSort.Loader.Panasonic
         #region ctor()
         public Serializer(string inputFile) : base(inputFile)
         {
-            DepencencyChecker.AssertVCRedistInstalled();
+            DependencyChecker.AssertVCRedistInstalled();
 
             Features.ChannelNameEdit = ChannelNameEditMode.All;
             Features.DeleteMode = DeleteMode.Physically;
@@ -229,7 +229,7 @@ namespace ChanSort.Loader.Panasonic
         #region CalcChecksum()
         private uint CalcChecksum(byte[] data, int length)
         {
-            return Crc32.Normal.CalcCrc32(data, 0, length);
+            return BitConverter.ToUInt32(Hash.CRC32A.ComputeHash(data.SubArray(0, length)).Hash, 0);
         }
         #endregion
 

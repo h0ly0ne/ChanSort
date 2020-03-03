@@ -2,11 +2,12 @@
 using System.IO;
 using System.Linq;
 using System.Text.RegularExpressions;
+
 using Microsoft.Win32;
 
 namespace ChanSort.Api
 {
-    public static class DepencencyChecker
+    public static class DependencyChecker
     {
         public static bool IsVCRedistInstalled()
         {
@@ -20,17 +21,10 @@ namespace ChanSort.Api
                 {
                     using (RegistryKey subDir = Registry.LocalMachine.OpenSubKey(dependenciesPath + "\\" + subKeyName))
                     {
-                        var value = subDir.GetValue("DisplayName")?.ToString() ?? null;
-                        if (string.IsNullOrEmpty(value)) continue;
-
-                        if (!Environment.Is64BitProcess)
+                        string value = subDir?.GetValue("DisplayName")?.ToString();
+                        if (!string.IsNullOrEmpty(value))
                         {
-                            if (Regex.IsMatch(value, @"C\+\+ 201[0-9].*\(x86\)"))
-                                return true;
-                        }
-                        else
-                        {
-                            if (Regex.IsMatch(value, @"C\+\+ 201[0-9].*\(x64\)"))
+                            if (Regex.IsMatch(value, @"C\+\+ 201[0-9].*\(x[0-9][0-9]\)"))
                                 return true;
                         }
                     }

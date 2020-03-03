@@ -22,7 +22,7 @@ namespace ChanSort.Loader.SamsungJ
     #region ctor()
     public DbSerializer(string inputFile) : base(inputFile)
     {
-      DepencencyChecker.AssertVCRedistInstalled();      
+      DependencyChecker.AssertVCRedistInstalled();      
 
       this.Features.ChannelNameEdit = ChannelNameEditMode.All;
       this.Features.DeleteMode = DeleteMode.Physically;

@@ -546,7 +546,7 @@ namespace ChanSort.Loader.Sony
         end = data.Length;
       }
 
-      return ~Crc32.Normal.CalcCrc32(data, start, end - start);
+      return ~BitConverter.ToUInt32(Hash.CRC32A.ComputeHash(data.SubArray(start, end - start)).Hash, 0);
     }
     #endregion
 

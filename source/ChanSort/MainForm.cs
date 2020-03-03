@@ -3,7 +3,6 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Configuration;
 using System.Drawing;
 using System.Globalization;
 using System.IO;
@@ -13,15 +12,16 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading;
 using System.Windows.Forms;
+
 using ChanSort.Api;
 using ChanSort.Ui.Printing;
 using ChanSort.Ui.Properties;
+
 using DevExpress.Data;
 using DevExpress.Utils;
 using DevExpress.XtraBars;
 using DevExpress.XtraEditors;
 using DevExpress.XtraEditors.Controls;
-using DevExpress.XtraEditors.Repository;
 using DevExpress.XtraGrid;
 using DevExpress.XtraGrid.Columns;
 using DevExpress.XtraGrid.Views.Base;
@@ -139,7 +139,7 @@ namespace ChanSort.Ui
 
     private void InitAppAfterMainWindowWasShown()
     {
-      if (!DepencencyChecker.IsVCRedistInstalled())
+      if (!DependencyChecker.IsVCRedistInstalled())
       {
         if (XtraMessageBox.Show(this,
               "Some channel list file formats can only be read when the\n" +

@@ -408,7 +408,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\ChanSort.Api\ChanSort.Api.csproj">
-      <Project>{DCCFFA08-472B-4D17-BB90-8F513FC01392}</Project>
+      <Project>{dccffa08-472b-4d17-bb90-8f513fc01392}</Project>
       <Name>ChanSort.Api</Name>
     </ProjectReference>
     <ProjectReference Include="..\ChanSort.Loader.GlobalClone\ChanSort.Loader.GlobalClone.csproj">

@@ -56,8 +56,21 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Data.HashFunction.Core, Version=2.0.0.0, Culture=neutral, PublicKeyToken=80c9288e394c1322, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Data.HashFunction.Core.2.0.0\lib\net45\System.Data.HashFunction.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Data.HashFunction.CRC, Version=2.0.0.0, Culture=neutral, PublicKeyToken=80c9288e394c1322, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Data.HashFunction.CRC.2.0.0\lib\net45\System.Data.HashFunction.CRC.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Data.HashFunction.Interfaces, Version=2.0.0.0, Culture=neutral, PublicKeyToken=80c9288e394c1322, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Data.HashFunction.Interfaces.2.0.0\lib\net45\System.Data.HashFunction.Interfaces.dll</HintPath>
+    </Reference>
     <Reference Include="System.Drawing" />
     <Reference Include="System.IO.Compression.FileSystem" />
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.ValueTuple, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.ValueTuple.4.5.0\lib\net47\System.ValueTuple.dll</HintPath>
+    </Reference>
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Data" />
@@ -89,11 +102,10 @@
     <Compile Include="Utils\DependencyChecker.cs" />
     <Compile Include="Utils\FileAssociation.cs" />
     <Compile Include="Utils\FlagsHelper.cs" />
+    <Compile Include="Utils\Hash.cs" />
     <Compile Include="View\View.cs" />
-    <None Include="Utils\ChannelMappingBase.cs" />
     <Compile Include="Utils\BrowserHelper.cs" />
     <Compile Include="Utils\DataMapping.cs" />
-    <Compile Include="Utils\Crc32.cs" />
     <Compile Include="Utils\CsvFile.cs" />
     <Compile Include="Utils\DvbStringDecoder.cs" />
     <Compile Include="Utils\IniFile.cs" />
@@ -105,9 +117,11 @@
     <Compile Include="Utils\Tools.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="app.config" />
     <None Include="Lookup.csv">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+    <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Resources.cs.resx" />
