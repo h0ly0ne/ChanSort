@@ -2,21 +2,22 @@
 
 namespace ChanSort.Api
 {
-  public class RefSerializerPlugin : ISerializerPlugin
-  {
-    public string DllName { get; set; }
-
-    public string PluginName => "ChanSort Reference List";
-
-    public string FileFilter => "*.txt;*.chl;*.csv";
-    
-    public SerializerBase CreateSerializer(string inputFile)
+    public class RefSerializerPlugin : ISerializerPlugin
     {
-      var ext = (Path.GetExtension(inputFile) ?? "").ToLower();
-      if (ext == ".csv")
-        return new CsvRefListSerializer(inputFile);
-      else
-        return new TxtRefListSerializer(inputFile);
+        public string DllName { get; set; }
+
+        public string PluginName => "ChanSort Reference List";
+
+        public string FileFilter => "*.txt;*.chl;*.csv";
+
+        public SerializerBase CreateSerializer(string inputFile)
+        {
+            var ext = (Path.GetExtension(inputFile) ?? "").ToLower();
+            
+            if (ext == ".csv")
+                return new CsvRefListSerializer(inputFile);
+                
+            return new TxtRefListSerializer(inputFile);
+        }
     }
-  }
 }

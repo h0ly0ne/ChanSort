@@ -4,6 +4,8 @@ namespace ChanSort.Api
 {
     public class Hash
     {
+        // CRC32A
+        // used by PANASONIC and SONY
         public static ICRC CRC32A = CRCFactory.Instance.Create(new CRCConfig
         {
             HashSizeInBits = 32,
@@ -14,7 +16,8 @@ namespace ChanSort.Api
             XOrOut = 0x00000000
         });
 
-        // CRC32 used by LG
+        // CRC32B
+        // used by LG
         public static ICRC CRC32B = CRCFactory.Instance.Create(new CRCConfig
         {
             HashSizeInBits = 32,
